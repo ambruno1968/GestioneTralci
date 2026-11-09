@@ -1,7 +1,7 @@
 # ⛪ Registro di Chiesa – Progressive Web App (PWA)
 
 > **Gestionale Ecclesiastico Ufficiale · Anagrafica & Sacramenti · 4 Registri Canonici · Fascicoli Digitali · Nuclei Familiari · Cloud Sync Google Drive**  
-> *Versione PWA: 1.2.2 · Autore: Bruno Astemio*
+> *Versione PWA: 2.0 · Sviluppato da Bruno Astemio con Antigravity*
 
 ---
 

@@ -1,7 +1,7 @@
 /* Service Worker - Registro di Chiesa PWA
  * Garantisce il funzionamento 100% offline su qualsiasi dispositivo (Chromebook, PC, Mac, Tablet, Smartphone).
  */
-const CACHE = 'registro-chiesa-pwa-v1.2.2';
+const CACHE = 'registro-chiesa-pwa-v2.0';
 const SHELL = [
   './',
   'index.html',

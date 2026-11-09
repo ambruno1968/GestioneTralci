@@ -1274,14 +1274,20 @@ function updateFamilyGrid(query = '') {
   }
 
   slot.innerHTML = list.map(f => {
+    const membri = Array.isArray(f.membri) && f.membri.length ? f.membri :
+      (Array.isArray(f.memberIds) ? f.memberIds.map(id => state.members.find(m => m.id === id)).filter(Boolean) : []);
+    const capoObj = f.capofamiglia ? (typeof f.capofamiglia === 'object' ? f.capofamiglia : { nome: String(f.capofamiglia) }) :
+      (f.capofamigliaId ? state.members.find(m => m.id === f.capofamigliaId) : membri[0]);
+    const capoNome = capoObj ? (capoObj.nome && capoObj.cognome ? `${capoObj.cognome} ${capoObj.nome}` : (capoObj.nome || '')) : '';
+
     return `
       <div class="family-card">
         <div class="family-head">
           <div>
             <div class="family-title">🏠 ${escapeHtml(f.nome)}</div>
             <div style="margin-top:2px;">
-              <span class="family-count">${f.membri.length} component${f.membri.length === 1 ? 'e' : 'i'}</span>
-              ${f.capofamiglia ? `<span class="family-capo-badge" style="margin-left:6px;">★ ${escapeHtml(f.capofamiglia.nome)}</span>` : ''}
+              <span class="family-count">${membri.length} component${membri.length === 1 ? 'e' : 'i'}</span>
+              ${capoNome ? `<span class="family-capo-badge" style="margin-left:6px;">★ ${escapeHtml(capoNome)}</span>` : ''}
             </div>
           </div>
           <div class="family-head-actions">
@@ -1302,11 +1308,11 @@ function updateFamilyGrid(query = '') {
         ` : ''}
 
         <div class="family-members-list">
-          ${f.membri.length === 0 ? `
+          ${membri.length === 0 ? `
             <div class="muted small" style="padding:10px; text-align:center; background:#f8fafc; border-radius:6px;">
               Nessun componente in questo gruppo. Fai clic su "➕ Membro" per aggiungerne.
             </div>
-          ` : f.membri.map(m => {
+          ` : membri.map(m => {
             const isCapo = f.capofamigliaId === m.id;
             const age = calcAge(m.dataNascita);
             const waUrl = formatWaUrl(m.telefono);
@@ -1624,7 +1630,7 @@ function openAssignMemberModal(member) {
             <option value="">-- Seleziona gruppo esistente --</option>
             ${state.families.map(f => `
               <option value="${f.id}">
-                🏠 ${escapeHtml(f.nome)} (${f.membri.length} componenti) · ${escapeHtml(f.indirizzo || '')}
+                🏠 ${escapeHtml(f.nome)} (${(f.membri || f.memberIds || []).length} componenti) · ${escapeHtml(f.indirizzo || '')}
               </option>
             `).join('')}
           </select>
@@ -3382,7 +3388,7 @@ function renderWiki(container) {
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
           📖 Manuale d'Uso &amp; Wiki del Gestionale
-          <span class="badge effettivo" style="font-size:12px;">v1.2.2</span>
+          <span class="badge effettivo" style="font-size:12px;">v2.0</span>
         </h2>
         <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri e sincronizzazione cloud</div>
       </div>

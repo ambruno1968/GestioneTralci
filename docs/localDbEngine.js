@@ -474,98 +474,161 @@
 
     // 4. FAMIGLIE
     if (pathname === '/api/families' && method === 'GET') {
-      const assignedIds = new Set();
-      db.families.forEach(f => {
-        (f.memberIds || []).forEach(mid => assignedIds.add(mid));
-        (f.members || []).forEach(m => assignedIds.add(m.memberId || m.id));
+      const activeMembers = (db.members || []).filter(m => (m.stato || 'Attivo') === 'Attivo');
+      const activeMembersMap = new Map(activeMembers.map(m => [m.id, m]));
+      const assignedMemberIds = new Set();
+
+      const families = [];
+      (db.families || []).forEach(f => {
+        const rawIds = Array.isArray(f.memberIds) ? f.memberIds : (Array.isArray(f.members) ? f.members.map(m => m.id || m.memberId) : []);
+        const activeMemberIds = rawIds.filter(id => activeMembersMap.has(id));
+        if (activeMemberIds.length === 0) return;
+
+        activeMemberIds.forEach(id => assignedMemberIds.add(id));
+        const resolvedMembers = activeMemberIds.map(id => activeMembersMap.get(id));
+
+        let capofamiglia = null;
+        let capofamigliaId = null;
+        if (f.capofamigliaId && activeMembersMap.has(f.capofamigliaId)) {
+          capofamiglia = activeMembersMap.get(f.capofamigliaId);
+          capofamigliaId = f.capofamigliaId;
+        } else if (resolvedMembers.length > 0) {
+          capofamiglia = resolvedMembers[0];
+          capofamigliaId = capofamiglia.id;
+        }
+
+        families.push({
+          id: f.id,
+          nome: f.nome || 'Famiglia senza nome',
+          indirizzo: f.indirizzo || (capofamiglia?.indirizzo || ''),
+          comune: f.comune || (capofamiglia?.comune || ''),
+          provincia: f.provincia || (capofamiglia?.provincia || ''),
+          note: f.note || '',
+          capofamigliaId,
+          capofamiglia: capofamiglia ? { id: capofamiglia.id, nome: `${capofamiglia.cognome} ${capofamiglia.nome}` } : null,
+          memberIds: activeMemberIds,
+          membri: resolvedMembers
+        });
       });
-      const unassigned = db.members.filter(m => !assignedIds.has(m.id));
-      return { families: db.families, unassignedMembers: unassigned };
+
+      const unassignedMembers = activeMembers.filter(m => !assignedMemberIds.has(m.id));
+
+      return {
+        families,
+        unassignedMembers,
+        totalFamilies: families.length,
+        totalAssignedMembers: assignedMemberIds.size,
+        totalUnassignedMembers: unassignedMembers.length
+      };
     }
 
     if (pathname === '/api/families' && method === 'POST') {
-      const newFam = {
-        id: 'fam_' + Date.now().toString(36),
+      const memberIds = Array.isArray(body.memberIds)
+        ? body.memberIds.map(Number).filter(n => !isNaN(n) && db.members.some(m => m.id === n && (m.stato || 'Attivo') === 'Attivo'))
+        : [];
+
+      db.families = db.families || [];
+      db.families.forEach(f => {
+        f.memberIds = (f.memberIds || []).filter(mId => !memberIds.includes(mId));
+        if (f.capofamigliaId && memberIds.includes(f.capofamigliaId)) f.capofamigliaId = null;
+      });
+
+      const newFamily = {
+        id: 'fam_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6),
         nome: (body.nome || '').trim() || 'Nuovo Nucleo Familiare',
+        indirizzo: (body.indirizzo || '').trim(),
+        comune: (body.comune || '').trim(),
+        provincia: (body.provincia || '').trim().toUpperCase(),
+        capofamigliaId: body.capofamigliaId ? Number(body.capofamigliaId) : (memberIds[0] || null),
         note: (body.note || '').trim(),
-        memberIds: [],
-        members: []
+        memberIds
       };
-      db.families.push(newFam);
-      audit('creazione', 'famiglia', newFam.id, `Creata famiglia ${newFam.nome}`);
+      db.families.push(newFamily);
+      audit('creazione', 'famiglia', newFamily.id, `Creato nucleo familiare ${newFamily.nome}`);
       saveDb();
-      return newFam;
+      return { success: true, family: newFamily };
     }
 
     const famIdMatch = pathname.match(/^\/api\/families\/([^/]+)$/);
     if (famIdMatch && method === 'PUT') {
       const famId = famIdMatch[1];
-      const fam = db.families.find(f => f.id === famId);
-      if (!fam) throw new Error('Famiglia non trovata');
+      const fam = (db.families || []).find(f => f.id === famId);
+      if (!fam) throw new Error('Gruppo familiare non trovato');
+
+      const memberIds = Array.isArray(body.memberIds)
+        ? body.memberIds.map(Number).filter(n => !isNaN(n))
+        : (fam.memberIds || []);
+
+      db.families.forEach(other => {
+        if (other.id !== famId) {
+          other.memberIds = (other.memberIds || []).filter(mId => !memberIds.includes(mId));
+          if (other.capofamigliaId && memberIds.includes(other.capofamigliaId)) other.capofamigliaId = null;
+        }
+      });
 
       if (body.nome !== undefined) fam.nome = String(body.nome).trim();
+      if (body.indirizzo !== undefined) fam.indirizzo = String(body.indirizzo).trim();
+      if (body.comune !== undefined) fam.comune = String(body.comune).trim();
+      if (body.provincia !== undefined) fam.provincia = String(body.provincia).trim().toUpperCase();
       if (body.note !== undefined) fam.note = String(body.note).trim();
-
-      audit('modifica', 'famiglia', famId, `Modificata famiglia ${fam.nome}`);
+      fam.memberIds = memberIds;
+      if (body.capofamigliaId !== undefined) {
+        fam.capofamigliaId = body.capofamigliaId ? Number(body.capofamigliaId) : (memberIds[0] || null);
+      }
+      audit('modifica', 'famiglia', famId, `Modificato gruppo familiare ${fam.nome}`);
       saveDb();
-      return fam;
+      return { success: true, family: fam };
     }
 
     if (famIdMatch && method === 'DELETE') {
       const famId = famIdMatch[1];
-      const idx = db.families.findIndex(f => f.id === famId);
+      const idx = (db.families || []).findIndex(f => f.id === famId);
       if (idx === -1) throw new Error('Famiglia non trovata');
 
       const deleted = db.families.splice(idx, 1)[0];
       audit('eliminazione', 'famiglia', famId, `Eliminata famiglia ${deleted.nome}`);
       saveDb();
-      return { ok: true };
+      return { ok: true, removed: deleted };
     }
 
     const famAddMatch = pathname.match(/^\/api\/families\/([^/]+)\/add-member$/);
     if (famAddMatch && method === 'POST') {
       const famId = famAddMatch[1];
-      const fam = db.families.find(f => f.id === famId);
+      const fam = (db.families || []).find(f => f.id === famId);
       if (!fam) throw new Error('Famiglia non trovata');
 
       const memberId = Number(body.memberId);
-      const ruolo = body.ruolo || 'Membro';
-
-      fam.members = fam.members || [];
-      fam.memberIds = fam.memberIds || [];
-
-      // Rimuove da altre famiglie per evitare duplicazioni
       db.families.forEach(other => {
-        if (other.id !== famId) {
-          other.members = (other.members || []).filter(m => (m.memberId || m.id) !== memberId);
-          other.memberIds = (other.memberIds || []).filter(mid => mid !== memberId);
-        }
+        other.memberIds = (other.memberIds || []).filter(mId => mId !== memberId);
+        if (other.capofamigliaId === memberId && other.id !== famId) other.capofamigliaId = null;
       });
 
+      fam.memberIds = fam.memberIds || [];
       if (!fam.memberIds.includes(memberId)) {
         fam.memberIds.push(memberId);
       }
-      fam.members = fam.members.filter(m => (m.memberId || m.id) !== memberId);
-      fam.members.push({ memberId, ruolo });
+      if (!fam.capofamigliaId) fam.capofamigliaId = memberId;
 
       audit('aggiunta_membro_famiglia', 'famiglia', famId, `Aggiunto membro ${memberId} a ${fam.nome}`);
       saveDb();
-      return { ok: true, family: fam };
+      return { success: true, family: fam };
     }
 
     const famRemMatch = pathname.match(/^\/api\/families\/([^/]+)\/remove-member$/);
     if (famRemMatch && method === 'POST') {
       const famId = famRemMatch[1];
-      const fam = db.families.find(f => f.id === famId);
+      const fam = (db.families || []).find(f => f.id === famId);
       if (!fam) throw new Error('Famiglia non trovata');
 
       const memberId = Number(body.memberId);
       fam.memberIds = (fam.memberIds || []).filter(mid => mid !== memberId);
-      fam.members = (fam.members || []).filter(m => (m.memberId || m.id) !== memberId);
+      if (fam.capofamigliaId === memberId) {
+        fam.capofamigliaId = fam.memberIds[0] || null;
+      }
 
       audit('rimozione_membro_famiglia', 'famiglia', famId, `Rimosso membro ${memberId} da ${fam.nome}`);
       saveDb();
-      return { ok: true, family: fam };
+      return { success: true, family: fam };
     }
 
     // 5. IMPOSTAZIONI & CATEGORIE
