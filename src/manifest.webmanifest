@@ -5,7 +5,7 @@
   "lang": "it",
   "start_url": "./",
   "scope": "./",
-  "id": "./",
+  "id": "?app=registro-di-chiesa",
   "display": "standalone",
   "background_color": "#0b192c",
   "theme_color": "#0b192c",

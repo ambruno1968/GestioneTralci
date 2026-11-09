@@ -5,10 +5,10 @@ node build-pwa.js
 echo.
 echo ========================================================
 echo   Registro di Chiesa - Progressive Web App (PWA)
-echo   Avvio server di test su: http://localhost:8080
+echo   Avvio server di test su: http://localhost:8081
 echo   Premi CTRL+C per arrestare il server
 echo ========================================================
 echo.
-start "" http://localhost:8080
+start "" http://localhost:8081
 node serve.js
 

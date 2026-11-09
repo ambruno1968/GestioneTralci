@@ -41,7 +41,7 @@ Registro-di-chiesa-PWA/
 ├── docs/                     # Cartella di output compilata da build-pwa.js (pubblicata su GitHub Pages)
 ├── build-pwa.js              # Script di compilazione: sincronizza /src in /docs
 ├── serve.js                  # Server HTTP locale minimale per test
-├── Prova PWA in locale.bat   # Avvio rapido con doppio clic su Windows (porta 8080)
+├── Prova PWA in locale.bat   # Avvio rapido con doppio clic su Windows (porta 8081)
 ├── package.json              # Configurazione e script di comando
 ├── .gitignore                # Regole Git
 └── README.md                 # Questo documento
@@ -60,7 +60,7 @@ Oppure da terminale:
 npm run dev
 # oppure: node build-pwa.js && node serve.js
 ```
-Il browser si aprirà su: `http://localhost:8080` con l'app pronta e installabile.
+Il browser si aprirà su: `http://localhost:8081` con l'app pronta e installabile.
 
 ---
 
@@ -85,7 +85,8 @@ Per consentire l'accesso con Google Drive direttamente dal browser/PWA:
 2. Seleziona il progetto relativo all'app (Client ID: `258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com`).
 3. Vai in **API e servizi → Credenziali → Client ID OAuth 2.0**.
 4. Nella sezione **Origini JavaScript autorizzate** aggiungi:
-   - `http://localhost:8080` (per i test in locale)
+   - `http://localhost:8081` (per i test in locale)
+   - `http://localhost:8080` (se necessario per altri test)
    - `https://<tuo-utente>.github.io` (URL di produzione su GitHub Pages)
 5. Assicurati che l'API **Google Drive API** sia abilitata.
 
