@@ -213,6 +213,10 @@ function renderCloudStatus() {
     </button>
   `;
 
+  slot.querySelector('.cloud-pill')?.addEventListener('click', () => {
+    location.hash = '#impostazioni';
+  });
+
   $('btn-app-quit')?.addEventListener('click', handleAppQuit);
 }
 
