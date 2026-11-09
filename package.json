@@ -1,0 +1,13 @@
+{
+  "name": "registro-di-chiesa-pwa",
+  "version": "1.2.2",
+  "description": "Progressive Web App (PWA) di Registro di Chiesa: anagrafica, sacramenti, famiglie, fascicoli digitali e cloud sync",
+  "author": "Bruno Astemio",
+  "private": true,
+  "scripts": {
+    "build": "node build-pwa.js",
+    "start": "node serve.js",
+    "dev": "node build-pwa.js && node serve.js"
+  }
+}
+

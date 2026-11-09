@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Registro di Chiesa - Chiesa Evangelica Pentecostale e Missionaria Come Tralci - Novara</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b192c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Registro Chiesa">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css?v=1.2.2">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="logo.png" alt="Chiesa Evangelica Pentecostale e Missionaria Come Tralci - Novara" class="brand-logo" onerror="this.style.display='none'">
+      <div>
+        <div class="title">Registro di Chiesa</div>
+        <div class="subtitle" id="church-name">Chiesa Evangelica Pentecostale e Missionaria Come Tralci - Novara</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div id="cloud-status-slot"></div>
+      <button id="btn-open-tabs-menu" class="btn-tabs-menu" title="Apri menù a schede completo">📑 Menù a Schede</button>
+    </div>
+
+    <nav class="tabs" id="main-tabs-nav">
+      <a href="#tutti" data-tab="tutti">👥 Registro Generale <span class="tab-badge" id="tb-tutti">0</span></a>
+      <a href="#effettivi" data-tab="effettivi">🟢 Membri Effettivi <span class="tab-badge" id="tb-effettivi">0</span></a>
+      <a href="#aderenti" data-tab="aderenti">🔵 Membri Aderenti <span class="tab-badge" id="tb-aderenti">0</span></a>
+      <a href="#vedove" data-tab="vedove">🟣 Registro Vedove <span class="tab-badge" id="tb-vedove">0</span></a>
+      <a href="#sostenuti" data-tab="sostenuti">🟠 Registro Sostenuti <span class="tab-badge" id="tb-sostenuti">0</span></a>
+      <a href="#non-attivi" data-tab="non-attivi">🔴 Membri Non Attivi <span class="tab-badge" id="tb-non-attivi">0</span></a>
+      <a href="#famiglie" data-tab="famiglie">👨‍👩‍👧‍👦 Famiglie <span class="tab-badge" id="tb-famiglie">0</span></a>
+      <a href="#impostazioni" data-tab="impostazioni">⚙️ Impostazioni</a>
+      <a href="#wiki" data-tab="wiki">📖 Guida &amp; Wiki</a>
+    </nav>
+  </header>
+
+  <main id="view"><p class="loading">Caricamento registro…</p></main>
+
+  <footer>
+    Registro di Chiesa · Chiesa Evangelica Pentecostale e Missionaria Come Tralci - Novara · <span id="footer-version">v1.2.2</span> · Arial 10pt Sobrio &amp; Ufficiale · <a href="#wiki" style="color:inherit; text-decoration:underline; font-weight:600;">📖 Manuale &amp; Wiki</a>
+  </footer>
+
+  <!-- Navigazione Mobile a Schede (Bottom Bar) -->
+  <nav class="mobile-bottom-tabs" id="mobile-nav">
+    <a href="#tutti" data-bottom-tab="tutti" class="bottom-tab-item active">
+      <span class="bottom-tab-icon">👥</span>
+      <span class="bottom-tab-label">Registro</span>
+    </a>
+    <a href="#famiglie" data-bottom-tab="famiglie" class="bottom-tab-item">
+      <span class="bottom-tab-icon">👨‍👩‍👧‍👦</span>
+      <span class="bottom-tab-label">Famiglie</span>
+    </a>
+    <a href="#impostazioni" data-bottom-tab="impostazioni" class="bottom-tab-item">
+      <span class="bottom-tab-icon">⚙️</span>
+      <span class="bottom-tab-label">Impostazioni</span>
+    </a>
+    <a href="#wiki" data-bottom-tab="wiki" class="bottom-tab-item">
+      <span class="bottom-tab-icon">📖</span>
+      <span class="bottom-tab-label">Guida</span>
+    </a>
+    <button type="button" id="btn-bottom-all-tabs" class="bottom-tab-item btn-tab-trigger">
+      <span class="bottom-tab-icon">📑</span>
+      <span class="bottom-tab-label">Schede</span>
+    </button>
+  </nav>
+
+  <dialog id="dlg"></dialog>
+  <div id="toasts"></div>
+
+  <script src="pwa.js?v=1.2.2"></script>
+  <script src="printTemplates.js?v=1.2.2"></script>
+  <script src="driveClient.js?v=1.2.2"></script>
+  <script src="localDbEngine.js?v=1.2.2"></script>
+  <script src="app.js?v=1.2.2"></script>
+</body>
+</html>

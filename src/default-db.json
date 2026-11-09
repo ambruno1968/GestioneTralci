@@ -1,0 +1,3105 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "uuid": "38a207ce-f38c-49ba-8df0-ae47380a0d19",
+      "cognome": "D'Amore",
+      "nome": "Ciro",
+      "luogoNascita": "Taranto",
+      "provinciaNascita": "TA",
+      "dataNascita": "1949-03-09",
+      "codiceFiscale": "DMRCRI49C09L049W",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3246611970",
+      "email": "cirodamore49@gmail.com",
+      "titoloStudio": "5a Elementare",
+      "professione": "Pensionato",
+      "battesimoAcqua": true,
+      "dataBA": "1980",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1980",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv59c49h_36afb2",
+          "fileName": "D_Amore Ciro.pdf",
+          "titolo": "D_Amore Ciro.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 885086,
+          "sizeFormatted": "864.3 KB",
+          "dataCaricamento": "2026-10-12T12:57:55.350Z",
+          "driveFileId": "103G2Sy35qK4OSoXKYdP3eLH_-_u_OcIr",
+          "driveFileName": "Prot_1_D_Amore_Ciro_D_Amore_Ciro.pdf",
+          "driveViewLink": "https://drive.google.com/file/d/103G2Sy35qK4OSoXKYdP3eLH_-_u_OcIr/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=103G2Sy35qK4OSoXKYdP3eLH_-_u_OcIr&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 1,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 2,
+      "uuid": "ea635c25-1cbc-4440-93eb-5d77aafed114",
+      "cognome": "Valastro",
+      "nome": "Martina",
+      "luogoNascita": "Napoli",
+      "provinciaNascita": "NA",
+      "dataNascita": "2011-04-29",
+      "codiceFiscale": "VLSMTN11D69F839Z",
+      "indirizzo": "Via Lewis Carroll, 3D",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3760084694",
+      "email": "valastromartina@gmail.com",
+      "titoloStudio": "Superiore II Grado",
+      "professione": "Studente",
+      "battesimoAcqua": true,
+      "dataBA": "2024-07-06",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2022-07-27",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fmpn2_10b9cb",
+          "fileName": "Valastro Martina.pdf",
+          "titolo": "Valastro Martina.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 982118,
+          "sizeFormatted": "959.1 KB",
+          "dataCaricamento": "2026-10-12T15:54:10.482Z",
+          "driveFileId": "16SoIwhNC5LAM5swdNSZZHSMv-d7-L9ZM",
+          "driveViewLink": "https://drive.google.com/file/d/16SoIwhNC5LAM5swdNSZZHSMv-d7-L9ZM/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=16SoIwhNC5LAM5swdNSZZHSMv-d7-L9ZM&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 2
+    },
+    {
+      "id": 3,
+      "uuid": "83d94b8b-a831-45e0-8f59-c1946e9835f1",
+      "cognome": "Astemio Marcinnò",
+      "nome": "Bruno",
+      "luogoNascita": "Milano",
+      "provinciaNascita": "MI",
+      "dataNascita": "1968-08-31",
+      "codiceFiscale": "STMBRN68M31F205I",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3493070174",
+      "email": "bruno.astemio@outlook.it",
+      "titoloStudio": "Licenza media",
+      "professione": "Impiegato",
+      "battesimoAcqua": true,
+      "dataBA": "1985-06-30",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1977-12-07",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fnage_e0e3c6",
+          "fileName": "Astemio Bruno.pdf",
+          "titolo": "Astemio Bruno.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 907595,
+          "sizeFormatted": "886.3 KB",
+          "dataCaricamento": "2026-10-12T15:54:37.326Z",
+          "driveFileId": "1Fsjv70gCuC-96x3rbKKtANFJSPaEovKx",
+          "driveViewLink": "https://drive.google.com/file/d/1Fsjv70gCuC-96x3rbKKtANFJSPaEovKx/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1Fsjv70gCuC-96x3rbKKtANFJSPaEovKx&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 3,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 4,
+      "uuid": "65141b02-082b-4241-ae5b-7ccf36cdcab4",
+      "cognome": "D'Andria",
+      "nome": "Anna Teresa",
+      "luogoNascita": "Taranto",
+      "provinciaNascita": "TA",
+      "dataNascita": "1964-01-08",
+      "codiceFiscale": "DNDNTR48A48L049T",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3515820125",
+      "email": "",
+      "titoloStudio": "Non specificato",
+      "professione": "Casalinga",
+      "battesimoAcqua": true,
+      "dataBA": "1980",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1981",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fnrx9_0381d2",
+          "fileName": "D_Andria Teresa.pdf",
+          "titolo": "D_Andria Teresa.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 854353,
+          "sizeFormatted": "834.3 KB",
+          "dataCaricamento": "2026-10-12T15:55:00.008Z",
+          "driveFileId": "1PNiwzs6eIOnfnjnQmhuR8RPJEHI_paeo",
+          "driveViewLink": "https://drive.google.com/file/d/1PNiwzs6eIOnfnjnQmhuR8RPJEHI_paeo/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1PNiwzs6eIOnfnjnQmhuR8RPJEHI_paeo&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 4,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 5,
+      "uuid": "c8491fc3-e95a-4e91-8e56-71a03e4166b2",
+      "cognome": "D'Amore",
+      "nome": "Michela",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1974-01-07",
+      "codiceFiscale": "DMRMAL74AG7FS52Q",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 351570063",
+      "email": "michela.damore@gmail.com",
+      "titoloStudio": "Licenza",
+      "professione": "Operaia",
+      "battesimoAcqua": true,
+      "dataBA": "1989-06-01",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1990",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fo8my_f3b868",
+          "fileName": "D_Amore Michela.pdf",
+          "titolo": "D_Amore Michela.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 933928,
+          "sizeFormatted": "912.0 KB",
+          "dataCaricamento": "2026-10-12T15:55:21.289Z",
+          "driveFileId": "1nIhd2IlKqay4FWI9Nr4UqJc5hw0cJUe2",
+          "driveViewLink": "https://drive.google.com/file/d/1nIhd2IlKqay4FWI9Nr4UqJc5hw0cJUe2/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1nIhd2IlKqay4FWI9Nr4UqJc5hw0cJUe2&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 5,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 6,
+      "uuid": "063bee2e-3951-4bd6-a7a5-86b12d3e8428",
+      "cognome": "Massazza",
+      "nome": "Annamaria",
+      "luogoNascita": "Busto Arsizio",
+      "provinciaNascita": "VA",
+      "dataNascita": "",
+      "codiceFiscale": "",
+      "indirizzo": "Via Dante Graziosi 20",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3423501122",
+      "email": "",
+      "titoloStudio": "Licenza Media",
+      "professione": "Pensionata",
+      "battesimoAcqua": true,
+      "dataBA": "1989-06-06",
+      "battesimoSpiritoSanto": false,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5foqzu_2c6a57",
+          "fileName": "Massazza Annamaria.pdf",
+          "titolo": "Massazza Annamaria.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 925811,
+          "sizeFormatted": "904.1 KB",
+          "dataCaricamento": "2026-10-12T15:55:45.390Z",
+          "driveFileId": "1CNUR--3xu2W1VZoClD-bGR1Y-KGHd9BE",
+          "driveViewLink": "https://drive.google.com/file/d/1CNUR--3xu2W1VZoClD-bGR1Y-KGHd9BE/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1CNUR--3xu2W1VZoClD-bGR1Y-KGHd9BE&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 6,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 7,
+      "uuid": "02fab69c-b124-4b6b-8ebc-0fe2a0c78ffc",
+      "cognome": "Astemio Marcinnò",
+      "nome": "Mélodie",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "2001-07-05",
+      "codiceFiscale": "STMMLD01L45F952X",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3202522745",
+      "email": "astemio.melodie@gmail.com",
+      "titoloStudio": "DIPLOMA SUPERIORE",
+      "professione": "Non specificata",
+      "battesimoAcqua": true,
+      "dataBA": "2025-10-25",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2025-10-05",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fttii_cc0b63",
+          "fileName": "Astemio Mélodie.pdf",
+          "titolo": "Astemio Mélodie.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 899188,
+          "sizeFormatted": "878.1 KB",
+          "dataCaricamento": "2026-10-12T15:59:41.815Z",
+          "driveFileId": "1u-D7spYQhufNrdTlD0jtZw6iY2m6rDIO",
+          "driveViewLink": "https://drive.google.com/file/d/1u-D7spYQhufNrdTlD0jtZw6iY2m6rDIO/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1u-D7spYQhufNrdTlD0jtZw6iY2m6rDIO&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 7
+    },
+    {
+      "id": 8,
+      "uuid": "d4daa298-1db7-4d96-a237-280181dc47e7",
+      "cognome": "Di Puorto",
+      "nome": "Mariano",
+      "luogoNascita": "Aversa",
+      "provinciaNascita": "CE",
+      "dataNascita": "1986-08-08",
+      "codiceFiscale": "DPRMN86R08A512E",
+      "indirizzo": "Via 25 Aprile 4",
+      "comune": "Cameri",
+      "provincia": "NO",
+      "telefono": "+39 3791944507",
+      "email": "marianodp86@gmail.com",
+      "titoloStudio": "Licenza Media",
+      "professione": "Installatore Infissi",
+      "battesimoAcqua": true,
+      "dataBA": "2018-07-20",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1996-08-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fu8mg_a9198e",
+          "fileName": "Di Puorto Mariano.pdf",
+          "titolo": "Di Puorto Mariano.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 854143,
+          "sizeFormatted": "834.1 KB",
+          "dataCaricamento": "2026-10-12T16:00:01.360Z",
+          "driveFileId": "184UlQA4vd5qs79nGmtY_19M58cCJOtZN",
+          "driveViewLink": "https://drive.google.com/file/d/184UlQA4vd5qs79nGmtY_19M58cCJOtZN/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=184UlQA4vd5qs79nGmtY_19M58cCJOtZN&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 8,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 9,
+      "uuid": "474242b0-6024-466a-98b3-b01c2e4dfd42",
+      "cognome": "Valastro",
+      "nome": "Venerando",
+      "luogoNascita": "Napoli",
+      "provinciaNascita": "NA",
+      "dataNascita": "1982-03-20",
+      "codiceFiscale": "VLSVRN82C20F839W",
+      "indirizzo": "Via Lewis Carroll",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3386146714",
+      "email": "nandovalastro@libero.it",
+      "titoloStudio": "",
+      "professione": "Agente di Commercio",
+      "battesimoAcqua": true,
+      "dataBA": "",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1994-05-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fvbel_1ad983",
+          "fileName": "Valastro Venerando.pdf",
+          "titolo": "Valastro Venerando.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 838706,
+          "sizeFormatted": "819.0 KB",
+          "dataCaricamento": "2026-10-12T16:00:51.641Z",
+          "driveFileId": "1flSj5Q8mBMmQ1EGYpuyqNbYoD1Herz82",
+          "driveViewLink": "https://drive.google.com/file/d/1flSj5Q8mBMmQ1EGYpuyqNbYoD1Herz82/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1flSj5Q8mBMmQ1EGYpuyqNbYoD1Herz82&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 9,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 10,
+      "uuid": "964a7241-6b05-4540-8325-37c0ff83de31",
+      "cognome": "Infante",
+      "nome": "Iolanda",
+      "luogoNascita": "Santa Maria Capua Vetere",
+      "provinciaNascita": "CE",
+      "dataNascita": "1995-10-08",
+      "codiceFiscale": "NFNLND95R48I234F",
+      "indirizzo": "Strada Privata XXV Aprile",
+      "comune": "Cameri",
+      "provincia": "NO",
+      "telefono": "+39 3317518021",
+      "email": "iolandainfante81@gmail.com",
+      "titoloStudio": "Licenza Media",
+      "professione": "Casalinga",
+      "battesimoAcqua": true,
+      "dataBA": "2022-07-20",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2014-06-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fvs77_a808b3",
+          "fileName": "Infante Iolanda.pdf",
+          "titolo": "Infante Iolanda.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 869275,
+          "sizeFormatted": "848.9 KB",
+          "dataCaricamento": "2026-10-12T16:01:14.259Z",
+          "driveFileId": "10Ie_nIuMxEtJ_-vOmUMSlnyhnbw6gXmL",
+          "driveViewLink": "https://drive.google.com/file/d/10Ie_nIuMxEtJ_-vOmUMSlnyhnbw6gXmL/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=10Ie_nIuMxEtJ_-vOmUMSlnyhnbw6gXmL&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 10,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 11,
+      "uuid": "4592891a-4cda-4fc2-a018-85d00eae5ed9",
+      "cognome": "Legname",
+      "nome": "Chiara",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1999-05-05",
+      "codiceFiscale": "LGNCHR99E45F952C",
+      "indirizzo": "Via Argenti 36",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3882299111",
+      "email": "chiaralegname@gmail.com",
+      "titoloStudio": "",
+      "professione": "Non specificata",
+      "battesimoAcqua": true,
+      "dataBA": "2018",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2026",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fwb9f_11cdd2",
+          "fileName": "Legname Chiara.pdf",
+          "titolo": "Legname Chiara.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 923586,
+          "sizeFormatted": "901.9 KB",
+          "dataCaricamento": "2026-10-12T16:01:38.129Z",
+          "driveFileId": "1R37G98AAb5m0_knGNmtaEDgQp9HY9291",
+          "driveViewLink": "https://drive.google.com/file/d/1R37G98AAb5m0_knGNmtaEDgQp9HY9291/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1R37G98AAb5m0_knGNmtaEDgQp9HY9291&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 11
+    },
+    {
+      "id": 12,
+      "uuid": "8f6db67d-1cea-4ce7-b6e9-3a1a83aef08a",
+      "cognome": "Sannino",
+      "nome": "Gionathan",
+      "luogoNascita": "Gattinara",
+      "provinciaNascita": "VC",
+      "dataNascita": "1979-07-11",
+      "codiceFiscale": "SMNGTH79L11D938T",
+      "indirizzo": "Via Aspesi 12",
+      "comune": "Galliate",
+      "provincia": "NO",
+      "telefono": "+39 3510842161",
+      "email": "",
+      "titoloStudio": "",
+      "professione": "Impiegato",
+      "battesimoAcqua": true,
+      "dataBA": "1996",
+      "battesimoSpiritoSanto": false,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fwvhb_714e76",
+          "fileName": "Sannino Gionathan.pdf",
+          "titolo": "Sannino Gionathan.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 881472,
+          "sizeFormatted": "860.8 KB",
+          "dataCaricamento": "2026-10-12T16:02:04.398Z",
+          "driveFileId": "1IGDunN8Gea_0iYFGsaDAmCThLBGV36O4",
+          "driveViewLink": "https://drive.google.com/file/d/1IGDunN8Gea_0iYFGsaDAmCThLBGV36O4/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1IGDunN8Gea_0iYFGsaDAmCThLBGV36O4&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 12,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 13,
+      "uuid": "4203ad3a-cc28-4ce0-be92-bfcc020d2705",
+      "cognome": "Astemio Marcinnò",
+      "nome": "Evan",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "2009-01-14",
+      "codiceFiscale": "",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3755206105",
+      "email": "eastemio@gmail.com",
+      "titoloStudio": "3a Media",
+      "professione": "Studente",
+      "battesimoAcqua": true,
+      "dataBA": "2025-08-20",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2025-07-21",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fxegl_6185fd",
+          "fileName": "Astemio Evan.pdf",
+          "titolo": "Astemio Evan.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 895951,
+          "sizeFormatted": "875.0 KB",
+          "dataCaricamento": "2026-10-12T16:02:33.904Z",
+          "driveFileId": "1zgWR1Qb-sCt-XqHVu1_mR27x5mU1JIAD",
+          "driveViewLink": "https://drive.google.com/file/d/1zgWR1Qb-sCt-XqHVu1_mR27x5mU1JIAD/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1zgWR1Qb-sCt-XqHVu1_mR27x5mU1JIAD&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 13
+    },
+    {
+      "id": 14,
+      "uuid": "47fc649a-2ea8-4666-abf8-4e2096e3bdd1",
+      "cognome": "Famà",
+      "nome": "Larissa",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "2005-10-24",
+      "codiceFiscale": "FYALSSOS R69 F952C",
+      "indirizzo": "Via Cuneo 4",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3774589890",
+      "email": "larissafama2005@icloud.com",
+      "titoloStudio": "",
+      "professione": "Non specificata",
+      "battesimoAcqua": true,
+      "dataBA": "2026-10-24",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2026-02-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fy1pf_31e6d2",
+          "fileName": "Famà Larissa.pdf",
+          "titolo": "Famà Larissa.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 929989,
+          "sizeFormatted": "908.2 KB",
+          "dataCaricamento": "2026-10-12T16:02:58.955Z",
+          "driveFileId": "1y5efL9EyZW6a9PI1ivDnpPOFDlJ73TbE",
+          "driveViewLink": "https://drive.google.com/file/d/1y5efL9EyZW6a9PI1ivDnpPOFDlJ73TbE/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1y5efL9EyZW6a9PI1ivDnpPOFDlJ73TbE&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 14,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 15,
+      "uuid": "e0fc9a4c-52fc-40f8-b9cd-8721a6444345",
+      "cognome": "De Angelis",
+      "nome": "Antonella",
+      "luogoNascita": "Benevento",
+      "provinciaNascita": "BN",
+      "dataNascita": "1972-01-17",
+      "codiceFiscale": "DNGNNL72A57A783X",
+      "indirizzo": "Via Strada Romentino 25/D",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3270734677",
+      "email": "deangelis.antonella349@gmail.com",
+      "titoloStudio": "3a Media",
+      "professione": "Bidella",
+      "battesimoAcqua": true,
+      "dataBA": "1996-02-21",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1998",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Non attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fyi32_d69c39",
+          "fileName": "De Angelis Antonella.pdf",
+          "titolo": "De Angelis Antonella.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 926411,
+          "sizeFormatted": "904.7 KB",
+          "dataCaricamento": "2026-10-12T16:03:22.040Z",
+          "driveFileId": "1vdgSY6V2eFVtUW9kwCdws2lq78slPVTb",
+          "driveViewLink": "https://drive.google.com/file/d/1vdgSY6V2eFVtUW9kwCdws2lq78slPVTb/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1vdgSY6V2eFVtUW9kwCdws2lq78slPVTb&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 15,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 16,
+      "uuid": "4b02c31d-ab81-4c56-812a-264ff6d4259e",
+      "cognome": "Lorè",
+      "nome": "Eleonora",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1985-01-21",
+      "codiceFiscale": "LROLNR85A64F952A",
+      "indirizzo": "Via Arbogna 2",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3408164537",
+      "email": "eleonoralore1985@gmail.com",
+      "titoloStudio": "",
+      "professione": "Non specificata",
+      "battesimoAcqua": true,
+      "dataBA": "2024-06-30",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2024",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fz7ic_a8e3b0",
+          "fileName": "Lorè Eleonora.pdf",
+          "titolo": "Lorè Eleonora.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 957233,
+          "sizeFormatted": "934.8 KB",
+          "dataCaricamento": "2026-10-12T16:03:53.468Z",
+          "driveFileId": "1wpmeTRfacn0YJe2ddLVl88-c-O3J9P1d",
+          "driveViewLink": "https://drive.google.com/file/d/1wpmeTRfacn0YJe2ddLVl88-c-O3J9P1d/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1wpmeTRfacn0YJe2ddLVl88-c-O3J9P1d&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 16,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 17,
+      "uuid": "2444fbbc-a7df-446b-b584-6c2327292c4b",
+      "cognome": "Capuano",
+      "nome": "Clementina",
+      "luogoNascita": "Benevento",
+      "provinciaNascita": "BN",
+      "dataNascita": "1973-02-12",
+      "codiceFiscale": "CPNCNN73B52A783F",
+      "indirizzo": "Via Milano 11",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3477668425",
+      "email": "",
+      "titoloStudio": "Cuoca",
+      "professione": "Cuoca",
+      "battesimoAcqua": true,
+      "dataBA": "1991-06-23",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1991-06-23",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5fzm9t_6159fa",
+          "fileName": "Capuano Clementina.pdf",
+          "titolo": "Capuano Clementina.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 880630,
+          "sizeFormatted": "860.0 KB",
+          "dataCaricamento": "2026-10-12T16:04:12.463Z",
+          "driveFileId": "1YXNyJnEmEU2DHlBX7pFmAaaxFL7p83Gs",
+          "driveViewLink": "https://drive.google.com/file/d/1YXNyJnEmEU2DHlBX7pFmAaaxFL7p83Gs/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1YXNyJnEmEU2DHlBX7pFmAaaxFL7p83Gs&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 17,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 18,
+      "uuid": "7d871493-630b-4b7f-b772-1b8bd2f17446",
+      "cognome": "Conte",
+      "nome": "Sabina",
+      "luogoNascita": "Napoli",
+      "provinciaNascita": "NA",
+      "dataNascita": "1980-05-29",
+      "codiceFiscale": "CNTSBN80E69F839K",
+      "indirizzo": "Via Lewis Carroll 3D",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3470662824",
+      "email": "sabinaconte1@gmail.com",
+      "titoloStudio": "3 Media",
+      "professione": "Disoccupata",
+      "battesimoAcqua": true,
+      "dataBA": "1994-04-25",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1996-04-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5hse8i_c97677",
+          "fileName": "Conte Sabina.pdf",
+          "titolo": "Conte Sabina.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 903287,
+          "sizeFormatted": "882.1 KB",
+          "dataCaricamento": "2026-10-12T16:54:34.371Z",
+          "driveFileId": "1tFAaptTXcY3LhiBAH6SHB2bbGx6nIJe-",
+          "driveViewLink": "https://drive.google.com/file/d/1tFAaptTXcY3LhiBAH6SHB2bbGx6nIJe-/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1tFAaptTXcY3LhiBAH6SHB2bbGx6nIJe-&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        },
+        {
+          "id": "att_mv5fzzbq_f6e951",
+          "fileName": "Conte Sabina.pdf",
+          "titolo": "Conte Sabina.pdf",
+          "categoria": "Documento di Identità / CF",
+          "mimeType": "application/pdf",
+          "sizeBytes": 903287,
+          "sizeFormatted": "882.1 KB",
+          "dataCaricamento": "2026-10-12T16:04:32.737Z",
+          "driveFileId": "1XUhU5MkPXQEe2WXK-aCTQcKvIlgCUXTC",
+          "driveViewLink": "https://drive.google.com/file/d/1XUhU5MkPXQEe2WXK-aCTQcKvIlgCUXTC/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1XUhU5MkPXQEe2WXK-aCTQcKvIlgCUXTC&export=download",
+          "cloudFolder": "Documento di Identità / CF",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 18,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 19,
+      "uuid": "19d1481d-5b0d-4fb5-b0ed-4b0c8f5a6788",
+      "cognome": "Laudanna",
+      "nome": "Claudio",
+      "luogoNascita": "Benevento",
+      "provinciaNascita": "BN",
+      "dataNascita": "1961-03-16",
+      "codiceFiscale": "LDNCLD61C16A783B",
+      "indirizzo": "Via Strada Romentino 2",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3458227662",
+      "email": "",
+      "titoloStudio": "5a Elementare",
+      "professione": "Operaio",
+      "battesimoAcqua": true,
+      "dataBA": "2016-07-16",
+      "battesimoSpiritoSanto": false,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Non attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g0iof_83ef90",
+          "fileName": "Laudanna Claudio.pdf",
+          "titolo": "Laudanna Claudio.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 852210,
+          "sizeFormatted": "832.2 KB",
+          "dataCaricamento": "2026-10-12T16:04:54.949Z",
+          "driveFileId": "1jBi8eTOqFyfzZOlHj__1lq0TXxJnqS_S",
+          "driveViewLink": "https://drive.google.com/file/d/1jBi8eTOqFyfzZOlHj__1lq0TXxJnqS_S/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1jBi8eTOqFyfzZOlHj__1lq0TXxJnqS_S&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 19,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 20,
+      "uuid": "53598227-448c-4432-8738-04f793e0682e",
+      "cognome": "Faienza",
+      "nome": "Isabella",
+      "luogoNascita": "Torremaggiore",
+      "provinciaNascita": "FG",
+      "dataNascita": "1990-12-31",
+      "codiceFiscale": "FNZSLL90T71L273Y",
+      "indirizzo": "Via Isonzo 2",
+      "comune": "Termoli",
+      "provincia": "CB",
+      "telefono": "+39 3337732911",
+      "email": "faienza.isabella@gmail.com",
+      "titoloStudio": "Laurea",
+      "professione": "Insegnante",
+      "battesimoAcqua": true,
+      "dataBA": "2026-10-01",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2026-09-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g0xpd_672ec3",
+          "fileName": "Faienza Isabella.pdf",
+          "titolo": "Faienza Isabella.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 949131,
+          "sizeFormatted": "926.9 KB",
+          "dataCaricamento": "2026-10-12T16:05:13.819Z",
+          "driveFileId": "1Bq56mE7hewmeVcggaQBG9BhCPhyHofXD",
+          "driveViewLink": "https://drive.google.com/file/d/1Bq56mE7hewmeVcggaQBG9BhCPhyHofXD/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1Bq56mE7hewmeVcggaQBG9BhCPhyHofXD&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 20
+    },
+    {
+      "id": 21,
+      "uuid": "be459516-bacd-40b5-a728-62a256a797a5",
+      "cognome": "Federico",
+      "nome": "Claudia",
+      "luogoNascita": "Napoli",
+      "provinciaNascita": "NA",
+      "dataNascita": "1980-12-27",
+      "codiceFiscale": "FDRCCD80T67F839H",
+      "indirizzo": "",
+      "comune": "Galliate",
+      "provincia": "NO",
+      "telefono": "+39 332323203",
+      "email": "",
+      "titoloStudio": "Diploma",
+      "professione": "Estetista",
+      "battesimoAcqua": true,
+      "dataBA": "1999",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2015",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g1eo7_843f50",
+          "fileName": "Federico Claudia.pdf",
+          "titolo": "Federico Claudia.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 1035004,
+          "sizeFormatted": "1010.7 KB",
+          "dataCaricamento": "2026-10-12T16:05:36.679Z",
+          "driveFileId": "1JqZZzJN9GOqG1LtVKOGXfjDJt8N_5YXd",
+          "driveViewLink": "https://drive.google.com/file/d/1JqZZzJN9GOqG1LtVKOGXfjDJt8N_5YXd/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1JqZZzJN9GOqG1LtVKOGXfjDJt8N_5YXd&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 21,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 22,
+      "uuid": "dae4507b-3107-48ea-a607-2b7d6e421c6c",
+      "cognome": "Valastro",
+      "nome": "Giovanni",
+      "luogoNascita": "Napoli",
+      "provinciaNascita": "NA",
+      "dataNascita": "2009-04-10",
+      "codiceFiscale": "",
+      "indirizzo": "Via Lewis Carroll 3D",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3460089699",
+      "email": "giovannivalastro11@gmail.com",
+      "titoloStudio": "Scuola Superiore",
+      "professione": "Studente",
+      "battesimoAcqua": true,
+      "dataBA": "2026-11-01",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2022-07-21",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g1svh_b03ea2",
+          "fileName": "Valastro Giovanni.pdf",
+          "titolo": "Valastro Giovanni.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 956358,
+          "sizeFormatted": "933.9 KB",
+          "dataCaricamento": "2026-10-12T16:05:54.344Z",
+          "driveFileId": "1CBQb-kjOPtytBIgwacnzSjUe0q51Pako",
+          "driveViewLink": "https://drive.google.com/file/d/1CBQb-kjOPtytBIgwacnzSjUe0q51Pako/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1CBQb-kjOPtytBIgwacnzSjUe0q51Pako&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 22
+    },
+    {
+      "id": 23,
+      "uuid": "11f7ae65-fbd1-4580-803e-655b8649011b",
+      "cognome": "D'Amore",
+      "nome": "Anna",
+      "luogoNascita": "Taranto",
+      "provinciaNascita": "TA",
+      "dataNascita": "1955-12-23",
+      "codiceFiscale": "DMRNNA55T63L049M",
+      "indirizzo": "Via Arbogna 4",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3463684459",
+      "email": "nannarella1955@gmail.com",
+      "titoloStudio": "Obbligo",
+      "professione": "Pensionata",
+      "battesimoAcqua": true,
+      "dataBA": "1999-01-16",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1985",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g261o_9b69c3",
+          "fileName": "D_Amore Anna.pdf",
+          "titolo": "D_Amore Anna.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 849461,
+          "sizeFormatted": "829.6 KB",
+          "dataCaricamento": "2026-10-12T16:06:13.155Z",
+          "driveFileId": "1GPwjAjuCoIWw_ofXvR8yZ8gca8xJC2bD",
+          "driveViewLink": "https://drive.google.com/file/d/1GPwjAjuCoIWw_ofXvR8yZ8gca8xJC2bD/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1GPwjAjuCoIWw_ofXvR8yZ8gca8xJC2bD&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 23,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 24,
+      "uuid": "4aa0e1bc-d9f8-4807-8117-60660094c9c4",
+      "cognome": "Astemio Marcinnò",
+      "nome": "Daniel",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1997-04-24",
+      "codiceFiscale": "STMDNL97D24F952J",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3461058764",
+      "email": "astemio.daniel@gmail.com",
+      "titoloStudio": "Terza Media",
+      "professione": "Operaio",
+      "battesimoAcqua": true,
+      "dataBA": "2014",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2026-03-22",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g2ll4_0d3eda",
+          "fileName": "Astemio Daniel.pdf",
+          "titolo": "Astemio Daniel.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 824602,
+          "sizeFormatted": "805.3 KB",
+          "dataCaricamento": "2026-10-12T16:06:31.185Z",
+          "driveFileId": "1p_JaAs-oxNour1NOy95NOMm5l9AwHqAz",
+          "driveViewLink": "https://drive.google.com/file/d/1p_JaAs-oxNour1NOy95NOMm5l9AwHqAz/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1p_JaAs-oxNour1NOy95NOMm5l9AwHqAz&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 24
+    },
+    {
+      "id": 25,
+      "uuid": "c5d4506e-5332-4a5e-b194-0919767defe1",
+      "cognome": "Silvestro",
+      "nome": "Emanuele",
+      "luogoNascita": "Pollena Trocchia",
+      "provinciaNascita": "NA",
+      "dataNascita": "2000-04-05",
+      "codiceFiscale": "SLVMNL00D05G795M",
+      "indirizzo": "Cortile Casaconte 24",
+      "comune": "Portici",
+      "provincia": "NA",
+      "telefono": "+39 3347358522",
+      "email": "emansilvestro8420m@gmail.com",
+      "titoloStudio": "Diploma",
+      "professione": "Disoccupato",
+      "battesimoAcqua": true,
+      "dataBA": "2022-10-16",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2022-11-26",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g2yq8_eac361",
+          "fileName": "Silvestro Emanuele.pdf",
+          "titolo": "Silvestro Emanuele.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 918632,
+          "sizeFormatted": "897.1 KB",
+          "dataCaricamento": "2026-10-12T16:06:48.335Z",
+          "driveFileId": "1DdsgZJBKzEp8iQ7i7LvhUO99uVq3B422",
+          "driveViewLink": "https://drive.google.com/file/d/1DdsgZJBKzEp8iQ7i7LvhUO99uVq3B422/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1DdsgZJBKzEp8iQ7i7LvhUO99uVq3B422&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 25
+    },
+    {
+      "id": 26,
+      "uuid": "adaf3c08-c923-4ff5-bb97-b2a97410c8bf",
+      "cognome": "Parisi",
+      "nome": "Vincenzo",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "2003-05-04",
+      "codiceFiscale": "PRSVCN03M04F952I",
+      "indirizzo": "Via Cuneo 4",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "telefono": "+39 3513773734",
+      "email": "parisivincenzopao3@gmail.com",
+      "titoloStudio": "Operaio",
+      "professione": "Muratore",
+      "battesimoAcqua": true,
+      "dataBA": "2026-10-24",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2026-03-22",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g3cwd_62cd49",
+          "fileName": "Parisi Vincenzo.pdf",
+          "titolo": "Parisi Vincenzo.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 849989,
+          "sizeFormatted": "830.1 KB",
+          "dataCaricamento": "2026-10-12T16:07:06.811Z",
+          "driveFileId": "1qwv1uQvH4riFUSPFSGTGY-PDwzQPhauk",
+          "driveViewLink": "https://drive.google.com/file/d/1qwv1uQvH4riFUSPFSGTGY-PDwzQPhauk/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1qwv1uQvH4riFUSPFSGTGY-PDwzQPhauk&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 26,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 27,
+      "uuid": "6dce4798-5e42-4b0f-9e99-59cec4128f13",
+      "cognome": "Nominato",
+      "nome": "Dino",
+      "luogoNascita": "Napoli",
+      "provinciaNascita": "NA",
+      "dataNascita": "1991-12-03",
+      "codiceFiscale": "NMNDNI91T03F839S",
+      "indirizzo": "Via Beldi, 16",
+      "comune": "Romentino",
+      "provincia": "NO",
+      "telefono": "+39 3473819638",
+      "email": "nominatodino@gmail.com",
+      "titoloStudio": "",
+      "professione": "Magazziniere",
+      "battesimoAcqua": true,
+      "dataBA": "",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g3pcu_678359",
+          "fileName": "Nominato Dino.pdf",
+          "titolo": "Nominato Dino.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 1032295,
+          "sizeFormatted": "1008.1 KB",
+          "dataCaricamento": "2026-10-12T16:07:22.942Z",
+          "driveFileId": "1Ye4g6RaP2fhYkDNEM9hDZVdY2w1BQ-zI",
+          "driveViewLink": "https://drive.google.com/file/d/1Ye4g6RaP2fhYkDNEM9hDZVdY2w1BQ-zI/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1Ye4g6RaP2fhYkDNEM9hDZVdY2w1BQ-zI&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 27,
+      "dataAdesione": "2026-09-23"
+    },
+    {
+      "id": 28,
+      "uuid": "dc53a9fc-df92-4df8-9b07-845ca40682c4",
+      "cognome": "Rios Mera",
+      "nome": "Laura Vanessa",
+      "luogoNascita": "Cali, Colombia",
+      "provinciaNascita": "EE",
+      "dataNascita": "1995-02-18",
+      "codiceFiscale": "RSMLVN95B58Z604V",
+      "indirizzo": "Via Beldi, 16",
+      "comune": "Romentino",
+      "provincia": "NO",
+      "telefono": "+39 3446274581",
+      "email": "laurariosmena95@gmail.com",
+      "titoloStudio": "Laurea",
+      "professione": "",
+      "battesimoAcqua": true,
+      "dataBA": "2024-07-13",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2025-03-04",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g49yc_b15af9",
+          "fileName": "Rios Laura Vanessa.pdf",
+          "titolo": "Rios Laura Vanessa.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 769374,
+          "sizeFormatted": "751.3 KB",
+          "dataCaricamento": "2026-10-12T16:07:49.508Z",
+          "driveFileId": "1Bnm_ekcXKCpNiy9neJThJ04KvTOh1ZTt",
+          "driveViewLink": "https://drive.google.com/file/d/1Bnm_ekcXKCpNiy9neJThJ04KvTOh1ZTt/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1Bnm_ekcXKCpNiy9neJThJ04KvTOh1ZTt&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 28,
+      "dataAdesione": "2026-09-24"
+    },
+    {
+      "id": 29,
+      "uuid": "fdbe05e6-3615-4a42-a7ed-9da645e3dad8",
+      "cognome": "Reino",
+      "nome": "Sara",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1981-01-05",
+      "codiceFiscale": "RNESRA81A45F952A",
+      "indirizzo": "Via Colombo, 7",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3495710300",
+      "email": "sarareino5181@gmail.com",
+      "titoloStudio": "Diploma commerciale",
+      "professione": "Impiegata",
+      "battesimoAcqua": true,
+      "dataBA": "1998-02-01",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1996-07-04",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Separato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g4q1a_d6161f",
+          "fileName": "Reino Sara.pdf",
+          "titolo": "Reino Sara.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 1010668,
+          "sizeFormatted": "987.0 KB",
+          "dataCaricamento": "2026-10-12T16:08:10.577Z",
+          "driveFileId": "1M-u6fZ-rccc85KZhqSQTB6aMRcDfAb0B",
+          "driveViewLink": "https://drive.google.com/file/d/1M-u6fZ-rccc85KZhqSQTB6aMRcDfAb0B/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1M-u6fZ-rccc85KZhqSQTB6aMRcDfAb0B&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-23",
+      "protocollo": 29
+    },
+    {
+      "id": 30,
+      "uuid": "bc79c17d-0841-44b7-9284-93956c02c1d2",
+      "cognome": "Salemi",
+      "nome": "Marta",
+      "luogoNascita": "Torino",
+      "provinciaNascita": "TO",
+      "dataNascita": "2007-08-22",
+      "codiceFiscale": "SLMMRT07M62L219Z",
+      "indirizzo": "Via Antonio Sciesa, 26",
+      "comune": "Venaria Reale",
+      "provincia": "TO",
+      "telefono": "+39 3920393729",
+      "email": "salemimarta@gmail.com",
+      "titoloStudio": "Diploma",
+      "professione": "Studente",
+      "battesimoAcqua": true,
+      "dataBA": "2023",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2024",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5g9vfz_453208",
+          "fileName": "Salemi Marta.pdf",
+          "titolo": "Salemi Marta.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 812780,
+          "sizeFormatted": "793.7 KB",
+          "dataCaricamento": "2026-10-12T16:12:17.063Z",
+          "driveFileId": "13Lo0JTlKRCOsN48xyGzD4cesSwjw9e9b",
+          "driveViewLink": "https://drive.google.com/file/d/13Lo0JTlKRCOsN48xyGzD4cesSwjw9e9b/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=13Lo0JTlKRCOsN48xyGzD4cesSwjw9e9b&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-27",
+      "protocollo": 30
+    },
+    {
+      "id": 31,
+      "uuid": "8bb072da-4f5f-412e-83dc-c32e465a2e62",
+      "cognome": "Salemi",
+      "nome": "Matteo",
+      "luogoNascita": "Torino",
+      "provinciaNascita": "TO",
+      "dataNascita": "2002-07-06",
+      "codiceFiscale": "SLMMTT02L06L219Q",
+      "indirizzo": "Via Antonio Sciesa, 26",
+      "comune": "Venaria Reale",
+      "provincia": "TO",
+      "telefono": "+39 3297262613",
+      "email": "matteosalemi02@gmail.com",
+      "titoloStudio": "Diploma",
+      "professione": "Tutor didattico",
+      "battesimoAcqua": true,
+      "dataBA": "2020-12-19",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2023",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5gaibd_0ebef6",
+          "fileName": "Salemi Matteo.pdf",
+          "titolo": "Salemi Matteo.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 803819,
+          "sizeFormatted": "785.0 KB",
+          "dataCaricamento": "2026-10-12T16:12:40.425Z",
+          "driveFileId": "10qD0AMsLWr4gLOjpwvH9vZttpUEjeDu3",
+          "driveViewLink": "https://drive.google.com/file/d/10qD0AMsLWr4gLOjpwvH9vZttpUEjeDu3/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=10qD0AMsLWr4gLOjpwvH9vZttpUEjeDu3&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-27",
+      "protocollo": 31
+    },
+    {
+      "id": 32,
+      "uuid": "55f52bdf-f207-4a0b-b04c-06b8d72d46d8",
+      "cognome": "Salemi",
+      "nome": "Gabriele",
+      "luogoNascita": "Torino",
+      "provinciaNascita": "TO",
+      "dataNascita": "2005-06-07",
+      "codiceFiscale": "SLMGRL05H07L219O",
+      "indirizzo": "Via Antonio Sciesa, 26",
+      "comune": "Venaria Reale",
+      "provincia": "TO",
+      "telefono": "+39 3495030141",
+      "email": "gabrielesalemi2@gmail.com",
+      "titoloStudio": "Diploma",
+      "professione": "Studente",
+      "battesimoAcqua": true,
+      "dataBA": "2022",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2025",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Non attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Celibe/Nubile",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5gbsdw_934308",
+          "fileName": "Salemi Gabriele.pdf",
+          "titolo": "Salemi Gabriele.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 822337,
+          "sizeFormatted": "803.1 KB",
+          "dataCaricamento": "2026-10-12T16:13:40.306Z",
+          "driveFileId": "1nmvxPJbRgcucXla_maQNmyz0RosoDQ7X",
+          "driveViewLink": "https://drive.google.com/file/d/1nmvxPJbRgcucXla_maQNmyz0RosoDQ7X/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1nmvxPJbRgcucXla_maQNmyz0RosoDQ7X&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "dataAdesione": "2026-09-27",
+      "protocollo": 32
+    },
+    {
+      "id": 33,
+      "uuid": "51f24ab9-7bad-4e5a-ba5e-f15f162a4954",
+      "cognome": "Allia",
+      "nome": "Giuseppina",
+      "luogoNascita": "Catania",
+      "provinciaNascita": "CT",
+      "dataNascita": "1976-01-14",
+      "codiceFiscale": "LLAGPP76A54C351O",
+      "indirizzo": "Via Antonio Sciesa, 26",
+      "comune": "Venaria Reale",
+      "provincia": "TO",
+      "telefono": "+39 3334299208",
+      "email": "giusiallia@yahoo.it",
+      "titoloStudio": "Qualifica OSS",
+      "professione": "OSS",
+      "battesimoAcqua": true,
+      "dataBA": "1988",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1988",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "dataAdesione": "2026-09-27",
+      "allegati": [
+        {
+          "id": "att_mv5gcutx_3d8fb7",
+          "fileName": "Allia Giuseppina.pdf",
+          "titolo": "Allia Giuseppina.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 827173,
+          "sizeFormatted": "807.8 KB",
+          "dataCaricamento": "2026-10-12T16:14:29.955Z",
+          "driveFileId": "1R3oqtpdXdO4UggdVEHi-jHvlGJt9Ad98",
+          "driveViewLink": "https://drive.google.com/file/d/1R3oqtpdXdO4UggdVEHi-jHvlGJt9Ad98/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1R3oqtpdXdO4UggdVEHi-jHvlGJt9Ad98&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 33
+    },
+    {
+      "id": 34,
+      "uuid": "cbb9a2d5-254e-4af8-8179-22ffe5245d86",
+      "cognome": "Salemi",
+      "nome": "Davide",
+      "luogoNascita": "Venaria Reale",
+      "provinciaNascita": "TO",
+      "dataNascita": "1972-01-08",
+      "codiceFiscale": "SLMDVD72A08L727N",
+      "indirizzo": "Via Antonio Sciesa, 26",
+      "comune": "Venaria Reale",
+      "provincia": "TO",
+      "telefono": "+39 3334591393",
+      "email": "davidesalemi72@gmail.com",
+      "titoloStudio": "Diploma",
+      "professione": "Logistica",
+      "battesimoAcqua": true,
+      "dataBA": "1986-09-06",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "1986-04-01",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5gccfm_dc300a",
+          "fileName": "Salemi Davide.pdf",
+          "titolo": "Salemi Davide.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 840550,
+          "sizeFormatted": "820.8 KB",
+          "dataCaricamento": "2026-10-12T16:14:06.064Z",
+          "driveFileId": "1k1gkxnIybRTONTZiyJfojYYJko6Lv9Tf",
+          "driveViewLink": "https://drive.google.com/file/d/1k1gkxnIybRTONTZiyJfojYYJko6Lv9Tf/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1k1gkxnIybRTONTZiyJfojYYJko6Lv9Tf&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 34,
+      "dataAdesione": "2026-09-27"
+    },
+    {
+      "id": 35,
+      "uuid": "f63948d4-497b-48c8-a1cc-60fe91df5f53",
+      "cognome": "Biffi",
+      "nome": "Daniele",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1955-03-18",
+      "codiceFiscale": "",
+      "indirizzo": "Via Arbogna",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "+39 3474656235",
+      "email": "",
+      "titoloStudio": "Diploma",
+      "professione": "Pensionato",
+      "battesimoAcqua": true,
+      "dataBA": "2023",
+      "battesimoSpiritoSanto": false,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "ruolo": "Effettivo",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "statoCivile": "Coniugato/a",
+      "dettaglioSostegno": "",
+      "allegati": [
+        {
+          "id": "att_mv5gdfb8_abcfbe",
+          "fileName": "Biffi Daniele.pdf",
+          "titolo": "Biffi Daniele.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 866727,
+          "sizeFormatted": "846.4 KB",
+          "dataCaricamento": "2026-10-12T16:14:57.066Z",
+          "driveFileId": "1WjvbbElh1tNR8ZDBzgtHhZ0V-i_sYMdS",
+          "driveViewLink": "https://drive.google.com/file/d/1WjvbbElh1tNR8ZDBzgtHhZ0V-i_sYMdS/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1WjvbbElh1tNR8ZDBzgtHhZ0V-i_sYMdS&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ],
+      "protocollo": 35,
+      "dataAdesione": "2026-09-27"
+    },
+    {
+      "id": 36,
+      "protocollo": 36,
+      "uuid": "36299e92-e926-4aed-b923-4493300eb835",
+      "cognome": "Favale",
+      "nome": "Graziella",
+      "ruolo": "Effettivo",
+      "statoCivile": "Coniugato/a",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "dettaglioSostegno": "",
+      "dataAdesione": "2026-10-01",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1974-03-08",
+      "codiceFiscale": "",
+      "indirizzo": "Via pastorini",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "3204640614",
+      "email": "",
+      "titoloStudio": "",
+      "professione": "Parrucchiera",
+      "battesimoAcqua": true,
+      "dataBA": "23/07/2001",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "2009",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "allegati": [
+        {
+          "id": "att_mv5gdu36_6d1611",
+          "fileName": "Favale Graziella.pdf",
+          "titolo": "Favale Graziella.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 882774,
+          "sizeFormatted": "862.1 KB",
+          "dataCaricamento": "2026-10-12T16:15:15.898Z",
+          "driveFileId": "1EbKiw5nV0Dzh262G76oLQc1ezHCu5aCM",
+          "driveViewLink": "https://drive.google.com/file/d/1EbKiw5nV0Dzh262G76oLQc1ezHCu5aCM/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1EbKiw5nV0Dzh262G76oLQc1ezHCu5aCM&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "protocollo": 37,
+      "uuid": "610f5373-1d66-4e4d-a121-31a23bc0020e",
+      "cognome": "Favale",
+      "nome": "Paola",
+      "ruolo": "Effettivo",
+      "statoCivile": "Vedovo/a",
+      "isVedovo": true,
+      "isSostenuto": false,
+      "dettaglioSostegno": "",
+      "dataAdesione": "2026-10-01",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1960-06-06",
+      "codiceFiscale": "",
+      "indirizzo": "via Torgano",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "3470660700",
+      "email": "favalecarmela@hotmail.it",
+      "titoloStudio": "",
+      "professione": "Parrucchiera",
+      "battesimoAcqua": true,
+      "dataBA": "24/10/2026",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "06/06/2026",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "Nome reale Carmela Favale",
+      "allegati": [
+        {
+          "id": "att_mv5ge6rp_8543b6",
+          "fileName": "Favale Paola.pdf",
+          "titolo": "Favale Paola.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 868457,
+          "sizeFormatted": "848.1 KB",
+          "dataCaricamento": "2026-10-12T16:15:32.095Z",
+          "driveFileId": "1wKsHW38OJcKy3S0FXIR3PTWoKvPfZDjZ",
+          "driveViewLink": "https://drive.google.com/file/d/1wKsHW38OJcKy3S0FXIR3PTWoKvPfZDjZ/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1wKsHW38OJcKy3S0FXIR3PTWoKvPfZDjZ&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "protocollo": 38,
+      "uuid": "7554885c-b124-4b0a-aae8-958572bd0506",
+      "cognome": "Bolzoni",
+      "nome": "Giordano",
+      "ruolo": "Effettivo",
+      "statoCivile": "Coniugato/a",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "dettaglioSostegno": "",
+      "dataAdesione": "2026-10-01",
+      "luogoNascita": "Novara",
+      "provinciaNascita": "NO",
+      "dataNascita": "1951-07-15",
+      "codiceFiscale": "BLZGN51L15F952Y",
+      "indirizzo": "via cameri 1",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "3494727079",
+      "email": "giogio5135@yahoo.com",
+      "titoloStudio": "Terza Media",
+      "professione": "pensionato",
+      "battesimoAcqua": true,
+      "dataBA": "08/08/2011",
+      "battesimoSpiritoSanto": true,
+      "dataSS": "9/2026",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "allegati": [
+        {
+          "id": "att_mv5gej9f_df3cca",
+          "fileName": "Bolzoni Giordano.pdf",
+          "titolo": "Bolzoni Giordano.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 869186,
+          "sizeFormatted": "848.8 KB",
+          "dataCaricamento": "2026-10-12T16:15:49.860Z",
+          "driveFileId": "1uI4Ba2ue1v6r8qxQX8KOim9Xc6xHMfAt",
+          "driveViewLink": "https://drive.google.com/file/d/1uI4Ba2ue1v6r8qxQX8KOim9Xc6xHMfAt/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1uI4Ba2ue1v6r8qxQX8KOim9Xc6xHMfAt&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "protocollo": 39,
+      "uuid": "ad24fa83-c498-4117-9ae8-22ac83084915",
+      "cognome": "Budur",
+      "nome": "Stefania",
+      "ruolo": "Effettivo",
+      "statoCivile": "Coniugato/a",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "dettaglioSostegno": "",
+      "dataAdesione": "2026-10-01",
+      "luogoNascita": "Romania",
+      "provinciaNascita": "",
+      "dataNascita": "",
+      "codiceFiscale": "",
+      "indirizzo": "via cameri 1",
+      "comune": "Novara",
+      "provincia": "NO",
+      "telefono": "3404085779",
+      "email": "",
+      "titoloStudio": "",
+      "professione": "",
+      "battesimoAcqua": true,
+      "dataBA": "",
+      "battesimoSpiritoSanto": false,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "allegati": [
+        {
+          "id": "att_mv5gewnq_9bc31a",
+          "fileName": "Budur Stefania.pdf",
+          "titolo": "Budur Stefania.pdf",
+          "categoria": "Modulo affiliazione e privacy",
+          "mimeType": "application/pdf",
+          "sizeBytes": 848498,
+          "sizeFormatted": "828.6 KB",
+          "dataCaricamento": "2026-10-12T16:16:05.490Z",
+          "driveFileId": "1X4LkExgJZd7K_43C2KgQj2kL5d68Pzm8",
+          "driveViewLink": "https://drive.google.com/file/d/1X4LkExgJZd7K_43C2KgQj2kL5d68Pzm8/view?usp=drivesdk",
+          "driveDownloadLink": "https://drive.google.com/uc?id=1X4LkExgJZd7K_43C2KgQj2kL5d68Pzm8&export=download",
+          "cloudFolder": "Modulo affiliazione e privacy",
+          "storage": "google_drive"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "protocollo": 40,
+      "uuid": "cc70937c-360f-4388-a3ee-fe3994cfdf0b",
+      "cognome": "Lepore",
+      "nome": "Giada",
+      "ruolo": "Aderente",
+      "statoCivile": "Celibe/Nubile",
+      "isVedovo": false,
+      "isSostenuto": false,
+      "dettaglioSostegno": "",
+      "dataAdesione": "2026-10-01",
+      "luogoNascita": "",
+      "provinciaNascita": "",
+      "dataNascita": "2009-08-18",
+      "codiceFiscale": "",
+      "indirizzo": "",
+      "comune": "",
+      "provincia": "",
+      "telefono": "",
+      "email": "",
+      "titoloStudio": "",
+      "professione": "",
+      "battesimoAcqua": false,
+      "dataBA": "",
+      "battesimoSpiritoSanto": false,
+      "dataSS": "",
+      "consensoWhatsApp": "Acconsentito",
+      "consensoFotoVideo": "Acconsentito",
+      "stato": "Attivo",
+      "note": "",
+      "allegati": []
+    }
+  ],
+  "settings": {
+    "chiesa": "Chiesa Evangelica Pentecostale e Missionaria Come Tralci - Novara",
+    "sottotitolo": "Registro Membri di Chiesa · Anagrafica & Sacramenti",
+    "pastore": "Venerando Valastro",
+    "indirizzo": "Via Enrico Mattei, 24",
+    "citta": "Novara",
+    "provincia": "NO",
+    "cap": "28100",
+    "codiceFiscale": "",
+    "telefono": "+39",
+    "email": "segreteria.cometralcinovara@gmail.com",
+    "versione": "1.2.2",
+    "note": "",
+    "categorieEntrate": [
+      "Offerte di culto",
+      "Decime",
+      "Donazioni e liberalità",
+      "Offerte speciali / Missioni",
+      "Fondo cassa iniziale",
+      "Quote / Rimborsi",
+      "Altre entrate"
+    ],
+    "categorieUscite": [
+      "Affitto / Locazione sala di culto",
+      "Utenze (Luce, Gas, Acqua)",
+      "Manutenzione locali e impianti",
+      "Attrezzature audio/video e strumenti",
+      "Spese di culto e cancelleria",
+      "Sostegno ministeriale / Pastore",
+      "Beneficenza e aiuti caritatevoli",
+      "Scuola domenicale e giovani",
+      "Ospiti e predicatori",
+      "Spese bancarie e commissioni",
+      "Versamento in banca (giroconto)",
+      "Altre uscite"
+    ],
+    "tesoriere": "Bruno Astemio",
+    "categorieDocumenti": [
+      "Modulo affiliazione e privacy",
+      "Documento di Identità / CF",
+      "Altro Documento"
+    ]
+  },
+  "events": [],
+  "auditLog": [
+    {
+      "data": "2026-10-12T22:58:30.255Z",
+      "azione": "Creato nuovo gruppo familiare: Famiglia Bolzoni",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T22:22:42.660Z",
+      "azione": "Modificata scheda membro: Laudanna Claudio (Prot. #19, ID #19)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T22:22:28.344Z",
+      "azione": "Modificata scheda membro: De Angelis Antonella (Prot. #15, ID #15)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T22:21:33.714Z",
+      "azione": "Modificata scheda membro: Lepore Giada (Prot. #40, ID #40)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T21:51:08.293Z",
+      "azione": "Rilascio ufficiale Registro di Chiesa v1.2.1 (riconciliazione cloud allegati e sincronizzazione automatica)",
+      "operatore": "Amministratore"
+    },
+    {
+      "data": "2026-10-12T19:45:08.195Z",
+      "azione": "Rilascio ufficiale Registro di Chiesa v1.2.0",
+      "operatore": "Amministratore"
+    },
+    {
+      "data": "2026-10-12T19:43:18.568Z",
+      "azione": "Modificata scheda membro: Allia Giuseppina (Prot. #33, ID #33)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:27:42.297Z",
+      "azione": "Modificata scheda membro: Biffi Daniele (Prot. #35, ID #35)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:25:09.564Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Daniel (Prot. #24, ID #24)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:23:36.846Z",
+      "azione": "Modificata scheda membro: Salemi Gabriele (Prot. #32, ID #32)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:23:17.060Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Bruno (Prot. #3, ID #3)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:23:14.953Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Bruno (Prot. #3, ID #3)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:21:46.922Z",
+      "azione": "Modificata scheda membro: Salemi Gabriele (Prot. #32, ID #32)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:17:53.759Z",
+      "azione": "Aggiornate tipologie documenti allegabili (3 tipologie)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:17:52.192Z",
+      "azione": "Aggiornate tipologie documenti allegabili (3 tipologie)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:14:17.791Z",
+      "azione": "Modificata scheda membro: Sannino Gionathan (Prot. #12, ID #12)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:14:04.823Z",
+      "azione": "Modificata scheda membro: Famà Larissa (Prot. #14, ID #14)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:13:52.210Z",
+      "azione": "Modificata scheda membro: De Angelis Antonella (Prot. #15, ID #15)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:13:30.946Z",
+      "azione": "Modificata scheda membro: D'Andria Anna Teresa (Prot. #4, ID #4)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:13:16.724Z",
+      "azione": "Modificata scheda membro: D'Amore Anna (Prot. #23, ID #23)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:13:05.592Z",
+      "azione": "Modificata scheda membro: D'Amore Michela (Prot. #5, ID #5)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:12:52.462Z",
+      "azione": "Modificata scheda membro: Allia Giuseppina (Prot. #33, ID #33)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:12:39.064Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Bruno (Prot. #3, ID #3)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:12:27.335Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Mélodie (Prot. #7, ID #7)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:12:15.645Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Evan (Prot. #13, ID #13)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:11:52.683Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Daniel (Prot. #24, ID #24)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:10:18.117Z",
+      "azione": "Modificata scheda membro: Salemi Davide (Prot. #34, ID #34)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:09:59.210Z",
+      "azione": "Modificata scheda membro: Salemi Gabriele (Prot. #32, ID #32)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:09:38.555Z",
+      "azione": "Modificata scheda membro: Salemi Matteo (Prot. #31, ID #31)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:09:07.251Z",
+      "azione": "Modificata scheda membro: Salemi Marta (Prot. #30, ID #30)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:08:21.593Z",
+      "azione": "Modificata scheda membro: Nominato Dino (Prot. #27, ID #27)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:07:27.287Z",
+      "azione": "Modificata scheda membro: Massazza Annamaria (Prot. #6, ID #6)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:06:41.918Z",
+      "azione": "Modificata scheda membro: Parisi Vincenzo (Prot. #26, ID #26)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:06:04.647Z",
+      "azione": "Modificata scheda membro: Legname Chiara (Prot. #11, ID #11)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:05:15.497Z",
+      "azione": "Modificata scheda membro: Lorè Eleonora (Prot. #16, ID #16)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:04:10.906Z",
+      "azione": "Modificata scheda membro: Sannino Gionathan (Prot. #12, ID #12)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:03:52.597Z",
+      "azione": "Modificata scheda membro: Laudanna Claudio (Prot. #19, ID #19)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:03:45.631Z",
+      "azione": "Modificata scheda membro: Di Puorto Mariano (Prot. #8, ID #8)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:02:15.187Z",
+      "azione": "Modificata scheda membro: Silvestro Emanuele (Prot. #25, ID #25)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T19:01:11.938Z",
+      "azione": "Modificata scheda membro: Valastro Venerando (Prot. #9, ID #9)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:59:52.024Z",
+      "azione": "Modificata scheda membro: Valastro Giovanni (Prot. #22, ID #22)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:59:29.435Z",
+      "azione": "Modificata scheda membro: Valastro Martina (Prot. #2, ID #2)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:58:14.829Z",
+      "azione": "Modificata scheda membro: Reino Sara (Prot. #29, ID #29)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:57:34.944Z",
+      "azione": "Modificata scheda membro: Infante Iolanda (Prot. #10, ID #10)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:56:34.929Z",
+      "azione": "Modificata scheda membro: Federico Claudia (Prot. #21, ID #21)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:55:38.740Z",
+      "azione": "Modificata scheda membro: Laudanna Claudio (Prot. #19, ID #19)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:53:11.928Z",
+      "azione": "Modificata scheda membro: Rios Mera Laura Vanessa (Prot. #28, ID #28)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:52:04.637Z",
+      "azione": "Modificata scheda membro: Di Puorto Mariano (Prot. #8, ID #8)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:49:03.107Z",
+      "azione": "Modificata scheda membro: Faienza Isabella (Prot. #20, ID #20)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:47:40.188Z",
+      "azione": "Modificata scheda membro: De Angelis Antonella (Prot. #15, ID #15)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:46:11.643Z",
+      "azione": "Modificata scheda membro: D'Andria Anna Teresa (Prot. #4, ID #4)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:41:55.241Z",
+      "azione": "Modificata scheda membro: D'Amore Anna (Prot. #23, ID #23)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:40:57.920Z",
+      "azione": "Modificata scheda membro: D'Amore Anna (Prot. #23, ID #23)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:40:06.742Z",
+      "azione": "Modificata scheda membro: D'Amore Ciro (Prot. #1, ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:38:32.791Z",
+      "azione": "Modificata scheda membro: Conte Sabina (Prot. #18, ID #18)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:37:30.709Z",
+      "azione": "Modificata scheda membro: Capuano Clementina (Prot. #17, ID #17)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:36:06.453Z",
+      "azione": "Modificata scheda membro: Biffi Daniele (Prot. #35, ID #35)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:35:29.479Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Daniel (Prot. #24, ID #24)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T18:34:34.626Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Mélodie (Prot. #7, ID #7)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T17:00:34.618Z",
+      "azione": "Modificata scheda membro: D'Amore Ciro (Prot. #1, ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T17:00:32.612Z",
+      "azione": "Eliminato allegato \"Astemio Bruno.pdf\" per D'Amore Ciro",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T17:00:15.862Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Evan (Prot. #13, ID #13)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T17:00:12.281Z",
+      "azione": "Eliminato allegato \"Astemio Evan.pdf\" per Astemio Marcinnò Evan",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:59:42.952Z",
+      "azione": "Aggiunto allegato su Cloud \"Astemio Bruno.pdf\" [Altro Documento] per D'Amore Ciro (Prot. #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:54:34.371Z",
+      "azione": "Aggiunto allegato su Cloud \"Conte Sabina.pdf\" [Modulo affiliazione e privacy] per Conte Sabina (Prot. #18)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:54:21.974Z",
+      "azione": "Eliminato allegato \"Conte Sabina.pdf\" per Conte Sabina",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:16:05.490Z",
+      "azione": "Aggiunto allegato su Cloud \"Budur Stefania.pdf\" [Modulo affiliazione e privacy] per Budur Stefania (Prot. #39)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:15:49.860Z",
+      "azione": "Aggiunto allegato su Cloud \"Bolzoni Giordano.pdf\" [Modulo affiliazione e privacy] per Bolzoni Giordano (Prot. #38)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:15:32.095Z",
+      "azione": "Aggiunto allegato su Cloud \"Favale Paola.pdf\" [Modulo affiliazione e privacy] per Favale Paola (Prot. #37)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:15:15.898Z",
+      "azione": "Aggiunto allegato su Cloud \"Favale Graziella.pdf\" [Modulo affiliazione e privacy] per Favale Graziella (Prot. #36)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:14:57.066Z",
+      "azione": "Aggiunto allegato su Cloud \"Biffi Daniele.pdf\" [Modulo affiliazione e privacy] per Biffi Daniele (Prot. #35)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:14:29.955Z",
+      "azione": "Aggiunto allegato su Cloud \"Allia Giuseppina.pdf\" [Modulo affiliazione e privacy] per Allia Giuseppina (Prot. #33)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:14:06.064Z",
+      "azione": "Aggiunto allegato su Cloud \"Salemi Davide.pdf\" [Modulo affiliazione e privacy] per Salemi Davide (Prot. #34)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:13:40.306Z",
+      "azione": "Aggiunto allegato su Cloud \"Salemi Gabriele.pdf\" [Modulo affiliazione e privacy] per Salemi Gabriele (Prot. #32)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:12:40.425Z",
+      "azione": "Aggiunto allegato su Cloud \"Salemi Matteo.pdf\" [Modulo affiliazione e privacy] per Salemi Matteo (Prot. #31)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:12:17.063Z",
+      "azione": "Aggiunto allegato su Cloud \"Salemi Marta.pdf\" [Modulo affiliazione e privacy] per Salemi Marta (Prot. #30)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:11:17.510Z",
+      "azione": "Ripristino database da Google Drive (39 membri, 5 movimenti)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:08:10.577Z",
+      "azione": "Aggiunto allegato su Cloud \"Reino Sara.pdf\" [Modulo affiliazione e privacy] per Reino Sara (Prot. #29)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:07:49.508Z",
+      "azione": "Aggiunto allegato su Cloud \"Rios Laura Vanessa.pdf\" [Modulo affiliazione e privacy] per Rios Mera Laura Vanessa (Prot. #28)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:07:22.942Z",
+      "azione": "Aggiunto allegato su Cloud \"Nominato Dino.pdf\" [Modulo affiliazione e privacy] per Nominato Dino (Prot. #27)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:07:06.811Z",
+      "azione": "Aggiunto allegato su Cloud \"Parisi Vincenzo.pdf\" [Modulo affiliazione e privacy] per Parisi Vincenzo (Prot. #26)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:06:48.335Z",
+      "azione": "Aggiunto allegato su Cloud \"Silvestro Emanuele.pdf\" [Modulo affiliazione e privacy] per Silvestro Emanuele (Prot. #25)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:06:31.185Z",
+      "azione": "Aggiunto allegato su Cloud \"Astemio Daniel.pdf\" [Modulo affiliazione e privacy] per Astemio Marcinnò Daniel (Prot. #24)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:06:13.155Z",
+      "azione": "Aggiunto allegato su Cloud \"D_Amore Anna.pdf\" [Modulo affiliazione e privacy] per D'Amore Anna (Prot. #23)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:05:54.344Z",
+      "azione": "Aggiunto allegato su Cloud \"Valastro Giovanni.pdf\" [Modulo affiliazione e privacy] per Valastro Giovanni (Prot. #22)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:05:36.679Z",
+      "azione": "Aggiunto allegato su Cloud \"Federico Claudia.pdf\" [Modulo affiliazione e privacy] per Federico Claudia (Prot. #21)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:05:13.819Z",
+      "azione": "Aggiunto allegato su Cloud \"Faienza Isabella.pdf\" [Modulo affiliazione e privacy] per Faienza Isabella (Prot. #20)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:04:54.949Z",
+      "azione": "Aggiunto allegato su Cloud \"Laudanna Claudio.pdf\" [Modulo affiliazione e privacy] per Laudanna Claudio (Prot. #19)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:04:32.737Z",
+      "azione": "Aggiunto allegato su Cloud \"Conte Sabina.pdf\" [Documento di Identità / CF] per Conte Sabina (Prot. #18)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:04:12.463Z",
+      "azione": "Aggiunto allegato su Cloud \"Capuano Clementina.pdf\" [Modulo affiliazione e privacy] per Capuano Clementina (Prot. #17)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:03:53.468Z",
+      "azione": "Aggiunto allegato su Cloud \"Lorè Eleonora.pdf\" [Modulo affiliazione e privacy] per Lorè Eleonora (Prot. #16)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:03:22.040Z",
+      "azione": "Aggiunto allegato su Cloud \"De Angelis Antonella.pdf\" [Modulo affiliazione e privacy] per De Angelis Antonella (Prot. #15)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:02:58.955Z",
+      "azione": "Aggiunto allegato su Cloud \"Famà Larissa.pdf\" [Modulo affiliazione e privacy] per Famà Larissa (Prot. #14)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:02:35.154Z",
+      "azione": "Aggiunto allegato su Cloud \"Astemio Evan.pdf\" [Modulo affiliazione e privacy] per Astemio Marcinnò Evan (Prot. #13)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:02:33.904Z",
+      "azione": "Aggiunto allegato su Cloud \"Astemio Evan.pdf\" [Modulo affiliazione e privacy] per Astemio Marcinnò Evan (Prot. #13)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:02:04.398Z",
+      "azione": "Aggiunto allegato su Cloud \"Sannino Gionathan.pdf\" [Modulo affiliazione e privacy] per Sannino Gionathan (Prot. #12)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:01:38.129Z",
+      "azione": "Aggiunto allegato su Cloud \"Legname Chiara.pdf\" [Modulo affiliazione e privacy] per Legname Chiara (Prot. #11)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:01:14.259Z",
+      "azione": "Aggiunto allegato su Cloud \"Infante Iolanda.pdf\" [Modulo affiliazione e privacy] per Infante Iolanda (Prot. #10)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:00:51.641Z",
+      "azione": "Aggiunto allegato su Cloud \"Valastro Venerando.pdf\" [Modulo affiliazione e privacy] per Valastro Venerando (Prot. #9)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T16:00:01.360Z",
+      "azione": "Aggiunto allegato su Cloud \"Di Puorto Mariano.pdf\" [Modulo affiliazione e privacy] per Di Puorto Mariano (Prot. #8)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T15:59:41.815Z",
+      "azione": "Aggiunto allegato su Cloud \"Astemio Mélodie.pdf\" [Modulo affiliazione e privacy] per Astemio Marcinnò Mélodie (Prot. #7)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T15:55:45.390Z",
+      "azione": "Aggiunto allegato su Cloud \"Massazza Annamaria.pdf\" [Modulo affiliazione e privacy] per Massazza Annamaria (Prot. #6)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T15:55:21.289Z",
+      "azione": "Aggiunto allegato su Cloud \"D_Amore Michela.pdf\" [Modulo affiliazione e privacy] per D'Amore Michela (Prot. #5)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T15:55:00.008Z",
+      "azione": "Aggiunto allegato su Cloud \"D_Andria Teresa.pdf\" [Modulo affiliazione e privacy] per D'Andria Anna Teresa (Prot. #4)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T15:54:37.326Z",
+      "azione": "Aggiunto allegato su Cloud \"Astemio Bruno.pdf\" [Modulo affiliazione e privacy] per Astemio Marcinnò Bruno (Prot. #3)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T15:54:10.482Z",
+      "azione": "Aggiunto allegato su Cloud \"Valastro Martina.pdf\" [Modulo affiliazione e privacy] per Valastro Martina (Prot. #2)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T13:16:16.033Z",
+      "azione": "Migrati allegati locali sul Cloud Google Drive nelle relative sottocartelle",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:57:55.350Z",
+      "azione": "Aggiunto allegato \"D_Amore Ciro.pdf\" per D'Amore Ciro (ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:57:03.801Z",
+      "azione": "Modificata scheda membro: Budur Stefania (Prot. #39, ID #39)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:49:46.453Z",
+      "azione": "Modificata scheda membro: Favale Paola (Prot. #37, ID #37)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:46:33.787Z",
+      "azione": "Aggiunto nuovo membro: Budur Stefania (Prot. #39, ID #39)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:44:17.177Z",
+      "azione": "Aggiunto nuovo membro: Bolzoni Giordano (Prot. #38, ID #38)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:39:02.330Z",
+      "azione": "Aggiunto nuovo membro: Favale Paola (Prot. #37, ID #37)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:32:30.402Z",
+      "azione": "Aggiunto nuovo membro: Favale Graziella (Prot. #36, ID #36)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:22:35.099Z",
+      "azione": "Aggiunta tipologia documento: Modulo affiliazione e privacy",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:22:20.360Z",
+      "azione": "Eliminata tipologia documento: Certificato di Matrimonio",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:22:12.297Z",
+      "azione": "Eliminata tipologia documento: Modulo Privacy Firmato",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:22:00.237Z",
+      "azione": "Eliminata tipologia documento: Attestato di Trasferimento",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:21:52.227Z",
+      "azione": "Aggiornate tipologie documenti allegabili (5 tipologie)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:21:38.599Z",
+      "azione": "Eliminata tipologia documento: Certificato di Battesimo",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:20:43.410Z",
+      "azione": "Eliminata tipologia documento: Test Rinominata",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:20:43.405Z",
+      "azione": "Rinominata tipologia documento da \"Test Categoria Specifica\" a \"Test Rinominata\" (0 documenti aggiornati)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T12:20:43.400Z",
+      "azione": "Aggiunta tipologia documento: Test Categoria Specifica",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T11:02:20.789Z",
+      "azione": "Eliminato membro: test test (ID #36)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T10:07:18.525Z",
+      "azione": "Modificata scheda membro: D'Amore Ciro (Prot. #1, ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T10:01:10.976Z",
+      "azione": "Modificata scheda membro: D'Amore Ciro (Prot. #1, ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:53:51.176Z",
+      "azione": "Modificata scheda membro: D'Amore Ciro (Prot. #1, ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:53:37.092Z",
+      "azione": "Eliminato membro: Rossi Mario (ID #37)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:53:37.054Z",
+      "azione": "Aggiunto nuovo membro: Rossi Mario (Prot. #50, ID #37)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:20:18.976Z",
+      "azione": "Modificata scheda membro: test test (ID #36)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:20:12.225Z",
+      "azione": "Modificata scheda membro: test test (ID #36)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:19:44.690Z",
+      "azione": "Aggiunto nuovo membro: test test (ID #36)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:15:17.284Z",
+      "azione": "Modificata scheda membro: Salemi Marta (ID #30)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:15:10.308Z",
+      "azione": "Modificata scheda membro: Salemi Matteo (ID #31)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:14:58.792Z",
+      "azione": "Modificata scheda membro: Salemi Gabriele (ID #32)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:14:45.823Z",
+      "azione": "Modificata scheda membro: Silvestro Emanuele (ID #25)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:14:31.602Z",
+      "azione": "Modificata scheda membro: Valastro Giovanni (ID #22)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:14:21.481Z",
+      "azione": "Modificata scheda membro: Valastro Martina (ID #2)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:13:56.260Z",
+      "azione": "Modificata scheda membro: Reino Sara (ID #29)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:13:44.154Z",
+      "azione": "Modificata scheda membro: Legname Chiara (ID #11)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:13:26.909Z",
+      "azione": "Modificata scheda membro: Faienza Isabella (ID #20)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:13:07.474Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Daniel (ID #24)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:12:53.343Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Evan (ID #13)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-12T09:12:34.820Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Mélodie (ID #7)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-11T06:57:14.728Z",
+      "azione": "Aggiornato gruppo familiare: Famiglia Biffi - D'Amore",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-11T06:57:03.494Z",
+      "azione": "Aggiornato gruppo familiare: Famiglia Sannino - Federico",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-11T06:46:54.894Z",
+      "azione": "Modificata scheda membro: Astemio Marcinnò Mélodie (ID #7)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:18:29.692Z",
+      "azione": "Eliminato allegato \"Certificato Test\" per D'Amore Ciro",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:18:29.100Z",
+      "azione": "Aggiunto allegato \"Certificato Test\" per D'Amore Ciro (ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:17:21.201Z",
+      "azione": "Eliminato allegato \"Certificato Test\" per D'Amore Ciro",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:17:20.564Z",
+      "azione": "Aggiunto allegato \"Certificato Test\" per D'Amore Ciro (ID #1)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:10:24.886Z",
+      "azione": "Creato nuovo gruppo familiare: Famiglia Parisi - Famà",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:09:57.222Z",
+      "azione": "Creato nuovo gruppo familiare: Famiglia Laudanna - De Angelis",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:09:22.993Z",
+      "azione": "Creato nuovo gruppo familiare: Famiglia Biffi - D'Amore",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:07:10.752Z",
+      "azione": "Modificata scheda membro: Allia Giuseppina (ID #33)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T15:05:52.393Z",
+      "azione": "Modificata scheda membro: Allia Giuseppina (ID #33)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T11:46:22.250Z",
+      "azione": "Eliminato movimento #6/2026: Test offerta culto (€ 100)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-09T11:46:22.166Z",
+      "azione": "Registrato movimento ENTRATA #6/2026: Test offerta culto (€ 100.00)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T18:35:50.347Z",
+      "azione": "Creato nuovo gruppo familiare: Famiglia Sannino - Federico",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T18:35:20.767Z",
+      "azione": "Creato nuovo gruppo familiare: Famiglia Parisi - Famà",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T18:34:28.303Z",
+      "azione": "Aggiornato gruppo familiare: Famiglia Nominato - Rios Mera",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T18:33:53.508Z",
+      "azione": "Aggiornato gruppo familiare: Famiglia Astemio Marcinnò",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T18:33:38.495Z",
+      "azione": "Aggiornato gruppo familiare: Famiglia Valastro - Conte",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T15:19:25.839Z",
+      "azione": "Eliminato gruppo familiare: Gruppo Test Rinomato",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T15:19:25.806Z",
+      "azione": "Aggiornato gruppo familiare: Gruppo Test Rinomato",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T15:19:25.750Z",
+      "azione": "Creato nuovo gruppo familiare: Gruppo Test",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T15:11:56.906Z",
+      "azione": "Aggiornate impostazioni della chiesa",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T14:53:27.520Z",
+      "azione": "Modificata scheda membro: Silvestro Emanuele (ID #25)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T14:28:13.933Z",
+      "azione": "Modificata scheda membro: Valastro Giovanni (ID #22)",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T14:26:16.155Z",
+      "azione": "Aggiornate impostazioni della chiesa",
+      "operatore": "Utente"
+    },
+    {
+      "data": "2026-10-07T14:05:28.075Z",
+      "azione": "Inizializzazione registro con 35 membri registrati",
+      "operatore": "Sistema"
+    }
+  ],
+  "families": [
+    {
+      "id": "fam-astemio",
+      "nome": "Famiglia Astemio Marcinnò",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "capofamigliaId": 3,
+      "note": "",
+      "memberIds": [
+        3,
+        7,
+        13,
+        24,
+        5
+      ]
+    },
+    {
+      "id": "fam-damore",
+      "nome": "Famiglia D'Amore",
+      "indirizzo": "Via Nuova 5",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "capofamigliaId": 1,
+      "note": "",
+      "memberIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "fam-valastro",
+      "nome": "Famiglia Valastro - Conte",
+      "indirizzo": "Via Lewis Carroll",
+      "comune": "Novara",
+      "provincia": "NO",
+      "capofamigliaId": 9,
+      "note": "Famiglia Pastorale",
+      "memberIds": [
+        18,
+        2,
+        9,
+        22
+      ]
+    },
+    {
+      "id": "fam-salemi",
+      "nome": "Famiglia Salemi - Allia",
+      "indirizzo": "Via Antonio Sciesa, 26",
+      "comune": "Venaria Reale",
+      "provincia": "TO",
+      "capofamigliaId": 34,
+      "note": "",
+      "memberIds": [
+        34,
+        33,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "id": "fam-dipuorto",
+      "nome": "Famiglia Di Puorto - Infante",
+      "indirizzo": "Via 25 Aprile 4",
+      "comune": "Cameri",
+      "provincia": "NO",
+      "capofamigliaId": 8,
+      "note": "",
+      "memberIds": [
+        8,
+        10
+      ]
+    },
+    {
+      "id": "fam-nominato",
+      "nome": "Famiglia Nominato - Rios Mera",
+      "indirizzo": "Via Beldi, 16",
+      "comune": "Romentino",
+      "provincia": "NO",
+      "capofamigliaId": 27,
+      "note": "",
+      "memberIds": [
+        27,
+        28
+      ]
+    },
+    {
+      "id": "fam_muyg6se7_unoh",
+      "nome": "Famiglia Parisi - Famà",
+      "indirizzo": "Via Cuneo 4",
+      "comune": "Novara",
+      "provincia": "NO",
+      "capofamigliaId": null,
+      "note": "",
+      "memberIds": []
+    },
+    {
+      "id": "fam_muyg7f7v_regf",
+      "nome": "Famiglia Sannino - Federico",
+      "indirizzo": "",
+      "comune": "Galliate",
+      "provincia": "NO",
+      "capofamigliaId": 12,
+      "note": "",
+      "memberIds": [
+        21,
+        12
+      ]
+    },
+    {
+      "id": "fam_mv13pmep_rerj",
+      "nome": "Famiglia Biffi - D'Amore",
+      "indirizzo": "Via Arbogna 4",
+      "comune": "Novara",
+      "provincia": "NO",
+      "capofamigliaId": 35,
+      "note": "",
+      "memberIds": [
+        35,
+        23
+      ]
+    },
+    {
+      "id": "fam_mv13qcti_klua",
+      "nome": "Famiglia Laudanna - De Angelis",
+      "indirizzo": "Via Strada Romentino 2",
+      "comune": "Novara",
+      "provincia": "NO",
+      "capofamigliaId": 19,
+      "note": "",
+      "memberIds": [
+        15,
+        19
+      ]
+    },
+    {
+      "id": "fam_mv13qy5y_awi2",
+      "nome": "Famiglia Parisi - Famà",
+      "indirizzo": "Via Cuneo 4",
+      "comune": "Caltignaga",
+      "provincia": "NO",
+      "capofamigliaId": 26,
+      "note": "",
+      "memberIds": [
+        14,
+        26
+      ]
+    },
+    {
+      "id": "fam_mv5usgz3_m0z0",
+      "nome": "Famiglia Bolzoni",
+      "indirizzo": "via cameri 1",
+      "comune": "Novara",
+      "provincia": "NO",
+      "capofamigliaId": 38,
+      "note": "",
+      "memberIds": [
+        38,
+        39
+      ]
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn_init_01",
+      "numero": 1,
+      "anno": 2026,
+      "data": "2026-10-01",
+      "tipo": "ENTRATA",
+      "categoria": "Fondo cassa iniziale",
+      "descrizione": "Riporto fondo cassa iniziale mese di Ottobre 2026",
+      "importo": 450,
+      "metodo": "Contanti",
+      "rif": "Riporto 09/2026",
+      "membroId": null,
+      "note": "Fondo cassa attivo all'apertura del registro",
+      "creato": "2026-10-01T09:00:00.000Z"
+    },
+    {
+      "id": "txn_init_02",
+      "numero": 2,
+      "anno": 2026,
+      "data": "2026-10-04",
+      "tipo": "ENTRATA",
+      "categoria": "Offerte di culto",
+      "descrizione": "Offerte raccolte culto domenicale del 4 Ottobre",
+      "importo": 280,
+      "metodo": "Contanti",
+      "rif": "Busta culto 04/10",
+      "membroId": null,
+      "note": "",
+      "creato": "2026-10-04T12:30:00.000Z"
+    },
+    {
+      "id": "txn_init_03",
+      "numero": 3,
+      "anno": 2026,
+      "data": "2026-10-05",
+      "tipo": "USCITA",
+      "categoria": "Utenze (Luce, Gas, Acqua)",
+      "descrizione": "Bolletta energia elettrica locale di culto",
+      "importo": 135.4,
+      "metodo": "Banca / Bonifico",
+      "rif": "Fatt. Enel 2981A",
+      "membroId": null,
+      "note": "Pagamento telematico c/c",
+      "creato": "2026-10-05T10:15:00.000Z"
+    },
+    {
+      "id": "txn_init_04",
+      "numero": 4,
+      "anno": 2026,
+      "data": "2026-10-06",
+      "tipo": "USCITA",
+      "categoria": "Spese di culto e cancelleria",
+      "descrizione": "Acquisto materiale didattico e cancelleria per la chiesa",
+      "importo": 42.5,
+      "metodo": "Contanti",
+      "rif": "Scontrino n. 104",
+      "membroId": null,
+      "note": "Spesa minuta di cassa",
+      "creato": "2026-10-06T16:00:00.000Z"
+    },
+    {
+      "id": "txn_init_05",
+      "numero": 5,
+      "anno": 2026,
+      "data": "2026-10-07",
+      "tipo": "ENTRATA",
+      "categoria": "Donazioni e liberalità",
+      "descrizione": "Donazione libera per attività della comunità",
+      "importo": 350,
+      "metodo": "Banca / Bonifico",
+      "rif": "Bonifico n. 88392",
+      "membroId": 3,
+      "note": "Donazione liberale",
+      "creato": "2026-10-07T11:00:00.000Z"
+    }
+  ]
+}
