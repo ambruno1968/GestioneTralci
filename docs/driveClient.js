@@ -10,7 +10,7 @@ const DB_SYNC_TIME_KEY = 'registro_chiesa_db_synced_at';
 const DRIVE_USER_INFO_KEY = 'registro_chiesa_drive_userinfo';
 
 const DEFAULT_CONFIG = {
-  clientId: '258159664417-22ilohp1934ia06m7b3oevvf6br1jtrc.apps.googleusercontent.com',
+  clientId: '258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com',
   clientSecret: '',
   refreshToken: '',
   folderName: 'Registro Chiesa',

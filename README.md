@@ -82,7 +82,7 @@ Il browser si aprirà su: `http://localhost:8080` con l'app pronta e installabil
 
 Per consentire l'accesso con Google Drive direttamente dal browser/PWA:
 1. Accedi a [Google Cloud Console](https://console.cloud.google.com/).
-2. Seleziona il progetto relativo all'app (Client ID: `258159664417-22ilohp1934ia06m7b3oevvf6br1jtrc.apps.googleusercontent.com`).
+2. Seleziona il progetto relativo all'app (Client ID: `258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com`).
 3. Vai in **API e servizi → Credenziali → Client ID OAuth 2.0**.
 4. Nella sezione **Origini JavaScript autorizzate** aggiungi:
    - `http://localhost:8080` (per i test in locale)
