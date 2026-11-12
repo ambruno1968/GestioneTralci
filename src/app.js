@@ -3443,7 +3443,7 @@ function renderWiki(container) {
           <div style="background:#f1f5f9; padding:10px 12px; border-radius:6px;">
             <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">Metodo 2: Prova Locale su Windows</div>
             <div style="font-size:12.5px; line-height:1.4;">
-              Fai doppio clic sul file <code>Prova PWA in locale.bat</code> per avviare il server web di sviluppo locale sulla porta <code>http://localhost:8081</code>.
+              Fai doppio clic sul file <code>Prova PWA in locale.bat</code> per avviare il server web di sviluppo locale sulla porta <code>http://localhost:5210</code>.
             </div>
           </div>
         </div>

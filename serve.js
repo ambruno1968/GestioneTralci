@@ -1,11 +1,11 @@
 'use strict';
-// Server statico minimo per provare GestionaleTralci PWA sul PC in locale: http://localhost:8081
+// Server statico minimo per provare GestionaleTralci PWA sul PC in locale: http://localhost:5210
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, 'docs');
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 5210;
 
 const types = {
   '.html': 'text/html; charset=utf-8',
