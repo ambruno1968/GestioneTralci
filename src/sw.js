@@ -1,7 +1,7 @@
-/* Service Worker - Registro di Chiesa PWA
+/* Service Worker - GestionaleTralci PWA
  * Garantisce il funzionamento 100% offline su qualsiasi dispositivo (Chromebook, PC, Mac, Tablet, Smartphone).
  */
-const CACHE = 'registro-chiesa-pwa-v2.0';
+const CACHE = 'gestionale-tralci-pwa-v2.1';
 const SHELL = [
   './',
   'index.html',
@@ -33,7 +33,7 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k.startsWith('registro-chiesa-') && k !== CACHE).map(k => caches.delete(k)))
+      Promise.all(keys.filter(k => (k.startsWith('gestionale-tralci-') || k.startsWith('registro-chiesa-')) && k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });

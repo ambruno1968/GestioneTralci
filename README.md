@@ -1,18 +1,18 @@
-# ⛪ Registro di Chiesa – Progressive Web App (PWA)
+# ⛪ GestionaleTralci – Progressive Web App (PWA)
 
 > **Gestionale Ecclesiastico Ufficiale · Anagrafica & Sacramenti · 4 Registri Canonici · Fascicoli Digitali · Nuclei Familiari · Cloud Sync Google Drive**  
-> *Versione PWA: 2.0 · Sviluppato da Bruno Astemio con Antigravity*
+> *Versione PWA: 2.1 · Sviluppato da Bruno Astemio con Antigravity*
 
 ---
 
 ## 🌟 Panoramica
 
-**Registro di Chiesa PWA** è la versione Progressive Web App (PWA) moderna, autonoma e multipiattaforma del gestionale ecclesiastico.
+**GestionaleTralci PWA** è la versione Progressive Web App (PWA) moderna, autonoma e multipiattaforma del gestionale ecclesiastico per la Chiesa Evangelica Pentecostale e Missionaria «Come Tralci» di Novara.
 
 ### Caratteristiche Principali:
 - **100% Autonoma & Offline-First**: Non richiede l'avvio di un server locale (Node.js/Electron) per l'utente finale. Tutti i dati risiedono in sicurezza nel browser (`localStorage`) grazie al motore integrato `localDbEngine.js`.
 - **Installabile come App Nativa**: Installabile con un clic su **Chromebook / ChromeOS, Windows, macOS, Android e iOS**.
-- **Sincronizzazione Cloud Google Drive**: Backup automatico e ripristino bidirezionale sulla cartella cloud dedicata *«Registro Chiesa»* tramite Google Identity Services (GIS).
+- **Sincronizzazione Cloud Google Drive**: Backup automatico e ripristino bidirezionale sulla cartella cloud dedicata *«Gestionale Tralci»* (compatibile con backup precedenti *«Registro Chiesa»*) tramite Google Identity Services (GIS).
 - **Stampe Ufficiali Sobrie A4 (Arial 10pt)**: Stampa diretta di schede membro, registri canonici e ruolino famiglie senza blocco di popup.
 - **Service Worker & Auto-aggiornamento**: Architettura cache-first/network-first (`sw.js`) per caricamento istantaneo e funzionamento garantito anche in assenza di connessione internet.
 
@@ -21,7 +21,7 @@
 ## 📁 Struttura del Progetto
 
 ```text
-Registro-di-chiesa-PWA/
+GestionaleTralci/
 ├── src/                      # Sorgenti PWA modificabili
 │   ├── index.html            # Template HTML dell'applicazione
 │   ├── styles.css            # Fogli di stile responsive
@@ -66,7 +66,7 @@ Il browser si aprirà su: `http://localhost:8081` con l'app pronta e installabil
 
 ## 🌐 2. Pubblicazione su GitHub Pages (Gratis & HTTPS)
 
-1. Crea o collega un repository su GitHub (es. `registro-di-chiesa-pwa`).
+1. Repository su GitHub: `https://github.com/ambruno1968/GestioneTralci`.
 2. Pubblica i commit sul branch `main`.
 3. Su GitHub apri: **Settings → Pages**.
 4. In **Build and deployment**:
@@ -74,7 +74,7 @@ Il browser si aprirà su: `http://localhost:8081` con l'app pronta e installabil
    - **Branch**: `main`
    - **Folder**: `/docs`
 5. Salva. In pochi minuti l'app sarà disponibile pubblicamente in HTTPS su:
-   `https://<tuo-utente>.github.io/registro-di-chiesa-pwa/`
+   `https://ambruno1968.github.io/GestioneTralci/`
 
 ---
 
@@ -87,7 +87,7 @@ Per consentire l'accesso con Google Drive direttamente dal browser/PWA:
 4. Nella sezione **Origini JavaScript autorizzate** aggiungi:
    - `http://localhost:8081` (per i test in locale)
    - `http://localhost:8080` (se necessario per altri test)
-   - `https://<tuo-utente>.github.io` (URL di produzione su GitHub Pages)
+   - `https://ambruno1968.github.io` (URL di produzione su GitHub Pages)
 5. Assicurati che l'API **Google Drive API** sia abilitata.
 
 ---
@@ -96,12 +96,12 @@ Per consentire l'accesso con Google Drive direttamente dal browser/PWA:
 
 ### Su Chrome / Edge (PC Windows, Mac, Linux, Chromebook):
 1. Visita l'indirizzo dell'app.
-2. Clicca sull'icona **Installa** nella barra degli indirizzi o sul pulsante galleggiante **📲 Installa Registro**.
+2. Clicca sull'icona **Installa** nella barra degli indirizzi o sul pulsante galleggiante **📲 Installa GestionaleTralci**.
 3. L'applicazione apparirà nel menu programmi/applicazioni come app indipendente con finestra dedicata.
 
 ### Su Android:
 1. Apri la pagina in Google Chrome.
-2. Tocca il banner **Installa Registro** oppure il menu ⋮ → **Aggiungi a schermata Home** / **Installa app**.
+2. Tocca il banner **Installa GestionaleTralci** oppure il menu ⋮ → **Aggiungi a schermata Home** / **Installa app**.
 
 ### Su iPhone / iPad (iOS Safari):
 1. Apri la pagina in Safari.

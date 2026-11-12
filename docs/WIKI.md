@@ -1,8 +1,8 @@
-# 📖 WIKI & MANUALE UFFICIALE DI REGISTRO DI CHIESA
+# 📖 WIKI & MANUALE UFFICIALE DI GESTIONALETRALCI
 
-> **Gestionale Ecclesiastico · Registri Canonici · Fascicoli Membri · Cloud Sync**  
+> **Gestionale Ecclesiastico · Registri Canonici · Fascicoli Membri · PWA Offline-First · Cloud Sync**  
 > *Chiesa Evangelica Pentecostale e Missionaria «Come Tralci Novara»*  
-> *Versione: 1.2.2 · Autore: Bruno Astemio*
+> *Versione: 2.1 · Autore: Bruno Astemio con Antigravity*
 
 ---
 

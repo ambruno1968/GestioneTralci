@@ -116,8 +116,9 @@ function renderDocCategoryOptions(selectedCategory = '') {
   `).join('');
 }
 
-// ---------------------------------------------------------------- Rilevamento Modalità Client/Android & API
+// ---------------------------------------------------------------- Rilevamento Modalità Client/PWA & API
 const isClientMode = typeof window !== 'undefined' && (
+  !!window.LocalDbEngine ||
   window.location.protocol === 'file:' ||
   !!window.Android ||
   (!window.location.port && !window.location.hostname.includes('localhost'))
@@ -544,7 +545,7 @@ async function handleExportJsonAction() {
     dbObj = await api('/api/export/json');
   }
   const jsonText = JSON.stringify(dbObj, null, 2);
-  const fileName = `Backup_Registro_Chiesa_${new Date().toISOString().slice(0, 10)}.json`;
+  const fileName = `Backup_GestionaleTralci_${new Date().toISOString().slice(0, 10)}.json`;
 
   if (window.Android && typeof window.Android.saveFile === 'function') {
     const b64 = btoa(unescape(encodeURIComponent(jsonText)));
@@ -3387,14 +3388,14 @@ function renderWiki(container) {
     <div class="toolbar" style="margin-bottom:14px;">
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
-          📖 Manuale d'Uso &amp; Wiki del Gestionale
-          <span class="badge effettivo" style="font-size:12px;">v2.0</span>
+          📖 Manuale d'Uso &amp; Wiki di GestionaleTralci
+          <span class="badge effettivo" style="font-size:12px;">v2.1</span>
         </h2>
-        <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri e sincronizzazione cloud</div>
+        <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri, famiglie e cloud sync</div>
       </div>
       <div class="spacer"></div>
       <button class="btn" onclick="window.print()">🖨️ Stampa Guida</button>
-      <a href="/WIKI.md" download="WIKI.md" class="btn primary">📥 Scarica WIKI.md</a>
+      <a href="WIKI.md" download="WIKI.md" class="btn primary">📥 Scarica WIKI.md</a>
     </div>
 
     <!-- Barra Ricerca Rapida Wiki & Indice Tematico -->
@@ -3411,7 +3412,7 @@ function renderWiki(container) {
 
       <!-- Quick Nav Pills -->
       <div style="display:flex; gap:6px; flex-wrap:wrap;">
-        <a href="#wiki-sec-avvio" class="btn small" style="background:#fff;">🚀 1. Avvio &amp; Installazione</a>
+        <a href="#wiki-sec-avvio" class="btn small" style="background:#fff;">🚀 1. Installazione PWA</a>
         <a href="#wiki-sec-registri" class="btn small" style="background:#fff;">🏛️ 2. I 4 Registri Canonici</a>
         <a href="#wiki-sec-fascicolo" class="btn small" style="background:#fff;">📎 3. Fascicolo &amp; Allegati</a>
         <a href="#wiki-sec-famiglie" class="btn small" style="background:#fff;">👨‍👩‍👧‍👦 4. Nuclei Familiari</a>
@@ -3427,29 +3428,28 @@ function renderWiki(container) {
       <!-- SEZIONE 1: AVVIO E INSTALLAZIONE -->
       <div class="card pad wiki-item" id="wiki-sec-avvio" style="border-left:4px solid #0284c7;">
         <h3 style="margin-top:0; color:#0284c7; display:flex; align-items:center; gap:8px;">
-          <span>🚀</span> 1. Guida all'Avvio &amp; Installazione
+          <span>🚀</span> 1. Installazione PWA &amp; Avvio Offline
         </h3>
-        <p>Il gestionale è concepito per la massima facilità d'uso su computer Windows (10 e 11), richiedendo unicamente il runtime gratuito di <strong>Node.js</strong>.</p>
+        <p><strong>GestionaleTralci</strong> è una Progressive Web App (PWA) moderna: funziona al 100% offline, archivia i dati in modo sicuro nel browser ed è installabile come app desktop/mobile nativa su qualsiasi dispositivo.</p>
         
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0;">
           <div style="background:#f1f5f9; padding:10px 12px; border-radius:6px;">
-            <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">Metodo 1: Doppio Clic su Windows (Consigliato)</div>
+            <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">Metodo 1: Installazione PWA con un clic (Consigliato)</div>
             <div style="font-size:12.5px; line-height:1.4;">
-              Fai doppio clic sul file <code>Avvia gestionale.bat</code> presente nella cartella principale.<br>
-              Lo script verifica Node.js, libera la porta 3001 e avvia automaticamente il browser su <code>http://localhost:3001</code>.
+              Apri l'app su Chrome/Edge/Safari e tocca <strong>«📲 Installa GestionaleTralci»</strong>.<br>
+              L'applicazione viene aggiunta al menu programmi e si apre a schermo intero come una vera app desktop nativa, funzionando anche in assenza di internet.
             </div>
           </div>
           <div style="background:#f1f5f9; padding:10px 12px; border-radius:6px;">
-            <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">Metodo 2: Creazione Installer Windows (.exe)</div>
+            <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">Metodo 2: Prova Locale su Windows</div>
             <div style="font-size:12.5px; line-height:1.4;">
-              Fai doppio clic su <code>Crea Installer.bat</code> per generare il pacchetto autoinstallante NSIS.<br>
-              Troverai il file di setup in lingua italiana nella cartella <code>dist/Registro di Chiesa Setup.exe</code>.
+              Fai doppio clic sul file <code>Prova PWA in locale.bat</code> per avviare il server web di sviluppo locale sulla porta <code>http://localhost:8081</code>.
             </div>
           </div>
         </div>
 
         <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:8px 12px; font-size:12.5px;">
-          <strong>💡 Accesso in Rete Locale (LAN Parrocchiale):</strong> Se desideri accedere al gestionale da altri PC o tablet della chiesa, basta connettersi via Wi-Fi all'indirizzo IP del computer principale (es. <code>http://192.168.1.50:3001</code>).
+          <strong>💡 Sincronizzazione Cloud Automatica:</strong> Nelle Impostazioni puoi collegare il tuo account Google Drive per il backup e il ripristino automatico istantaneo tra diversi computer e tablet.
         </div>
       </div>
 
@@ -3636,7 +3636,7 @@ function renderWiki(container) {
 
           <div>
             <strong>D: Come trasferisco il gestionale su un nuovo computer senza perdere nulla?</strong><br>
-            <span class="muted">R: È sufficiente copiare l'intera cartella <em>«Registro di chiesa»</em> su una chiavetta USB e incollarla sul nuovo PC, poi fare doppio clic su <code>Avvia gestionale.bat</code>.</span>
+            <span class="muted">R: Apri semplicemente l'URL della PWA sul nuovo computer/tablet e accedi a Google Drive nelle Impostazioni (oppure esporta il backup JSON da Impostazioni e importalo sul nuovo dispositivo).</span>
           </div>
         </div>
       </div>

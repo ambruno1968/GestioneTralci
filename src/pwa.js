@@ -301,8 +301,8 @@
 
     const btn = document.createElement('button');
     btn.id = 'pwa-install';
-    btn.innerHTML = '📲 Installa Registro';
-    btn.title = 'Installa l\'applicazione sul dispositivo';
+    btn.innerHTML = '📲 Installa GestionaleTralci';
+    btn.title = 'Installa l\'applicazione GestionaleTralci sul dispositivo';
     btn.onclick = async () => {
       btn.remove();
       if (deferredPrompt) {
@@ -317,7 +317,7 @@
   window.addEventListener('appinstalled', () => {
     const btn = document.getElementById('pwa-install');
     if (btn) btn.remove();
-    toastMsg('Registro di Chiesa installato con successo!', 'ok');
+    toastMsg('GestionaleTralci installato con successo!', 'ok');
   });
 
 })();

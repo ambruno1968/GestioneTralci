@@ -1,19 +1,24 @@
-// driveClient.js - Modulo client-side Google Drive v3 per Registro di Chiesa Android
+// driveClient.js - Modulo client-side Google Drive v3 per GestionaleTralci PWA
 // Supporta sincronizzazione cloud bidirezionale, upload/download db.json,
 // rinnovo automatico token OAuth e archiviazione cache locale offline.
 'use strict';
 
-const DRIVE_CONFIG_KEY = 'registro_chiesa_drive_config';
-const DRIVE_TOKEN_KEY = 'registro_chiesa_drive_token';
-const DB_CACHE_KEY = 'registro_chiesa_db_cache';
-const DB_SYNC_TIME_KEY = 'registro_chiesa_db_synced_at';
-const DRIVE_USER_INFO_KEY = 'registro_chiesa_drive_userinfo';
+const DRIVE_CONFIG_KEY = 'gestionale_tralci_drive_config';
+const LEGACY_DRIVE_CONFIG_KEY = 'registro_chiesa_drive_config';
+const DRIVE_TOKEN_KEY = 'gestionale_tralci_drive_token';
+const LEGACY_DRIVE_TOKEN_KEY = 'registro_chiesa_drive_token';
+const DB_CACHE_KEY = 'gestionale_tralci_db_cache';
+const LEGACY_DB_CACHE_KEY = 'registro_chiesa_db_cache';
+const DB_SYNC_TIME_KEY = 'gestionale_tralci_db_synced_at';
+const LEGACY_DB_SYNC_TIME_KEY = 'registro_chiesa_db_synced_at';
+const DRIVE_USER_INFO_KEY = 'gestionale_tralci_drive_userinfo';
+const LEGACY_DRIVE_USER_INFO_KEY = 'registro_chiesa_drive_userinfo';
 
 const DEFAULT_CONFIG = {
   clientId: '258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com',
   clientSecret: '',
   refreshToken: '',
-  folderName: 'Registro Chiesa',
+  folderName: 'Gestionale Tralci',
   fileName: 'db.json',
   autoSync: false
 };
@@ -29,7 +34,11 @@ class DriveClient {
 
   loadConfig() {
     try {
-      const saved = localStorage.getItem(DRIVE_CONFIG_KEY);
+      let saved = localStorage.getItem(DRIVE_CONFIG_KEY);
+      if (!saved) {
+        saved = localStorage.getItem(LEGACY_DRIVE_CONFIG_KEY);
+        if (saved) localStorage.setItem(DRIVE_CONFIG_KEY, saved);
+      }
       if (saved) return { ...DEFAULT_CONFIG, ...JSON.parse(saved) };
     } catch (_) {}
     return { ...DEFAULT_CONFIG };
@@ -43,7 +52,11 @@ class DriveClient {
 
   getToken() {
     try {
-      const saved = localStorage.getItem(DRIVE_TOKEN_KEY);
+      let saved = localStorage.getItem(DRIVE_TOKEN_KEY);
+      if (!saved) {
+        saved = localStorage.getItem(LEGACY_DRIVE_TOKEN_KEY);
+        if (saved) localStorage.setItem(DRIVE_TOKEN_KEY, saved);
+      }
       if (saved && saved.trim()) return saved.trim();
     } catch (_) {}
     return null;
@@ -209,8 +222,9 @@ class DriveClient {
     try {
       this.fetchUserInfo();
 
-      // 1. Trova la cartella 'Registro Chiesa'
-      const folderQuery = `name = '${this.config.folderName.replace(/'/g, "\\'")}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
+      // 1. Trova la cartella 'Gestionale Tralci' (o fallback 'Registro Chiesa')
+      const safeFolderName = this.config.folderName.replace(/'/g, "\\'");
+      const folderQuery = `(name = '${safeFolderName}' or name = 'Registro Chiesa') and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
       let folderRes = await fetch(
         `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(folderQuery)}&fields=files(id,name)&pageSize=5`,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -310,10 +324,11 @@ class DriveClient {
     this.notifyStatus();
 
     try {
-      // 1. Trova o crea la cartella 'Registro Chiesa'
-      const folderQuery = `name = '${this.config.folderName.replace(/'/g, "\\'")}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
+      // 1. Trova o crea la cartella 'Gestionale Tralci' (o fallback 'Registro Chiesa')
+      const safeUploadFolderName = this.config.folderName.replace(/'/g, "\\'");
+      const uploadFolderQuery = `(name = '${safeUploadFolderName}' or name = 'Registro Chiesa') and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
       let folderRes = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(folderQuery)}&fields=files(id,name)&pageSize=5`,
+        `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(uploadFolderQuery)}&fields=files(id,name)&pageSize=5`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

@@ -1,10 +1,11 @@
-// localDbEngine.js - Motore database locale autonomo per Registro di Chiesa Android
-// Replica integralmente tutte le API REST di server.js in memoria locale e localStorage,
-// garantendo funzionamento 100% offline nativo su Android e sincronizzazione Google Drive.
+// localDbEngine.js - Motore database locale autonomo per GestionaleTralci PWA
+// Replica integralmente tutte le API REST di gestione anagrafica, registri e famiglie
+// garantendo funzionamento 100% offline-first nel browser e sincronizzazione Google Drive.
 'use strict';
 
 (function () {
-  const DB_STORAGE_KEY = 'registro_chiesa_db';
+  const DB_STORAGE_KEY = 'gestionale_tralci_db';
+  const LEGACY_DB_STORAGE_KEY = 'registro_chiesa_db';
 
   let db = {
     members: [],
@@ -43,7 +44,7 @@
     if (initPromise) return initPromise;
 
     initPromise = (async () => {
-      // 1. Prova da storage interno nativo Android
+      // 1. Prova da storage interno nativo Android (se presente)
       if (window.Android && typeof window.Android.readLocalDb === 'function') {
         try {
           const rawAndroid = window.Android.readLocalDb();
@@ -58,9 +59,15 @@
         }
       }
 
-      // 2. Prova da localStorage
+      // 2. Prova da localStorage (chiave principale GestionaleTralci o migrazione da registro_chiesa)
       try {
-        const rawLocal = localStorage.getItem(DB_STORAGE_KEY);
+        let rawLocal = localStorage.getItem(DB_STORAGE_KEY);
+        if (!rawLocal) {
+          rawLocal = localStorage.getItem(LEGACY_DB_STORAGE_KEY);
+          if (rawLocal) {
+            localStorage.setItem(DB_STORAGE_KEY, rawLocal);
+          }
+        }
         if (rawLocal) {
           db = JSON.parse(rawLocal);
           ensureDbDefaults();

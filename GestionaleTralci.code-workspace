@@ -2,8 +2,10 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../Registro di chiesa"
 		}
 	],
 	"settings": {}
 }
-
