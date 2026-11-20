@@ -2,7 +2,7 @@
 
 > **Gestionale Ecclesiastico · Registri Canonici · Fascicoli Membri · PWA Offline-First · Cloud Sync**  
 > *Chiesa Evangelica Pentecostale e Missionaria «Come Tralci Novara»*  
-> *Versione: 2.3 · Autore: Bruno Astemio con Antigravity*
+> *Versione: 2.4 · Autore: Bruno Astemio con Antigravity*
 
 ---
 

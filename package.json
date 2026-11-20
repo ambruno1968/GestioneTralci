@@ -1,6 +1,6 @@
 {
   "name": "gestione-tralci-pwa",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Progressive Web App (PWA) di GestioneTralci: anagrafica ecclesiastica, sacramenti, famiglie, fascicoli digitali e cloud sync",
   "author": "Bruno Astemio",
   "private": true,

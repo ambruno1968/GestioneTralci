@@ -33,7 +33,7 @@ const DEFAULT_CONFIG = {
   refreshToken: '',
   folderName: 'Gestione Tralci',
   fileName: 'db.json',
-  autoSync: false
+  autoSync: true
 };
 
 // Persistenza sessione Google in IndexedDB (identica a MemoTralci) per evitare disconnessioni PWA
@@ -107,7 +107,7 @@ class DriveClient {
     this.refreshTimer = null;
     this.refreshPromise = null;
 
-    this.restoreSessionFromIndexedDB();
+    this.sessionReadyPromise = this.restoreSessionFromIndexedDB();
     this.setupLifecycleListeners();
     this.scheduleAutoRefresh();
   }
@@ -126,8 +126,17 @@ class DriveClient {
       }
       if (saved) {
         const parsed = { ...DEFAULT_CONFIG, ...JSON.parse(saved) };
+        let changed = false;
         if (!parsed.clientId || parsed.clientId === LEGACY_BROKEN_CLIENT_ID) {
           parsed.clientId = GOOGLE_DEFAULT_CLIENT_ID;
+          changed = true;
+        }
+        // Migra vecchia configurazione con autoSync=false predefinito a true (se non disabilitato esplicitamente)
+        if (parsed.autoSync === false && parsed.autoSyncExplicitlyDisabled !== true) {
+          parsed.autoSync = true;
+          changed = true;
+        }
+        if (changed) {
           localStorage.setItem(DRIVE_CONFIG_KEY, JSON.stringify(parsed));
         }
         return parsed;
@@ -138,6 +147,9 @@ class DriveClient {
 
   saveConfig(cfg) {
     this.config = { ...this.config, ...cfg };
+    if (cfg && typeof cfg.autoSync === 'boolean') {
+      this.config.autoSyncExplicitlyDisabled = !cfg.autoSync;
+    }
     if (!this.config.clientId || this.config.clientId === LEGACY_BROKEN_CLIENT_ID) {
       this.config.clientId = GOOGLE_DEFAULT_CLIENT_ID;
     }
@@ -601,7 +613,9 @@ class DriveClient {
       const folderData = await folderRes.json();
       const folder = folderData.files && folderData.files[0];
       if (!folder) {
-        throw new Error(`Cartella "${this.config.folderName}" non trovata su Google Drive.`);
+        this.status = 'idle';
+        this.notifyStatus();
+        return { success: false, reason: 'not_found', db: this.getCachedDb() };
       }
 
       // 2. Trova il file db.json nella cartella
@@ -623,7 +637,9 @@ class DriveClient {
       const fileData = await fileRes.json();
       const file = fileData.files && fileData.files[0];
       if (!file) {
-        throw new Error(`File "${this.config.fileName}" non trovato nella cartella "${this.config.folderName}".`);
+        this.status = 'idle';
+        this.notifyStatus();
+        return { success: false, reason: 'not_found', db: this.getCachedDb() };
       }
 
       // 3. Scarica il contenuto JSON
@@ -645,7 +661,7 @@ class DriveClient {
       this.setCachedDb(remoteDb);
       this.status = 'synced';
       this.notifyStatus();
-      return { success: true, db: remoteDb, fileId: file.id };
+      return { success: true, db: remoteDb, fileId: file.id, modifiedTime: file.modifiedTime || null };
     } catch (err) {
       console.error('Errore sincronizzazione Google Drive:', err);
       this.status = 'error';

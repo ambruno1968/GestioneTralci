@@ -6,6 +6,8 @@
 (function () {
   const DB_STORAGE_KEY = 'gestione_tralci_db';
   const LEGACY_DB_STORAGE_KEYS = ['gestionale_tralci_db', 'registro_chiesa_db'];
+  const DB_PENDING_SYNC_KEY = 'gestione_tralci_pending_sync';
+  const DB_IS_SEED_KEY = 'gestione_tralci_is_seed';
 
   let db = {
     members: [],
@@ -88,6 +90,7 @@
           const seedData = await res.json();
           db = seedData;
           ensureDbDefaults();
+          try { localStorage.setItem(DB_IS_SEED_KEY, 'true'); } catch (_) {}
           saveDb(true);
           initialized = true;
           return db;
@@ -121,8 +124,18 @@
     }
   }
 
+  let uploadDebounceTimer = null;
+  let syncPromise = null;
+
   function saveDb(skipCloud = false) {
     ensureDbDefaults();
+    if (!skipCloud) {
+      db.lastModified = new Date().toISOString();
+      try {
+        localStorage.removeItem(DB_IS_SEED_KEY);
+        localStorage.setItem(DB_PENDING_SYNC_KEY, 'true');
+      } catch (_) {}
+    }
     const jsonStr = JSON.stringify(db, null, 2);
 
     try {
@@ -140,9 +153,113 @@
     }
 
     if (!skipCloud && window.driveClient && window.driveClient.config && window.driveClient.config.autoSync) {
-      window.driveClient.uploadDb(db).catch(err => {
-        console.warn('[LocalDB] Errore autosync Google Drive:', err);
-      });
+      if (uploadDebounceTimer) clearTimeout(uploadDebounceTimer);
+      uploadDebounceTimer = setTimeout(() => {
+        window.driveClient.uploadDb(db).then(res => {
+          if (res && res.success) {
+            try { localStorage.removeItem(DB_PENDING_SYNC_KEY); } catch (_) {}
+          }
+        }).catch(err => {
+          console.warn('[LocalDB] Errore autosync Google Drive:', err);
+        });
+      }, 300);
+    }
+  }
+
+  // Sincronizzazione Drive-First: garantisce che Google Drive prevalga sugli archivi locali obsoleti
+  async function syncWithDrive(options = {}) {
+    const forcePull = !!options.forcePull;
+    if (syncPromise) return syncPromise;
+
+    syncPromise = (async () => {
+      await init();
+      if (!window.driveClient) {
+        return { ok: false, updated: false, reason: 'no_drive_client' };
+      }
+      if (window.driveClient.sessionReadyPromise) {
+        try { await window.driveClient.sessionReadyPromise; } catch (_) {}
+      }
+      if (!window.driveClient.isConnected()) {
+        return { ok: false, updated: false, reason: 'not_connected' };
+      }
+      if (!navigator.onLine) {
+        return { ok: false, updated: false, reason: 'offline' };
+      }
+
+      const res = await window.driveClient.downloadDb();
+
+      if (res && res.success && res.db) {
+        const remoteDb = res.db;
+        const remoteTime = Date.parse(remoteDb.lastModified || res.modifiedTime || '') || 0;
+        const localTime = Date.parse(db.lastModified || '') || 0;
+        const isSeed = localStorage.getItem(DB_IS_SEED_KEY) === 'true';
+        const hasPending = localStorage.getItem(DB_PENDING_SYNC_KEY) === 'true';
+
+        // Google Drive ha precedenza a meno che non ci siano modifiche locali pendenti più recenti
+        const driveWins = forcePull || isSeed || !hasPending || (remoteTime >= localTime);
+
+        if (driveWins) {
+          db = remoteDb;
+          ensureDbDefaults();
+          if (!db.lastModified && res.modifiedTime) {
+            db.lastModified = res.modifiedTime;
+          }
+          try {
+            localStorage.removeItem(DB_IS_SEED_KEY);
+            localStorage.removeItem(DB_PENDING_SYNC_KEY);
+          } catch (_) {}
+          saveDb(true);
+          return {
+            ok: true,
+            updated: true,
+            direction: 'pull',
+            count: db.members.length
+          };
+        } else {
+          // Modifiche locali offline più recenti: carica su Drive
+          const upRes = await window.driveClient.uploadDb(db);
+          if (upRes && upRes.success) {
+            try { localStorage.removeItem(DB_PENDING_SYNC_KEY); } catch (_) {}
+          }
+          return {
+            ok: !!(upRes && upRes.success),
+            updated: false,
+            direction: 'push',
+            count: db.members.length
+          };
+        }
+      }
+
+      if (res && res.reason === 'not_found') {
+        if (forcePull) {
+          throw new Error('Nessun database trovato su Google Drive nella cartella "' + (window.driveClient.config?.folderName || 'Gestione Tralci') + '".');
+        }
+        // Primo avvio su Drive: inizializza db.json sul cloud
+        const upRes = await window.driveClient.uploadDb(db);
+        if (upRes && upRes.success) {
+          try {
+            localStorage.removeItem(DB_IS_SEED_KEY);
+            localStorage.removeItem(DB_PENDING_SYNC_KEY);
+          } catch (_) {}
+        }
+        return {
+          ok: !!(upRes && upRes.success),
+          updated: false,
+          direction: 'push',
+          count: db.members.length
+        };
+      }
+
+      if (forcePull) {
+        throw new Error((res && res.error) || 'Impossibile scaricare il database da Google Drive');
+      }
+      return { ok: false, updated: false, reason: (res && res.reason) || 'error' };
+    })();
+
+    try {
+      return await syncPromise;
+    } finally {
+      syncPromise = null;
     }
   }
 
@@ -758,25 +875,31 @@
 
     if (pathname === '/api/cloud/sync-now' || pathname === '/api/cloud/sync-and-reconcile') {
       if (window.driveClient) {
-        const res = await window.driveClient.uploadDb(db);
-        if (!res.success && res.reason === 'no_token') {
+        if (!window.driveClient.isConnected()) {
           throw new Error('Google Drive non collegato');
         }
-        return { ok: true, status: 'success' };
+        const syncRes = await syncWithDrive();
+        if (!syncRes.ok) {
+          throw new Error(syncRes.error || 'Errore sincronizzazione con Google Drive');
+        }
+        const totalAttachments = db.members.reduce((sum, m) => sum + (Array.isArray(m.attachments) ? m.attachments.length : 0), 0);
+        return {
+          ok: true,
+          status: 'success',
+          direction: syncRes.direction,
+          updated: syncRes.updated,
+          totalMembers: db.members.length,
+          totalAttachments,
+          reconciledCount: 0
+        };
       }
       return { ok: false };
     }
 
     if (pathname === '/api/cloud/restore-latest' && method === 'POST') {
       if (window.driveClient) {
-        const res = await window.driveClient.downloadDb();
-        if (res.success && res.db) {
-          db = res.db;
-          ensureDbDefaults();
-          saveDb(true);
-          return { ok: true, membersCount: db.members.length };
-        }
-        throw new Error(res.error || 'Impossibile ripristinare il backup da Google Drive');
+        const syncRes = await syncWithDrive({ forcePull: true });
+        return { ok: true, count: syncRes.count, membersCount: syncRes.count };
       }
       throw new Error('Modulo Drive non inizializzato');
     }
@@ -799,6 +922,7 @@
     init,
     handle,
     saveDb,
+    syncWithDrive,
     getDb: () => db,
     computeStats,
     generateCsv

@@ -3395,7 +3395,7 @@ function renderWiki(container) {
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
           📖 Manuale d'Uso &amp; Wiki di GestioneTralci
-          <span class="badge effettivo" style="font-size:12px;">v2.3</span>
+          <span class="badge effettivo" style="font-size:12px;">v2.4</span>
         </h2>
         <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri, famiglie e cloud sync</div>
       </div>
@@ -3679,10 +3679,45 @@ function renderWiki(container) {
   }
 }
 
-// ---------------------------------------------------------------- AVVIO APPLICAZIONE
-window.addEventListener('DOMContentLoaded', () => {
+// ---------------------------------------------------------------- AVVIO APPLICAZIONE & AUTO-SYNC CLOUD
+let lastAutoSyncCheck = 0;
+
+async function syncFromCloudAndRefresh(silent = true) {
+  if (!window.LocalDbEngine || typeof window.LocalDbEngine.syncWithDrive !== 'function') return;
+  const now = Date.now();
+  if (silent && now - lastAutoSyncCheck < 20000) return;
+  lastAutoSyncCheck = now;
+
+  try {
+    const res = await window.LocalDbEngine.syncWithDrive();
+    if (res && res.updated) {
+      await loadAllData();
+      toast('🔄 Dati aggiornati da Google Drive');
+    } else if (res && res.ok) {
+      // Aggiorna stato badge Drive in header dopo il check iniziale
+      try {
+        state.cloudStatus = await api('/api/cloud/status');
+        renderCloudStatus();
+      } catch (_) {}
+    }
+  } catch (err) {
+    if (!silent) toast('Errore sincronizzazione Drive: ' + err.message, 'err');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
   initNavigation();
-  loadAllData();
+  await loadAllData();
+  syncFromCloudAndRefresh(true);
+
+  window.addEventListener('focus', () => syncFromCloudAndRefresh(true));
+  window.addEventListener('online', () => syncFromCloudAndRefresh(true));
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      syncFromCloudAndRefresh(true);
+    }
+  });
+
   document.querySelector('.brand-logo')?.addEventListener('click', (e) => {
     e.preventDefault();
     openLogoLightboxModal();

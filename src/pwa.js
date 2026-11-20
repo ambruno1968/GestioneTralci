@@ -276,10 +276,12 @@
       await requestGoogleSignInPopup();
       toastMsg('Account Google collegato con successo! Sincronizzazione in corso...', 'ok');
 
-      if (window.LocalDbEngine) {
+      if (window.LocalDbEngine && typeof window.LocalDbEngine.syncWithDrive === 'function') {
         try {
-          await window.LocalDbEngine.handle('/api/cloud/restore-latest', { method: 'POST' });
-          toastMsg('Database sincronizzato da Google Drive!', 'ok');
+          const syncRes = await window.LocalDbEngine.syncWithDrive();
+          if (syncRes && syncRes.ok) {
+            toastMsg(syncRes.updated ? 'Database aggiornato da Google Drive!' : 'Database allineato con Google Drive!', 'ok');
+          }
         } catch (e) {
           console.warn('[PWA] Sincronizzazione iniziale dopo login:', e.message || e);
         }
