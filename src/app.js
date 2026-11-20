@@ -3454,8 +3454,23 @@ function renderWiki(container) {
           </div>
         </div>
 
-        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:8px 12px; font-size:12.5px;">
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:8px 12px; font-size:12.5px; margin-bottom:12px;">
           <strong>💡 Sincronizzazione Cloud Automatica:</strong> Nelle Impostazioni puoi collegare il tuo account Google Drive per il backup e il ripristino automatico istantaneo tra diversi computer e tablet.
+        </div>
+
+        <!-- Box QR Code PWA -->
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:10px; padding:14px 16px;">
+          <img src="qrcode-brand.png" alt="QR Code PWA GestioneTralci" style="width:112px; height:112px; border-radius:10px; background:#fff; padding:4px; border:1px solid #cbd5e1; flex-shrink:0;">
+          <div style="flex:1; min-width:220px;">
+            <div style="font-weight:700; color:#0c4a6e; font-size:14px; margin-bottom:4px;">📱 Installa su Smartphone o Tablet tramite QR Code</div>
+            <div style="font-size:12.5px; color:#334155; line-height:1.45; margin-bottom:10px;">
+              Inquadra il QR code con la fotocamera del cellulare per aprire subito <strong>GestioneTralci</strong> e aggiungerlo alla schermata Home come app nativa.
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <a href="qrcode-brand.png" download="qrcode-gestionetralci.png" class="btn small primary">⬇️ Scarica QR (PNG)</a>
+              <a href="qrcode-flyer.png" download="volantino-gestionetralci.png" class="btn small">🖨️ Scarica Volantino (PNG)</a>
+            </div>
+          </div>
         </div>
       </div>
 

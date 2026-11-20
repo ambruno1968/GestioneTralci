@@ -1,7 +1,7 @@
 /* Service Worker - GestioneTralci PWA
  * Garantisce il funzionamento 100% offline su qualsiasi dispositivo (Chromebook, PC, Mac, Tablet, Smartphone).
  */
-const CACHE = 'gestione-tralci-pwa-v2.2';
+const CACHE = 'gestione-tralci-pwa-v2.3';
 const SHELL = [
   './',
   'index.html',
@@ -17,6 +17,10 @@ const SHELL = [
   'icon.png',
   'icon-192.png',
   'icon-512.png',
+  'qrcode.png',
+  'qrcode.svg',
+  'qrcode-brand.png',
+  'qrcode-flyer.png',
   'favicon.ico',
   'manifest.webmanifest'
 ];
