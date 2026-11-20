@@ -1,5 +1,5 @@
 'use strict';
-// Server statico minimo per provare GestionaleTralci PWA sul PC in locale: http://localhost:5210
+// Server statico minimo per provare GestioneTralci PWA sul PC in locale: http://localhost:5210
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n⛪ GestionaleTralci PWA attivo su: http://localhost:${PORT}`);
+  console.log(`\n⛪ GestioneTralci PWA attivo su: http://localhost:${PORT}`);
   console.log('Premi CTRL+C per arrestare il server locale.\n');
 });
 

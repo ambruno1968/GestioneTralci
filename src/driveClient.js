@@ -1,27 +1,100 @@
-// driveClient.js - Modulo client-side Google Drive v3 per GestionaleTralci PWA
+// driveClient.js - Modulo client-side Google Drive v3 per GestioneTralci PWA
 // Supporta sincronizzazione cloud bidirezionale, upload/download db.json,
 // rinnovo automatico token OAuth e archiviazione cache locale offline.
 'use strict';
 
-const DRIVE_CONFIG_KEY = 'gestionale_tralci_drive_config';
-const LEGACY_DRIVE_CONFIG_KEY = 'registro_chiesa_drive_config';
-const DRIVE_TOKEN_KEY = 'gestionale_tralci_drive_token';
-const LEGACY_DRIVE_TOKEN_KEY = 'registro_chiesa_drive_token';
-const DB_CACHE_KEY = 'gestionale_tralci_db_cache';
-const LEGACY_DB_CACHE_KEY = 'registro_chiesa_db_cache';
-const DB_SYNC_TIME_KEY = 'gestionale_tralci_db_synced_at';
-const LEGACY_DB_SYNC_TIME_KEY = 'registro_chiesa_db_synced_at';
-const DRIVE_USER_INFO_KEY = 'gestionale_tralci_drive_userinfo';
-const LEGACY_DRIVE_USER_INFO_KEY = 'registro_chiesa_drive_userinfo';
+const DRIVE_CONFIG_KEY = 'gestione_tralci_drive_config';
+const LEGACY_DRIVE_CONFIG_KEYS = ['gestionale_tralci_drive_config', 'registro_chiesa_drive_config'];
+const DRIVE_TOKEN_KEY = 'gestione_tralci_drive_token';
+const LEGACY_DRIVE_TOKEN_KEYS = ['gestionale_tralci_drive_token', 'registro_chiesa_drive_token'];
+const DRIVE_TOKEN_EXPIRES_KEY = 'gestione_tralci_drive_token_exp';
+const DRIVE_EXPLICIT_LOGOUT_KEY = 'gestione_tralci_drive_explicit_logout';
+const DB_CACHE_KEY = 'gestione_tralci_db_cache';
+const LEGACY_DB_CACHE_KEYS = ['gestionale_tralci_db_cache', 'registro_chiesa_db_cache'];
+const DB_SYNC_TIME_KEY = 'gestione_tralci_db_synced_at';
+const LEGACY_DB_SYNC_TIME_KEYS = ['gestionale_tralci_db_synced_at', 'registro_chiesa_db_synced_at'];
+const DRIVE_USER_INFO_KEY = 'gestione_tralci_drive_userinfo';
+const LEGACY_DRIVE_USER_INFO_KEYS = ['gestionale_tralci_drive_userinfo', 'registro_chiesa_drive_userinfo'];
+
+const GOOGLE_DEFAULT_CLIENT_ID = '944725762658-ocihkj4r8b5usbitr35p32ai0agkubkb.apps.googleusercontent.com';
+const LEGACY_BROKEN_CLIENT_ID = '258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com';
+const GOOGLE_DEFAULT_EMAIL = 'segreteria.cometralcinovara@gmail.com';
+const GOOGLE_SCOPES = [
+  'https://www.googleapis.com/auth/drive',
+  'https://www.googleapis.com/auth/drive.file',
+  'https://www.googleapis.com/auth/userinfo.email',
+  'https://www.googleapis.com/auth/userinfo.profile',
+  'openid'
+].join(' ');
 
 const DEFAULT_CONFIG = {
-  clientId: '258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com',
+  clientId: GOOGLE_DEFAULT_CLIENT_ID,
   clientSecret: '',
   refreshToken: '',
-  folderName: 'Gestionale Tralci',
+  folderName: 'Gestione Tralci',
   fileName: 'db.json',
   autoSync: false
 };
+
+// Persistenza sessione Google in IndexedDB (identica a MemoTralci) per evitare disconnessioni PWA
+const AUTH_IDB_NAME = 'gestione_tralci_auth_db';
+const AUTH_IDB_STORE = 'authSession';
+
+function openAuthDb() {
+  return new Promise((resolve, reject) => {
+    if (typeof indexedDB === 'undefined') {
+      reject(new Error('IndexedDB non disponibile'));
+      return;
+    }
+    const req = indexedDB.open(AUTH_IDB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(AUTH_IDB_STORE)) {
+        db.createObjectStore(AUTH_IDB_STORE, { keyPath: 'id' });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function idbGetAuthSession() {
+  try {
+    const db = await openAuthDb();
+    return await new Promise((resolve) => {
+      const tx = db.transaction(AUTH_IDB_STORE, 'readonly');
+      const req = tx.objectStore(AUTH_IDB_STORE).get('google');
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => resolve(null);
+    });
+  } catch {
+    return null;
+  }
+}
+
+async function idbSaveAuthSession(session) {
+  try {
+    const db = await openAuthDb();
+    await new Promise((resolve) => {
+      const tx = db.transaction(AUTH_IDB_STORE, 'readwrite');
+      tx.objectStore(AUTH_IDB_STORE).put({ id: 'google', ...session, updatedAt: Date.now() });
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => resolve();
+    });
+  } catch {}
+}
+
+async function idbClearAuthSession() {
+  try {
+    const db = await openAuthDb();
+    await new Promise((resolve) => {
+      const tx = db.transaction(AUTH_IDB_STORE, 'readwrite');
+      tx.objectStore(AUTH_IDB_STORE).delete('google');
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => resolve();
+    });
+  } catch {}
+}
 
 class DriveClient {
   constructor() {
@@ -30,57 +103,279 @@ class DriveClient {
     this.lastError = null;
     this.onStatusChange = null;
     this.userInfo = null;
+    this.gisPromise = null;
+    this.refreshTimer = null;
+    this.refreshPromise = null;
+
+    this.restoreSessionFromIndexedDB();
+    this.setupLifecycleListeners();
+    this.scheduleAutoRefresh();
   }
 
   loadConfig() {
     try {
       let saved = localStorage.getItem(DRIVE_CONFIG_KEY);
       if (!saved) {
-        saved = localStorage.getItem(LEGACY_DRIVE_CONFIG_KEY);
-        if (saved) localStorage.setItem(DRIVE_CONFIG_KEY, saved);
+        for (const k of LEGACY_DRIVE_CONFIG_KEYS) {
+          saved = localStorage.getItem(k);
+          if (saved) {
+            localStorage.setItem(DRIVE_CONFIG_KEY, saved);
+            break;
+          }
+        }
       }
-      if (saved) return { ...DEFAULT_CONFIG, ...JSON.parse(saved) };
+      if (saved) {
+        const parsed = { ...DEFAULT_CONFIG, ...JSON.parse(saved) };
+        if (!parsed.clientId || parsed.clientId === LEGACY_BROKEN_CLIENT_ID) {
+          parsed.clientId = GOOGLE_DEFAULT_CLIENT_ID;
+          localStorage.setItem(DRIVE_CONFIG_KEY, JSON.stringify(parsed));
+        }
+        return parsed;
+      }
     } catch (_) {}
     return { ...DEFAULT_CONFIG };
   }
 
   saveConfig(cfg) {
     this.config = { ...this.config, ...cfg };
+    if (!this.config.clientId || this.config.clientId === LEGACY_BROKEN_CLIENT_ID) {
+      this.config.clientId = GOOGLE_DEFAULT_CLIENT_ID;
+    }
     localStorage.setItem(DRIVE_CONFIG_KEY, JSON.stringify(this.config));
     this.notifyStatus();
   }
 
+  async restoreSessionFromIndexedDB() {
+    try {
+      const explicitLogout = localStorage.getItem(DRIVE_EXPLICIT_LOGOUT_KEY) === 'true';
+      const savedSession = await idbGetAuthSession();
+      if ((savedSession && savedSession.explicitlyDisconnected) || explicitLogout) {
+        return;
+      }
+      if (savedSession) {
+        if (!localStorage.getItem(DRIVE_USER_INFO_KEY) && savedSession.user) {
+          this.userInfo = savedSession.user;
+          localStorage.setItem(DRIVE_USER_INFO_KEY, JSON.stringify(savedSession.user));
+        }
+        if (!this.config.refreshToken && savedSession.refreshToken) {
+          this.config.refreshToken = savedSession.refreshToken;
+          localStorage.setItem(DRIVE_CONFIG_KEY, JSON.stringify(this.config));
+        }
+        if (
+          !localStorage.getItem(DRIVE_TOKEN_KEY) &&
+          savedSession.token &&
+          savedSession.tokenExpires &&
+          savedSession.tokenExpires > Date.now()
+        ) {
+          localStorage.setItem(DRIVE_TOKEN_KEY, savedSession.token);
+          localStorage.setItem(DRIVE_TOKEN_EXPIRES_KEY, String(savedSession.tokenExpires));
+        }
+      }
+      if (!this.getToken() && this.isConnected()) {
+        this.silentRefreshToken().catch(() => {});
+      }
+      this.notifyStatus();
+    } catch (e) {
+      console.warn('[Google Auth] Errore ripristino sessione da IndexedDB:', e);
+    }
+  }
+
+  async persistSessionToIndexedDB() {
+    try {
+      const user = this.getUserInfo();
+      const token = localStorage.getItem(DRIVE_TOKEN_KEY);
+      const exp = localStorage.getItem(DRIVE_TOKEN_EXPIRES_KEY);
+      const refreshToken = this.config.refreshToken || '';
+      const explicitlyDisconnected = localStorage.getItem(DRIVE_EXPLICIT_LOGOUT_KEY) === 'true';
+
+      await idbSaveAuthSession({
+        token,
+        tokenExpires: exp ? Number(exp) : null,
+        refreshToken,
+        user,
+        explicitlyDisconnected
+      });
+    } catch {}
+  }
+
+  setupLifecycleListeners() {
+    if (typeof window === 'undefined') return;
+    const checkAndRefresh = () => {
+      if (!this.isConnected()) return;
+      const exp = localStorage.getItem(DRIVE_TOKEN_EXPIRES_KEY);
+      const token = localStorage.getItem(DRIVE_TOKEN_KEY);
+      if (!token || !exp || Number(exp) - Date.now() < 15 * 60 * 1000) {
+        this.silentRefreshToken().catch(() => {});
+      }
+    };
+    window.addEventListener('focus', checkAndRefresh);
+    window.addEventListener('online', checkAndRefresh);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        checkAndRefresh();
+      }
+    });
+  }
+
+  loadGis() {
+    if (typeof window !== 'undefined' && window.google?.accounts?.oauth2) {
+      return Promise.resolve();
+    }
+    if (this.gisPromise) return this.gisPromise;
+
+    this.gisPromise = new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[src*="accounts.google.com/gsi/client"]');
+      if (existing) {
+        existing.addEventListener('load', () => resolve());
+        existing.addEventListener('error', () => reject(new Error('Errore caricamento GIS')));
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://accounts.google.com/gsi/client';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => resolve();
+      script.onerror = () => {
+        this.gisPromise = null;
+        reject(new Error('Impossibile caricare Google Identity Services. Controlla la connessione internet.'));
+      };
+      document.head.appendChild(script);
+    });
+    return this.gisPromise;
+  }
+
+  isConnected() {
+    try {
+      if (localStorage.getItem(DRIVE_EXPLICIT_LOGOUT_KEY) === 'true') {
+        return false;
+      }
+    } catch {}
+    const token = this.getToken();
+    if (token && token.trim().length > 10) return true;
+
+    const refreshToken = this.config.refreshToken;
+    const user = this.getUserInfo();
+    if ((user && user.email) || refreshToken) {
+      this.silentRefreshToken().catch(() => {});
+      return true;
+    }
+    return false;
+  }
+
   getToken() {
     try {
+      if (localStorage.getItem(DRIVE_EXPLICIT_LOGOUT_KEY) === 'true') return null;
       let saved = localStorage.getItem(DRIVE_TOKEN_KEY);
       if (!saved) {
-        saved = localStorage.getItem(LEGACY_DRIVE_TOKEN_KEY);
-        if (saved) localStorage.setItem(DRIVE_TOKEN_KEY, saved);
+        for (const k of LEGACY_DRIVE_TOKEN_KEYS) {
+          saved = localStorage.getItem(k);
+          if (saved) {
+            localStorage.setItem(DRIVE_TOKEN_KEY, saved);
+            break;
+          }
+        }
+      }
+      const exp = localStorage.getItem(DRIVE_TOKEN_EXPIRES_KEY);
+      if (exp) {
+        const expNum = Number(exp);
+        if (Date.now() > expNum - 10 * 60 * 1000) {
+          this.silentRefreshToken().catch(() => {});
+        }
+        if (Date.now() > expNum) {
+          return null;
+        }
       }
       if (saved && saved.trim()) return saved.trim();
     } catch (_) {}
     return null;
   }
 
-  setToken(token) {
+  async getValidToken() {
+    const current = this.getToken();
+    if (current) return current;
+    if (this.isConnected()) {
+      return await this.silentRefreshToken();
+    }
+    return null;
+  }
+
+  setToken(token, expiresInSeconds = 3600, refreshToken) {
     if (token) {
+      localStorage.removeItem(DRIVE_EXPLICIT_LOGOUT_KEY);
       localStorage.setItem(DRIVE_TOKEN_KEY, token.trim());
+      const expTime = Date.now() + Math.max(300, expiresInSeconds - 90) * 1000;
+      localStorage.setItem(DRIVE_TOKEN_EXPIRES_KEY, String(expTime));
+      if (refreshToken && refreshToken.trim().length > 10) {
+        this.config.refreshToken = refreshToken.trim();
+        localStorage.setItem(DRIVE_CONFIG_KEY, JSON.stringify(this.config));
+      }
+      this.persistSessionToIndexedDB();
+      this.scheduleAutoRefresh(expiresInSeconds);
     } else {
       localStorage.removeItem(DRIVE_TOKEN_KEY);
+      localStorage.removeItem(DRIVE_TOKEN_EXPIRES_KEY);
     }
     this.notifyStatus();
   }
 
-  getUserInfo() {
-    if (!this.getToken() && !this.config.refreshToken) {
-      return null;
+  scheduleAutoRefresh(expiresInSeconds) {
+    if (this.refreshTimer) {
+      clearTimeout(this.refreshTimer);
+      this.refreshTimer = null;
     }
+    let delayMs = 45 * 60 * 1000;
+    if (expiresInSeconds && expiresInSeconds > 600) {
+      delayMs = (expiresInSeconds - 300) * 1000;
+    } else {
+      const exp = localStorage.getItem(DRIVE_TOKEN_EXPIRES_KEY);
+      if (exp) {
+        delayMs = Math.max(15000, Number(exp) - Date.now() - 300000);
+      }
+    }
+    this.refreshTimer = setTimeout(() => {
+      this.silentRefreshToken().catch((err) => {
+        console.warn('[Google Auth] Rinnovo schedulato fallito:', err);
+      });
+    }, delayMs);
+  }
+
+  invalidateExpiredAccessToken() {
+    try {
+      localStorage.removeItem(DRIVE_TOKEN_KEY);
+      localStorage.removeItem(DRIVE_TOKEN_EXPIRES_KEY);
+    } catch {}
+  }
+
+  setUserInfo(info) {
+    this.userInfo = info;
+    if (info) {
+      localStorage.setItem(DRIVE_USER_INFO_KEY, JSON.stringify(info));
+    } else {
+      localStorage.removeItem(DRIVE_USER_INFO_KEY);
+    }
+    this.persistSessionToIndexedDB();
+    this.notifyStatus();
+  }
+
+  getUserInfo() {
+    try {
+      if (localStorage.getItem(DRIVE_EXPLICIT_LOGOUT_KEY) === 'true') return null;
+    } catch {}
     if (this.userInfo) return this.userInfo;
     try {
-      const saved = localStorage.getItem(DRIVE_USER_INFO_KEY);
+      let saved = localStorage.getItem(DRIVE_USER_INFO_KEY);
+      if (!saved) {
+        for (const k of LEGACY_DRIVE_USER_INFO_KEYS) {
+          saved = localStorage.getItem(k);
+          if (saved) break;
+        }
+      }
       if (saved) {
         this.userInfo = JSON.parse(saved);
         return this.userInfo;
+      }
+      if (this.config.refreshToken) {
+        return { email: GOOGLE_DEFAULT_EMAIL, name: 'Segreteria Come Tralci' };
       }
     } catch (_) {}
     return null;
@@ -95,8 +390,7 @@ class DriveClient {
       });
       if (res.ok) {
         const info = await res.json();
-        this.userInfo = info;
-        localStorage.setItem(DRIVE_USER_INFO_KEY, JSON.stringify(info));
+        this.setUserInfo(info);
         return info;
       }
     } catch (_) {}
@@ -104,7 +398,7 @@ class DriveClient {
   }
 
   notifyStatus() {
-    const hasAuth = !!(this.getToken() || this.config.refreshToken);
+    const connected = this.isConnected();
     if (typeof this.onStatusChange === 'function') {
       this.onStatusChange({
         status: this.status,
@@ -112,66 +406,123 @@ class DriveClient {
         lastSync: this.getLastSyncTime(),
         hasToken: !!this.getToken(),
         userInfo: this.getUserInfo(),
-        connected: hasAuth && !this.lastError
+        connected
       });
     }
   }
 
-  async refreshAccessToken() {
-    if (window.PwaGoogle && typeof window.PwaGoogle.silentRefresh === 'function') {
+  async silentRefreshToken() {
+    if (this.refreshPromise) return this.refreshPromise;
+
+    this.refreshPromise = (async () => {
       try {
-        const token = await window.PwaGoogle.silentRefresh();
-        if (token) {
-          this.setToken(token);
-          this.fetchUserInfo();
-          return true;
+        const refreshToken = this.config.refreshToken;
+        const clientId = this.config.clientId || GOOGLE_DEFAULT_CLIENT_ID;
+        const clientSecret = this.config.clientSecret;
+
+        // 1. Rinnovo diretto tramite refresh_token salvato localmente (se presente)
+        if (refreshToken && clientId && clientSecret) {
+          try {
+            const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams({
+                client_id: clientId,
+                client_secret: clientSecret,
+                refresh_token: refreshToken,
+                grant_type: 'refresh_token'
+              })
+            });
+            if (tokenRes.ok) {
+              const tokenData = await tokenRes.json();
+              if (tokenData && tokenData.access_token) {
+                const newAccessToken = tokenData.access_token;
+                const expiresIn = tokenData.expires_in ? Number(tokenData.expires_in) : 3600;
+                this.setToken(newAccessToken, expiresIn, refreshToken);
+                if (!localStorage.getItem(DRIVE_USER_INFO_KEY)) {
+                  this.setUserInfo({ email: GOOGLE_DEFAULT_EMAIL, name: 'Segreteria Come Tralci' });
+                }
+                return newAccessToken;
+              }
+            }
+          } catch (httpErr) {
+            console.warn('[Google OAuth2] Errore temporaneo rete durante refresh HTTP:', httpErr);
+          }
         }
-      } catch (e) {
-        console.warn('[DriveClient] PWA silentRefresh:', e);
+
+        // 2. Fallback GIS client-side con hint account
+        await this.loadGis();
+        const user = this.getUserInfo();
+        const oauth2 = window.google?.accounts?.oauth2;
+        if (!oauth2) return null;
+
+        return await new Promise((resolve) => {
+          let resolved = false;
+          const timeout = setTimeout(() => {
+            if (!resolved) {
+              resolved = true;
+              resolve(null);
+            }
+          }, 8000);
+
+          try {
+            const client = oauth2.initTokenClient({
+              client_id: clientId,
+              scope: GOOGLE_SCOPES,
+              callback: (resp) => {
+                if (resolved) return;
+                resolved = true;
+                clearTimeout(timeout);
+                if (resp && resp.access_token) {
+                  const expiresIn = resp.expires_in ? Number(resp.expires_in) : 3600;
+                  this.setToken(resp.access_token, expiresIn);
+                  resolve(resp.access_token);
+                } else {
+                  resolve(null);
+                }
+              },
+              error_callback: () => {
+                if (resolved) return;
+                resolved = true;
+                clearTimeout(timeout);
+                resolve(null);
+              }
+            });
+
+            client.requestAccessToken({
+              prompt: '',
+              hint: user?.email || GOOGLE_DEFAULT_EMAIL
+            });
+          } catch {
+            if (!resolved) {
+              resolved = true;
+              clearTimeout(timeout);
+              resolve(null);
+            }
+          }
+        });
+      } finally {
+        this.refreshPromise = null;
       }
-    }
-    if (!this.config.refreshToken || !this.config.clientSecret) {
-      return false;
-    }
-    try {
-      const params = new URLSearchParams({
-        client_id: this.config.clientId,
-        client_secret: this.config.clientSecret,
-        refresh_token: this.config.refreshToken,
-        grant_type: 'refresh_token'
-      });
-      const res = await fetch('https://oauth2.googleapis.com/token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString()
-      });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.access_token) {
-          this.setToken(data.access_token);
-          this.fetchUserInfo();
-          return true;
-        }
-      } else {
-        const errData = await res.json().catch(() => ({}));
-        if (errData.error === 'invalid_grant' || (errData.error_description || '').includes('expired or revoked')) {
-          console.warn('[DriveClient] Refresh token scaduto o revocato da Google. Esecuzione disconnessione.');
-          this.disconnect();
-          this.status = 'error';
-          this.lastError = 'Sessione Google Drive scaduta o revocata. Ricollegati nelle Impostazioni.';
-          this.notifyStatus();
-          return false;
-        }
-      }
-    } catch (err) {
-      console.warn('Errore rinnovo automatico token Google Drive:', err);
-    }
-    return false;
+    })();
+
+    return this.refreshPromise;
+  }
+
+  async refreshAccessToken() {
+    const token = await this.silentRefreshToken();
+    return !!token;
   }
 
   getCachedDb() {
     try {
-      const raw = localStorage.getItem(DB_CACHE_KEY);
+      let raw = localStorage.getItem(DB_CACHE_KEY);
+      if (!raw) {
+        for (const k of LEGACY_DB_CACHE_KEYS) {
+          raw = localStorage.getItem(k);
+          if (raw) break;
+        }
+      }
       if (raw) return JSON.parse(raw);
     } catch (e) {
       console.warn('Errore lettura cache locale:', e);
@@ -189,14 +540,21 @@ class DriveClient {
   }
 
   getLastSyncTime() {
-    return localStorage.getItem(DB_SYNC_TIME_KEY);
+    let t = localStorage.getItem(DB_SYNC_TIME_KEY);
+    if (!t) {
+      for (const k of LEGACY_DB_SYNC_TIME_KEYS) {
+        t = localStorage.getItem(k);
+        if (t) break;
+      }
+    }
+    return t;
   }
 
   /**
    * Sincronizza scaricando db.json da Google Drive
    */
   async downloadDb(retried = false) {
-    let token = this.getToken();
+    let token = await this.getValidToken();
     if (!token && !retried) {
       const refreshed = await this.refreshAccessToken();
       if (refreshed) return this.downloadDb(true);
@@ -222,9 +580,9 @@ class DriveClient {
     try {
       this.fetchUserInfo();
 
-      // 1. Trova la cartella 'Gestionale Tralci' (o fallback 'Registro Chiesa')
+      // 1. Trova la cartella 'Gestione Tralci' (o fallback 'Gestionale Tralci' / 'Registro Chiesa')
       const safeFolderName = this.config.folderName.replace(/'/g, "\\'");
-      const folderQuery = `(name = '${safeFolderName}' or name = 'Registro Chiesa') and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
+      const folderQuery = `(name = '${safeFolderName}' or name = 'Gestionale Tralci' or name = 'Registro Chiesa') and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
       let folderRes = await fetch(
         `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(folderQuery)}&fields=files(id,name)&pageSize=5`,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -303,7 +661,7 @@ class DriveClient {
   async uploadDb(dbObj, retried = false) {
     this.setCachedDb(dbObj);
 
-    let token = this.getToken();
+    let token = await this.getValidToken();
     if (!token && !retried) {
       const refreshed = await this.refreshAccessToken();
       if (refreshed) return this.uploadDb(dbObj, true);
@@ -324,9 +682,9 @@ class DriveClient {
     this.notifyStatus();
 
     try {
-      // 1. Trova o crea la cartella 'Gestionale Tralci' (o fallback 'Registro Chiesa')
+      // 1. Trova o crea la cartella 'Gestione Tralci' (o fallback 'Gestionale Tralci' / 'Registro Chiesa')
       const safeUploadFolderName = this.config.folderName.replace(/'/g, "\\'");
-      const uploadFolderQuery = `(name = '${safeUploadFolderName}' or name = 'Registro Chiesa') and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
+      const uploadFolderQuery = `(name = '${safeUploadFolderName}' or name = 'Gestionale Tralci' or name = 'Registro Chiesa') and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
       let folderRes = await fetch(
         `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(uploadFolderQuery)}&fields=files(id,name)&pageSize=5`,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -439,12 +797,22 @@ class DriveClient {
   }
 
   disconnect() {
-    this.setToken(null);
+    if (this.refreshTimer) {
+      clearTimeout(this.refreshTimer);
+      this.refreshTimer = null;
+    }
+    localStorage.setItem(DRIVE_EXPLICIT_LOGOUT_KEY, 'true');
+    localStorage.removeItem(DRIVE_TOKEN_KEY);
+    localStorage.removeItem(DRIVE_TOKEN_EXPIRES_KEY);
+    localStorage.removeItem(DRIVE_USER_INFO_KEY);
+    for (const k of LEGACY_DRIVE_TOKEN_KEYS) localStorage.removeItem(k);
+    for (const k of LEGACY_DRIVE_USER_INFO_KEYS) localStorage.removeItem(k);
     this.config.refreshToken = '';
     this.saveConfig(this.config);
-    localStorage.removeItem(DRIVE_USER_INFO_KEY);
     this.userInfo = null;
+    this.lastError = null;
     this.status = 'idle';
+    idbClearAuthSession().catch(() => {});
     this.notifyStatus();
   }
 }

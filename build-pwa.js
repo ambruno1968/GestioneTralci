@@ -1,6 +1,6 @@
 'use strict';
 /**
- * GestionaleTralci PWA - Script di compilazione e pubblicazione
+ * GestioneTralci PWA - Script di compilazione e pubblicazione
  * Progetto 100% autonomo: compila e copia i sorgenti da /src a /docs (servita da GitHub Pages o server statico).
  */
 const fs = require('fs');

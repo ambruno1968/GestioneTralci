@@ -1,7 +1,7 @@
-/* Service Worker - GestionaleTralci PWA
+/* Service Worker - GestioneTralci PWA
  * Garantisce il funzionamento 100% offline su qualsiasi dispositivo (Chromebook, PC, Mac, Tablet, Smartphone).
  */
-const CACHE = 'gestionale-tralci-pwa-v2.1';
+const CACHE = 'gestione-tralci-pwa-v2.2';
 const SHELL = [
   './',
   'index.html',
@@ -33,7 +33,7 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => (k.startsWith('gestionale-tralci-') || k.startsWith('registro-chiesa-')) && k !== CACHE).map(k => caches.delete(k)))
+      Promise.all(keys.filter(k => (k.startsWith('gestione-tralci-') || k.startsWith('gestionale-tralci-') || k.startsWith('registro-chiesa-')) && k !== CACHE).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });

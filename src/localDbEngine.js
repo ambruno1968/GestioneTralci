@@ -1,11 +1,11 @@
-// localDbEngine.js - Motore database locale autonomo per GestionaleTralci PWA
+// localDbEngine.js - Motore database locale autonomo per GestioneTralci PWA
 // Replica integralmente tutte le API REST di gestione anagrafica, registri e famiglie
 // garantendo funzionamento 100% offline-first nel browser e sincronizzazione Google Drive.
 'use strict';
 
 (function () {
-  const DB_STORAGE_KEY = 'gestionale_tralci_db';
-  const LEGACY_DB_STORAGE_KEY = 'registro_chiesa_db';
+  const DB_STORAGE_KEY = 'gestione_tralci_db';
+  const LEGACY_DB_STORAGE_KEYS = ['gestionale_tralci_db', 'registro_chiesa_db'];
 
   let db = {
     members: [],
@@ -59,13 +59,16 @@
         }
       }
 
-      // 2. Prova da localStorage (chiave principale GestionaleTralci o migrazione da registro_chiesa)
+      // 2. Prova da localStorage (chiave principale GestioneTralci o migrazione da gestionale_tralci / registro_chiesa)
       try {
         let rawLocal = localStorage.getItem(DB_STORAGE_KEY);
         if (!rawLocal) {
-          rawLocal = localStorage.getItem(LEGACY_DB_STORAGE_KEY);
-          if (rawLocal) {
-            localStorage.setItem(DB_STORAGE_KEY, rawLocal);
+          for (const legacyKey of LEGACY_DB_STORAGE_KEYS) {
+            rawLocal = localStorage.getItem(legacyKey);
+            if (rawLocal) {
+              localStorage.setItem(DB_STORAGE_KEY, rawLocal);
+              break;
+            }
           }
         }
         if (rawLocal) {
@@ -708,16 +711,15 @@
     if (pathname === '/api/cloud/status' && method === 'GET') {
       if (window.driveClient) {
         const info = window.driveClient.getUserInfo();
-        const token = window.driveClient.getToken();
-        const hasAuth = !!(token || window.driveClient.config.refreshToken);
-        const isConn = hasAuth && !!info && !window.driveClient.lastError;
+        const isConn = window.driveClient.isConnected();
         return {
           connected: isConn,
-          configured: !!window.driveClient.config.clientId,
-          hasCredentials: !!window.driveClient.config.clientId,
+          configured: !!(window.driveClient.config && window.driveClient.config.clientId),
+          hasCredentials: !!(window.driveClient.config && window.driveClient.config.clientId),
+          clientId: window.driveClient.config?.clientId || '',
           accountEmail: isConn && info ? info.email : null,
           accountName: isConn && info ? info.name : null,
-          folderName: window.driveClient.config.folderName || 'Registro Chiesa',
+          folderName: window.driveClient.config.folderName || 'Gestione Tralci',
           lastSync: window.driveClient.getLastSyncTime(),
           lastSyncStatus: window.driveClient.status,
           autoSync: window.driveClient.config.autoSync
@@ -747,9 +749,9 @@
     }
 
     if (pathname === '/api/cloud/auth-url' && method === 'GET') {
-      const clientId = window.driveClient?.config?.clientId || DEFAULT_CONFIG.clientId;
+      const clientId = window.driveClient?.config?.clientId || '944725762658-ocihkj4r8b5usbitr35p32ai0agkubkb.apps.googleusercontent.com';
       const redirectUri = 'org.cometralci.registrodichiesa://oauth2callback';
-      const scope = encodeURIComponent('https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid');
+      const scope = encodeURIComponent('https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid');
       const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scope}&access_type=offline&prompt=consent`;
       return { url };
     }

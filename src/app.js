@@ -545,7 +545,7 @@ async function handleExportJsonAction() {
     dbObj = await api('/api/export/json');
   }
   const jsonText = JSON.stringify(dbObj, null, 2);
-  const fileName = `Backup_GestionaleTralci_${new Date().toISOString().slice(0, 10)}.json`;
+  const fileName = `Backup_GestioneTralci_${new Date().toISOString().slice(0, 10)}.json`;
 
   if (window.Android && typeof window.Android.saveFile === 'function') {
     const b64 = btoa(unescape(encodeURIComponent(jsonText)));
@@ -2279,6 +2279,10 @@ function renderImpostazioni(container) {
 
   // Google Drive Handlers
   $('btn-cloud-login-now')?.addEventListener('click', async () => {
+    if (window.PwaGoogle && typeof window.PwaGoogle.signIn === 'function') {
+      await window.PwaGoogle.signIn();
+      return;
+    }
     try {
       const auth = await api('/api/cloud/auth-url');
       window.open(auth.url, '_blank', 'width=620,height=720');
@@ -3368,8 +3372,10 @@ function openCloudConfigModal() {
       toast('Configurazione salvata');
       dlg.close();
 
-      // Ottieni URL per autorizzazione
-      if (payload.clientId && payload.clientSecret) {
+      // Avvia accesso Google
+      if (window.PwaGoogle && typeof window.PwaGoogle.signIn === 'function') {
+        await window.PwaGoogle.signIn();
+      } else if (payload.clientId && payload.clientSecret) {
         const auth = await api('/api/cloud/auth-url');
         window.open(auth.url, '_blank', 'width=600,height=700');
       }
@@ -3388,7 +3394,7 @@ function renderWiki(container) {
     <div class="toolbar" style="margin-bottom:14px;">
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
-          📖 Manuale d'Uso &amp; Wiki di GestionaleTralci
+          📖 Manuale d'Uso &amp; Wiki di GestioneTralci
           <span class="badge effettivo" style="font-size:12px;">v2.1</span>
         </h2>
         <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri, famiglie e cloud sync</div>
@@ -3430,13 +3436,13 @@ function renderWiki(container) {
         <h3 style="margin-top:0; color:#0284c7; display:flex; align-items:center; gap:8px;">
           <span>🚀</span> 1. Installazione PWA &amp; Avvio Offline
         </h3>
-        <p><strong>GestionaleTralci</strong> è una Progressive Web App (PWA) moderna: funziona al 100% offline, archivia i dati in modo sicuro nel browser ed è installabile come app desktop/mobile nativa su qualsiasi dispositivo.</p>
+        <p><strong>GestioneTralci</strong> è una Progressive Web App (PWA) moderna: funziona al 100% offline, archivia i dati in modo sicuro nel browser ed è installabile come app desktop/mobile nativa su qualsiasi dispositivo.</p>
         
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0;">
           <div style="background:#f1f5f9; padding:10px 12px; border-radius:6px;">
             <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">Metodo 1: Installazione PWA con un clic (Consigliato)</div>
             <div style="font-size:12.5px; line-height:1.4;">
-              Apri l'app su Chrome/Edge/Safari e tocca <strong>«📲 Installa GestionaleTralci»</strong>.<br>
+              Apri l'app su Chrome/Edge/Safari e tocca <strong>«📲 Installa GestioneTralci»</strong>.<br>
               L'applicazione viene aggiunta al menu programmi e si apre a schermo intero come una vera app desktop nativa, funzionando anche in assenza di internet.
             </div>
           </div>

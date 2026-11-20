@@ -6,8 +6,10 @@
 (function () {
   'use strict';
 
-  const CLIENT_ID = '258159664417-nc6r2krvqu8fvutoa1p9j3b81agrugqs.apps.googleusercontent.com';
+  const CLIENT_ID = '944725762658-ocihkj4r8b5usbitr35p32ai0agkubkb.apps.googleusercontent.com';
+  const DEFAULT_EMAIL = 'segreteria.cometralcinovara@gmail.com';
   const SCOPES = [
+    'https://www.googleapis.com/auth/drive',
     'https://www.googleapis.com/auth/drive.file',
     'https://www.googleapis.com/auth/userinfo.email',
     'https://www.googleapis.com/auth/userinfo.profile',
@@ -138,88 +140,148 @@
     toastMsg('File salvato nei Download: ' + fileName, 'ok');
   }
 
-  // Google Identity Services (GIS) Token Model
-  let gisPromise = null;
+  // Google Identity Services (GIS) - Flusso identico a MemoTralci
   function loadGis() {
+    if (window.driveClient && typeof window.driveClient.loadGis === 'function') {
+      return window.driveClient.loadGis();
+    }
     if (window.google && window.google.accounts && window.google.accounts.oauth2) {
       return Promise.resolve();
     }
-    if (gisPromise) return gisPromise;
-
-    gisPromise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[src*="accounts.google.com/gsi/client"]');
+      if (existing) {
+        existing.addEventListener('load', () => resolve());
+        existing.addEventListener('error', () => reject(new Error('Errore caricamento GIS')));
+        return;
+      }
       const s = document.createElement('script');
       s.src = 'https://accounts.google.com/gsi/client';
       s.async = true;
       s.defer = true;
       s.onload = () => resolve();
-      s.onerror = () => {
-        gisPromise = null;
-        reject(new Error('Impossibile caricare Google Identity Services. Verifica la connessione ad internet.'));
-      };
+      s.onerror = () => reject(new Error('Impossibile caricare Google Identity Services. Verifica la connessione ad internet.'));
       document.head.appendChild(s);
     });
-    return gisPromise;
   }
 
-  function requestToken(promptMode) {
-    return loadGis().then(() => new Promise((resolve, reject) => {
-      const client = google.accounts.oauth2.initTokenClient({
-        client_id: CLIENT_ID,
-        scope: SCOPES,
-        callback: resp => {
-          if (resp && resp.access_token) {
-            resolve(resp);
-          } else {
-            const err = (resp && (resp.error_description || resp.error)) || 'Accesso Google non riuscito';
-            reject(new Error(err));
-          }
-        },
-        error_callback: err => {
-          reject(new Error((err && (err.message || err.type)) || 'Accesso Google annullato'));
-        }
-      });
-      client.requestAccessToken({ prompt: promptMode });
-    }));
-  }
+  async function finalizeGoogleAuth(token, expiresIn, refreshToken) {
+    if (window.driveClient) {
+      window.driveClient.setToken(token, expiresIn || 3600, refreshToken);
+    }
 
-  async function storeToken(resp) {
-    const token = resp.access_token;
-    localStorage.setItem('registro_chiesa_drive_token', token);
-
-    let userInfo = null;
+    let userInfo = { email: DEFAULT_EMAIL, name: 'Segreteria Come Tralci' };
     try {
       const res = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
         userInfo = await res.json();
-        localStorage.setItem('registro_chiesa_drive_userinfo', JSON.stringify(userInfo));
       }
     } catch (_) {}
 
     if (window.driveClient) {
-      window.driveClient.setToken(token);
-      if (userInfo) window.driveClient.userInfo = userInfo;
-      window.driveClient.notifyStatus();
+      window.driveClient.setUserInfo(userInfo);
     }
     return { token, userInfo };
   }
 
+  function signInWithTokenClient(clientId) {
+    return new Promise((resolve, reject) => {
+      try {
+        const client = window.google.accounts.oauth2.initTokenClient({
+          client_id: clientId,
+          scope: SCOPES,
+          callback: async resp => {
+            if (resp && resp.access_token) {
+              const expiresIn = resp.expires_in ? Number(resp.expires_in) : 3600;
+              const refreshToken = window.driveClient?.config?.refreshToken || undefined;
+              const result = await finalizeGoogleAuth(resp.access_token, expiresIn, refreshToken);
+              resolve(result);
+            } else {
+              const err = (resp && (resp.error_description || resp.error)) || 'Accesso Google annullato o fallito';
+              reject(new Error(err));
+            }
+          },
+          error_callback: err => {
+            reject(new Error((err && (err.message || err.type)) || 'Accesso Google non completato'));
+          }
+        });
+        client.requestAccessToken({ prompt: 'select_account' });
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  function requestGoogleSignInPopup() {
+    const clientId = window.driveClient?.config?.clientId || CLIENT_ID;
+    const clientSecret = window.driveClient?.config?.clientSecret || '';
+
+    return loadGis().then(() => new Promise((resolve, reject) => {
+      try {
+        const oauth2 = window.google.accounts.oauth2;
+        if (oauth2.initCodeClient && clientSecret) {
+          const codeClient = oauth2.initCodeClient({
+            client_id: clientId,
+            scope: SCOPES,
+            ux_mode: 'popup',
+            select_account: true,
+            callback: async codeResp => {
+              if (codeResp && codeResp.code) {
+                try {
+                  const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                      client_id: clientId,
+                      client_secret: clientSecret,
+                      code: codeResp.code,
+                      grant_type: 'authorization_code',
+                      redirect_uri: 'postmessage'
+                    })
+                  });
+                  if (tokenRes.ok) {
+                    const tokenData = await tokenRes.json();
+                    const expiresIn = tokenData.expires_in ? Number(tokenData.expires_in) : 3600;
+                    const refreshToken = tokenData.refresh_token || window.driveClient?.config?.refreshToken || undefined;
+                    const result = await finalizeGoogleAuth(tokenData.access_token, expiresIn, refreshToken);
+                    resolve(result);
+                    return;
+                  }
+                } catch (err) {
+                  console.warn('[PWA] Scambio codice OAuth fallito, uso token client:', err);
+                }
+              }
+              signInWithTokenClient(clientId).then(resolve).catch(reject);
+            },
+            error_callback: () => {
+              signInWithTokenClient(clientId).then(resolve).catch(reject);
+            }
+          });
+          codeClient.requestCode();
+          return;
+        }
+        signInWithTokenClient(clientId).then(resolve).catch(reject);
+      } catch (err) {
+        reject(err);
+      }
+    }));
+  }
+
   async function signIn() {
     try {
+      localStorage.removeItem('gestione_tralci_drive_explicit_logout');
       toastMsg('Apertura accesso sicuro con Google...');
-      const resp = await requestToken('select_account');
-      await storeToken(resp);
+      await requestGoogleSignInPopup();
       toastMsg('Account Google collegato con successo! Sincronizzazione in corso...', 'ok');
 
-      if (window.driveClient) {
+      if (window.LocalDbEngine) {
         try {
-          const syncRes = await window.driveClient.downloadDb();
-          if (syncRes && syncRes.success && syncRes.db && window.LocalDbEngine) {
-            toastMsg('Database sincronizzato da Google Drive!', 'ok');
-          }
+          await window.LocalDbEngine.handle('/api/cloud/restore-latest', { method: 'POST' });
+          toastMsg('Database sincronizzato da Google Drive!', 'ok');
         } catch (e) {
-          console.warn('[PWA] Sincronizzazione iniziale dopo login:', e);
+          console.warn('[PWA] Sincronizzazione iniziale dopo login:', e.message || e);
         }
       }
 
@@ -232,13 +294,11 @@
   }
 
   async function silentRefresh() {
-    try {
-      const resp = await requestToken('');
-      const data = await storeToken(resp);
-      return data.token;
-    } catch (e) {
-      throw new Error('Sessione Google Drive scaduta. Clicca su "Accedi con Google Drive" nelle Impostazioni per ricollegarti.');
+    if (window.driveClient && typeof window.driveClient.silentRefreshToken === 'function') {
+      const token = await window.driveClient.silentRefreshToken();
+      if (token) return token;
     }
+    throw new Error('Sessione Google Drive scaduta. Clicca su "Accedi con Google Drive" nelle Impostazioni per ricollegarti.');
   }
 
   window.PwaGoogle = { signIn, silentRefresh };
@@ -301,8 +361,8 @@
 
     const btn = document.createElement('button');
     btn.id = 'pwa-install';
-    btn.innerHTML = '📲 Installa GestionaleTralci';
-    btn.title = 'Installa l\'applicazione GestionaleTralci sul dispositivo';
+    btn.innerHTML = '📲 Installa GestioneTralci';
+    btn.title = 'Installa l\'applicazione GestioneTralci sul dispositivo';
     btn.onclick = async () => {
       btn.remove();
       if (deferredPrompt) {
@@ -317,7 +377,7 @@
   window.addEventListener('appinstalled', () => {
     const btn = document.getElementById('pwa-install');
     if (btn) btn.remove();
-    toastMsg('GestionaleTralci installato con successo!', 'ok');
+    toastMsg('GestioneTralci installato con successo!', 'ok');
   });
 
 })();

@@ -1,10 +1,10 @@
 @echo off
-title GestionaleTralci - Prova PWA
+title GestioneTralci - Prova PWA
 cd /d "%~dp0"
 node build-pwa.js
 echo.
 echo ========================================================
-echo   GestionaleTralci - Progressive Web App (PWA)
+echo   GestioneTralci - Progressive Web App (PWA)
 echo   Avvio server di test su: http://localhost:5210
 echo   Premi CTRL+C per arrestare il server
 echo ========================================================

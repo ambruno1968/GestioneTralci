@@ -1,4 +1,4 @@
-# ⛪ GestionaleTralci – Progressive Web App (PWA)
+# ⛪ GestioneTralci – Progressive Web App (PWA)
 
 > **Gestionale Ecclesiastico Ufficiale · Anagrafica & Sacramenti · 4 Registri Canonici · Fascicoli Digitali · Nuclei Familiari · Cloud Sync Google Drive**  
 > *Versione PWA: 2.1 · Sviluppato da Bruno Astemio con Antigravity*
@@ -7,12 +7,12 @@
 
 ## 🌟 Panoramica
 
-**GestionaleTralci PWA** è la versione Progressive Web App (PWA) moderna, autonoma e multipiattaforma del gestionale ecclesiastico per la Chiesa Evangelica Pentecostale e Missionaria «Come Tralci» di Novara.
+**GestioneTralci PWA** è la versione Progressive Web App (PWA) moderna, autonoma e multipiattaforma del gestionale ecclesiastico per la Chiesa Evangelica Pentecostale e Missionaria «Come Tralci» di Novara.
 
 ### Caratteristiche Principali:
 - **100% Autonoma & Offline-First**: Non richiede l'avvio di un server locale (Node.js/Electron) per l'utente finale. Tutti i dati risiedono in sicurezza nel browser (`localStorage`) grazie al motore integrato `localDbEngine.js`.
 - **Installabile come App Nativa**: Installabile con un clic su **Chromebook / ChromeOS, Windows, macOS, Android e iOS**.
-- **Sincronizzazione Cloud Google Drive**: Backup automatico e ripristino bidirezionale sulla cartella cloud dedicata *«Gestionale Tralci»* (compatibile con backup precedenti *«Registro Chiesa»*) tramite Google Identity Services (GIS).
+- **Sincronizzazione Cloud Google Drive**: Backup automatico e ripristino bidirezionale sulla cartella cloud dedicata *«Gestione Tralci»* (compatibile con backup precedenti *«Gestionale Tralci»* e *«Registro Chiesa»*) tramite Google Identity Services (GIS).
 - **Stampe Ufficiali Sobrie A4 (Arial 10pt)**: Stampa diretta di schede membro, registri canonici e ruolino famiglie senza blocco di popup.
 - **Service Worker & Auto-aggiornamento**: Architettura cache-first/network-first (`sw.js`) per caricamento istantaneo e funzionamento garantito anche in assenza di connessione internet.
 
@@ -21,7 +21,7 @@
 ## 📁 Struttura del Progetto
 
 ```text
-GestionaleTralci/
+GestioneTralci/
 ├── src/                      # Sorgenti PWA modificabili
 │   ├── index.html            # Template HTML dell'applicazione
 │   ├── styles.css            # Fogli di stile responsive
@@ -96,12 +96,12 @@ Per consentire l'accesso con Google Drive direttamente dal browser/PWA:
 
 ### Su Chrome / Edge (PC Windows, Mac, Linux, Chromebook):
 1. Visita l'indirizzo dell'app.
-2. Clicca sull'icona **Installa** nella barra degli indirizzi o sul pulsante galleggiante **📲 Installa GestionaleTralci**.
+2. Clicca sull'icona **Installa** nella barra degli indirizzi o sul pulsante galleggiante **📲 Installa GestioneTralci**.
 3. L'applicazione apparirà nel menu programmi/applicazioni come app indipendente con finestra dedicata.
 
 ### Su Android:
 1. Apri la pagina in Google Chrome.
-2. Tocca il banner **Installa GestionaleTralci** oppure il menu ⋮ → **Aggiungi a schermata Home** / **Installa app**.
+2. Tocca il banner **Installa GestioneTralci** oppure il menu ⋮ → **Aggiungi a schermata Home** / **Installa app**.
 
 ### Su iPhone / iPad (iOS Safari):
 1. Apri la pagina in Safari.

@@ -1,4 +1,4 @@
-# 📖 WIKI & MANUALE UFFICIALE DI GESTIONALETRALCI
+# 📖 WIKI & MANUALE UFFICIALE DI GESTIONETRALCI
 
 > **Gestionale Ecclesiastico · Registri Canonici · Fascicoli Membri · PWA Offline-First · Cloud Sync**  
 > *Chiesa Evangelica Pentecostale e Missionaria «Come Tralci Novara»*  
