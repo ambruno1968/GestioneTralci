@@ -1,7 +1,7 @@
 # ⛪ GestioneTralci – Progressive Web App (PWA)
 
 > **Gestionale Ecclesiastico Ufficiale · Anagrafica & Sacramenti · 4 Registri Canonici · Fascicoli Digitali · Nuclei Familiari · Cloud Sync Google Drive**  
-> *Versione PWA: 2.4 · Sviluppato da Bruno Astemio con Antigravity*
+> *Versione PWA: 2.5 · Sviluppato da Bruno Astemio con Antigravity*
 
 ---
 

@@ -87,6 +87,86 @@ function formatWaUrl(phone) {
   return `https://wa.me/${digits}`;
 }
 
+function renderInteractivePhone(phone) {
+  if (!phone) return '<span class="muted">—</span>';
+  const telUri = formatTelUri(phone);
+  const waUrl = formatWaUrl(phone) || '';
+  return `<button type="button" class="phone-trigger" data-phone-display="${escapeHtml(phone)}" data-tel="${escapeHtml(telUri)}" data-wa="${escapeHtml(waUrl)}" title="Tocca per chiamare o inviare messaggio WhatsApp">${escapeHtml(phone)}</button>`;
+}
+
+function closePhonePopover() {
+  const existing = document.getElementById('phone-action-popover');
+  if (existing) existing.remove();
+}
+
+function openPhonePopover(triggerEl) {
+  const wasSame = triggerEl.dataset.popoverOpen === '1';
+  document.querySelectorAll('.phone-trigger[data-popover-open="1"]').forEach(el => {
+    delete el.dataset.popoverOpen;
+  });
+  closePhonePopover();
+  if (wasSame) return;
+
+  const telUri = triggerEl.dataset.tel || '';
+  const waUrl = triggerEl.dataset.wa || '';
+  if (!telUri && !waUrl) return;
+
+  triggerEl.dataset.popoverOpen = '1';
+
+  const pop = document.createElement('div');
+  pop.id = 'phone-action-popover';
+  pop.className = 'phone-action-popover';
+  pop.innerHTML = `
+    ${telUri ? `<a href="tel:${escapeHtml(telUri)}" class="phone-pop-btn tel" title="Chiama ${escapeHtml(triggerEl.dataset.phoneDisplay || '')}">📞 <span>Chiama</span></a>` : ''}
+    ${waUrl ? `<a href="${escapeHtml(waUrl)}" target="_blank" rel="noopener noreferrer" class="phone-pop-btn wa" title="Invia messaggio WhatsApp">💬 <span>WhatsApp</span></a>` : ''}
+  `;
+
+  // Se il trigger è dentro una modale <dialog> aperta (top-layer), monta il popover lì dentro
+  const parentDlg = triggerEl.closest('dialog[open]');
+  (parentDlg || document.body).appendChild(pop);
+
+  const rect = triggerEl.getBoundingClientRect();
+  const popRect = pop.getBoundingClientRect();
+  let left = rect.left + (rect.width / 2) - (popRect.width / 2);
+  let top = rect.bottom + 6;
+
+  if (left < 8) left = 8;
+  if (left + popRect.width > window.innerWidth - 8) {
+    left = Math.max(8, window.innerWidth - popRect.width - 8);
+  }
+  if (top + popRect.height > window.innerHeight - 8) {
+    top = Math.max(8, rect.top - popRect.height - 6);
+  }
+
+  pop.style.left = `${Math.round(left)}px`;
+  pop.style.top = `${Math.round(top)}px`;
+}
+
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('.phone-trigger');
+  if (trigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    openPhonePopover(trigger);
+    return;
+  }
+  const popBtn = e.target.closest('.phone-pop-btn');
+  if (popBtn) {
+    setTimeout(closePhonePopover, 120);
+    return;
+  }
+  if (!e.target.closest('#phone-action-popover')) {
+    document.querySelectorAll('.phone-trigger[data-popover-open="1"]').forEach(el => {
+      delete el.dataset.popoverOpen;
+    });
+    closePhonePopover();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePhonePopover();
+});
+
 // ---------------------------------------------------------------- TIPOLOGIE DOCUMENTI ALLEGABILI
 const DEFAULT_DOC_CATEGORIES = [
   'Certificato di Battesimo',
@@ -970,7 +1050,7 @@ function updateRegistroTable(tipo = 'tutti') {
           ${m.indirizzo ? `<div class="muted" style="font-size:11px; margin-top:1px;">${escapeHtml(m.indirizzo)}</div>` : ''}
         </td>
         <td>
-          ${m.telefono ? `<span style="font-weight:600; color:#0f172a;">${escapeHtml(m.telefono)}</span>` : '<span class="muted">—</span>'}
+          ${renderInteractivePhone(m.telefono)}
         </td>
         <td style="text-align:center;">
           ${extraColContent}
@@ -2500,14 +2580,7 @@ function openMemberProfile(m) {
         <div>
           <div class="muted small">Telefono</div>
           <div>
-            ${m.telefono ? `
-              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                <span style="font-weight:600; color:#0f172a;">${escapeHtml(m.telefono)}</span>
-                ${formatWaUrl(m.telefono) ? `
-                  <a href="${formatWaUrl(m.telefono)}" target="_blank" rel="noopener noreferrer" class="btn small success" style="padding:1px 8px; font-size:11.5px; text-decoration:none;" title="Chat WhatsApp">💬 WhatsApp</a>
-                ` : ''}
-              </div>
-            ` : '—'}
+            ${renderInteractivePhone(m.telefono)}
           </div>
         </div>
         <div>
@@ -3395,7 +3468,7 @@ function renderWiki(container) {
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
           📖 Manuale d'Uso &amp; Wiki di GestioneTralci
-          <span class="badge effettivo" style="font-size:12px;">v2.4</span>
+          <span class="badge effettivo" style="font-size:12px;">v2.5</span>
         </h2>
         <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri, famiglie e cloud sync</div>
       </div>
