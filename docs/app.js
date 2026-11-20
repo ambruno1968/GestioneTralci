@@ -3395,7 +3395,7 @@ function renderWiki(container) {
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
           📖 Manuale d'Uso &amp; Wiki di GestioneTralci
-          <span class="badge effettivo" style="font-size:12px;">v2.1</span>
+          <span class="badge effettivo" style="font-size:12px;">v2.3</span>
         </h2>
         <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri, famiglie e cloud sync</div>
       </div>
