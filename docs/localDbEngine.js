@@ -359,7 +359,27 @@
     };
   }
 
-  function generateCsv() {
+  function filterMembersByRegistro(list, registro) {
+    const arr = Array.isArray(list) ? list : [];
+    switch (registro) {
+      case 'effettivi':
+        return arr.filter(m => (m.stato || 'Attivo') === 'Attivo' && (m.ruolo === 'Effettivo' || (!m.ruolo && !!m.battesimoAcqua)));
+      case 'aderenti':
+        return arr.filter(m => (m.stato || 'Attivo') === 'Attivo' && (m.ruolo === 'Aderente' || (!m.ruolo && !m.battesimoAcqua)));
+      case 'vedove':
+        return arr.filter(m => (m.stato || 'Attivo') === 'Attivo' && (!!m.isVedovo || (m.statoCivile || '').toLowerCase().includes('vedov')));
+      case 'sostenuti':
+        return arr.filter(m => (m.stato || 'Attivo') === 'Attivo' && !!m.isSostenuto);
+      case 'non-attivi':
+        return arr.filter(m => (m.stato || 'Attivo') !== 'Attivo');
+      case 'tutti':
+        return arr.filter(m => (m.stato || 'Attivo') === 'Attivo');
+      default:
+        return arr;
+    }
+  }
+
+  function generateCsv(registro = '') {
     const headers = [
       'Protocollo',
       'Cognome',
@@ -397,7 +417,7 @@
       return `"${s}"`;
     };
 
-    const rows = db.members.map(m => {
+    const rows = filterMembersByRegistro(db.members, registro).map(m => {
       return [
         m.protocollo ?? m.id ?? '',
         m.cognome || '',
@@ -804,7 +824,8 @@
 
     // 6. ESPORTAZIONE E IMPORTAZIONE
     if (pathname === '/api/export/csv' && method === 'GET') {
-      return { csv: generateCsv() };
+      const registro = query.get('registro') || '';
+      return { csv: generateCsv(registro) };
     }
 
     if (pathname === '/api/export/json' && method === 'GET') {

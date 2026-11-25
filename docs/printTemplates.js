@@ -1,12 +1,12 @@
-﻿'use strict';
+'use strict';
 /**
  * Modulo per la generazione di stampe sobrie ufficiali (A4) in Arial 10pt:
  * - Scheda Singola Membro (Membri Effettivi, Membri Aderenti, Registro Vedove, Registro Sostenuti)
  * - Registro Totale Membri (Registro Generale, Membri Effettivi, Membri Aderenti, Registro Vedove, Registro Sostenuti)
  * - Ruolino Nuclei Familiari
  */
-const fs = require('fs');
-const path = require('path');
+const fs = typeof require === 'function' ? require('fs') : null;
+const path = typeof require === 'function' ? require('path') : null;
 
 function getLogoDataUri() {
   if (typeof window !== 'undefined') return 'logo.png';
@@ -422,8 +422,28 @@ function churchRegisterPage(members, s = {}, filterCode = 'tutti', families = []
     }
   }
 
+  // Filtra i membri in base al registro richiesto
+  let filteredMembers = Array.isArray(members) ? members : [];
+  if (filterCode === 'effettivi') {
+    filteredMembers = filteredMembers.filter(m => (m.stato || 'Attivo') === 'Attivo' && (m.ruolo === 'Effettivo' || (!m.ruolo && !!m.battesimoAcqua)));
+  } else if (filterCode === 'aderenti') {
+    filteredMembers = filteredMembers.filter(m => (m.stato || 'Attivo') === 'Attivo' && (m.ruolo === 'Aderente' || (!m.ruolo && !m.battesimoAcqua)));
+  } else if (filterCode === 'vedove') {
+    filteredMembers = filteredMembers.filter(m => (m.stato || 'Attivo') === 'Attivo' && (!!m.isVedovo || (m.statoCivile || '').toLowerCase().includes('vedov')));
+  } else if (filterCode === 'sostenuti') {
+    filteredMembers = filteredMembers.filter(m => (m.stato || 'Attivo') === 'Attivo' && !!m.isSostenuto);
+  } else if (filterCode === 'ba') {
+    filteredMembers = filteredMembers.filter(m => !!m.battesimoAcqua);
+  } else if (filterCode === 'ss') {
+    filteredMembers = filteredMembers.filter(m => !!m.battesimoSpiritoSanto);
+  } else if (filterCode === 'non-attivi') {
+    filteredMembers = filteredMembers.filter(m => (m.stato || 'Attivo') !== 'Attivo');
+  } else if (filterCode === 'tutti') {
+    filteredMembers = filteredMembers.filter(m => (m.stato || 'Attivo') === 'Attivo');
+  }
+
   // Costruzione Riquadri per ogni membro (vista predefinita ricca di dati)
-  const boxesHtml = members.map((m, idx) => {
+  const boxesHtml = filteredMembers.map((m, idx) => {
     const isEff = m.ruolo === 'Effettivo' || (!m.ruolo && !!m.battesimoAcqua);
     const ruoloText = isEff ? 'Membro Effettivo' : 'Membro Aderente';
     const isVed = !!m.isVedovo || (m.statoCivile || '').toLowerCase().includes('vedov');
@@ -1007,8 +1027,18 @@ function familyRegisterPage(families, s = {}) {
 </html>`;
 }
 
-module.exports = {
-  memberCardPage,
-  churchRegisterPage,
-  familyRegisterPage
-};
+if (typeof window !== 'undefined') {
+  window.PrintTemplates = {
+    memberCardPage,
+    churchRegisterPage,
+    familyRegisterPage
+  };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    memberCardPage,
+    churchRegisterPage,
+    familyRegisterPage
+  };
+}

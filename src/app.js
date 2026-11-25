@@ -393,12 +393,15 @@ function initNavigation() {
         window.Android.vibrate(22);
       }
       handlePrintAction(href);
-    } else if (href === '/api/export/csv') {
+    } else if (href.startsWith('/api/export/csv')) {
       e.preventDefault();
       if (window.Android && typeof window.Android.vibrate === 'function') {
         window.Android.vibrate(22);
       }
-      handleExportCsvAction();
+      handleExportCsvAction(href);
+    } else if (href.startsWith('/api/export/excel')) {
+      e.preventDefault();
+      handleExportExcelAction(href);
     } else if (href === '/api/export/json') {
       e.preventDefault();
       if (window.Android && typeof window.Android.vibrate === 'function') {
@@ -583,37 +586,125 @@ async function handlePrintAction(url) {
   }
 }
 
-async function handleExportCsvAction() {
+async function handleExportCsvAction(url = '/api/export/csv') {
+  const parsed = new URL(url, 'http://localhost');
+  const reg = parsed.searchParams.get('registro') || '';
   let csvText = '';
   if (window.LocalDbEngine && typeof window.LocalDbEngine.generateCsv === 'function') {
-    csvText = window.LocalDbEngine.generateCsv();
+    csvText = window.LocalDbEngine.generateCsv(reg);
   } else {
     try {
-      const res = await fetch('/api/export/csv');
+      const res = await fetch(url);
       const data = await res.json().catch(() => null);
-      csvText = data?.csv || (await fetch('/api/export/csv').then(r => r.text()));
+      csvText = data?.csv || (await fetch(url).then(r => r.text()));
     } catch (_) {}
   }
 
-  const fileName = `Registro_Membri_${new Date().toISOString().slice(0, 10)}.csv`;
+  const suffix = reg && reg !== 'all' ? `_${reg}` : '';
+  const fileName = `Registro_Membri${suffix}_${new Date().toISOString().slice(0, 10)}.csv`;
 
   if (window.Android && typeof window.Android.saveFile === 'function') {
     const b64 = btoa(unescape(encodeURIComponent(csvText)));
     window.Android.saveFile(fileName, b64, 'text/csv');
-    if (typeof window.Android.shareText === 'function') {
+    if (!window.PWA_STANDALONE && typeof window.Android.shareText === 'function') {
       window.Android.shareText('Esporta Elenco Membri (CSV)', csvText);
     }
   } else {
     const blob = new Blob([csvText], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
+    const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = url;
+    link.href = blobUrl;
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    URL.revokeObjectURL(blobUrl);
     toast('Tabella Membri (CSV) esportata con successo!', 'ok');
+  }
+}
+
+async function handleExportExcelAction(url = '/api/export/excel') {
+  const parsed = new URL(url, 'http://localhost');
+  const reg = parsed.searchParams.get('registro') || 'tutti';
+  const meta = getRegistroMeta(reg);
+  const list = (state.members || []).filter(meta.filterFn);
+
+  const headers = [
+    'Protocollo', 'Cognome', 'Nome', 'Luogo di Nascita', 'Prov. Nascita', 'Data di Nascita',
+    'Codice Fiscale', 'Stato Civile', 'Indirizzo', 'Comune', 'Provincia', 'Telefono', 'Email',
+    'Titolo di Studio', 'Professione', 'Battesimo Acqua', 'Data BA', 'Battesimo Spirito Santo',
+    'Data SS', 'Ruolo', 'Vedovo/a', 'Sostenuto/a', 'Dettaglio Sostegno', 'Stato',
+    'Consenso WhatsApp', 'Consenso Foto/Video', 'Note'
+  ];
+
+  const rowsHtml = list.map(m => {
+    const cols = [
+      m.protocollo ?? m.id ?? '',
+      m.cognome || '',
+      m.nome || '',
+      m.luogoNascita || '',
+      m.provinciaNascita || '',
+      m.dataNascita || '',
+      m.codiceFiscale || '',
+      m.statoCivile || '',
+      m.indirizzo || '',
+      m.comune || '',
+      m.provincia || '',
+      m.telefono || '',
+      m.email || '',
+      m.titoloStudio || '',
+      m.professione || '',
+      m.battesimoAcqua ? 'Sì' : 'No',
+      m.dataBA || '',
+      m.battesimoSpiritoSanto ? 'Sì' : 'No',
+      m.dataSS || '',
+      m.ruolo || (m.battesimoAcqua ? 'Effettivo' : 'Aderente'),
+      m.isVedovo ? 'Sì' : 'No',
+      m.isSostenuto ? 'Sì' : 'No',
+      m.dettaglioSostegno || '',
+      m.stato || 'Attivo',
+      m.consensoWhatsApp || '',
+      m.consensoFotoVideo || '',
+      m.note || ''
+    ];
+    return '<tr>' + cols.map(v => `<td>${escapeHtml(v)}</td>`).join('') + '</tr>';
+  }).join('');
+
+  const xlsHtml = `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<style>
+  table { border-collapse: collapse; font-family: Arial, sans-serif; font-size: 10pt; }
+  th { background-color: #0b192c; color: #ffffff; font-weight: bold; border: 1px solid #94a3b8; padding: 6px 8px; text-align: left; }
+  td { border: 1px solid #cbd5e1; padding: 4px 8px; vertical-align: middle; mso-number-format:"\\@"; }
+</style>
+</head>
+<body>
+<table>
+  <thead><tr>${headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead>
+  <tbody>${rowsHtml}</tbody>
+</table>
+</body>
+</html>`;
+
+  const suffix = reg && reg !== 'all' ? `_${reg}` : '';
+  const fileName = `Registro_Membri${suffix}_${new Date().toISOString().slice(0, 10)}.xls`;
+
+  if (window.Android && typeof window.Android.saveFile === 'function') {
+    const b64 = btoa(unescape(encodeURIComponent(xlsHtml)));
+    window.Android.saveFile(fileName, b64, 'application/vnd.ms-excel');
+  } else {
+    const blob = new Blob([xlsHtml], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+    const blobUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(blobUrl);
+    toast('Elenco Membri Excel (.xls) esportato con successo!', 'ok');
   }
 }
 
@@ -922,7 +1013,8 @@ function renderRegistro(container, tipo = 'tutti') {
       </div>
       <div class="spacer"></div>
       <a href="${meta.printUrl}" target="_blank" class="btn small btn-print">🖨️ ${meta.printLabel}</a>
-      <a href="/api/export/csv" class="btn small">📥 Esporta Excel (CSV)</a>
+      <a href="/api/export/excel?registro=${tipo}" class="btn small success">📊 Esporta Excel (.xls)</a>
+      <a href="/api/export/csv?registro=${tipo}" class="btn small">📥 Esporta CSV</a>
       <button class="btn small primary" id="btn-add-reg-member">+ Nuovo Membro</button>
     </div>
 
@@ -3468,7 +3560,7 @@ function renderWiki(container) {
       <div>
         <h2 style="font-size:18px; margin:0; display:flex; align-items:center; gap:8px;">
           📖 Manuale d'Uso &amp; Wiki di GestioneTralci
-          <span class="badge effettivo" style="font-size:12px;">v2.5</span>
+          <span class="badge effettivo" style="font-size:12px;">v2.6</span>
         </h2>
         <div class="muted small">Guida operativa completa, registri canonici, fascicoli membri, famiglie e cloud sync</div>
       </div>
